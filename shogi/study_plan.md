@@ -72,7 +72,7 @@ not just talk about it!
     * Or go to a Lishogi arena, and ask if a beginner there wants to pause the arena and play
     * Or try 81dojo, there are more humans there
         * See the 81dojo section [here](shogi/intro)
-    * As a last resort, you can play Lishogi Level 1, but even that level is quite strong!
+    * As a last resort, you can play Lishogi Computer Level 1, but even that level is quite strong!
 * Play two more games!
 
 ### The long haul
@@ -90,15 +90,21 @@ not just talk about it!
         * For the opening and middle game, focus on 2 or 3 of the places where the graph changed the most
         * For the endgame, focus on a few of the shorter checkmates that you missed
 * Solve problems
-    * Survival mode at [Playshogi](http://playshogi.com)
-        * These start at mate in 3, but they are quite difficult!
-* Lishogi studies:
+    * It's hard to find good collections of beginner problems for free on the internet, most of them are too difficult. I hope Lishogi gets Puzzles working soon. 
+    * Meanwhile, here are a few interstings ones.
     * [Tsume or Hisshi](https://lishogi.org/study/AauH6dBj) (Hisshi = Brinkmate)
-    * Studies about openings
-        * [Ranging Rook](https://lishogi.org/study/eo0pa339)
-        * [Central Rook](https://lishogi.org/study/8L2ZWmEy)
-        * [Bishop Exchange Rightside King](https://lishogi.org/study/1aG4uoEP)
-        * [Wrong Diagonal Bishop](https://lishogi.org/study/A7danIVZ)
+        * These are practical examples
+    * Survival mode at [Playshogi](http://playshogi.com)
+        * These start at mate in 3, but they are hard
+    * [karakoro 1](https://lishogi.org/study/Ke2kN7y8) [karakoro 2](https://lishogi.org/study/TAwMYdcw) [karakoro 3](https://lishogi.org/study/Fookcq1d)
+        * Level 1 is called beginner, but they are hard. The others are even harder!
+    * [Knight and Gold sacrifices](https://lishogi.org/study/5kMrKUiG)
+        * This one is hard too, but it has two themes and repeats those over and over
+* Studies about openings
+    * [Ranging Rook](https://lishogi.org/study/eo0pa339)
+    * [Central Rook](https://lishogi.org/study/8L2ZWmEy)
+    * [Bishop Exchange Rightside King](https://lishogi.org/study/1aG4uoEP)
+    * [Wrong Diagonal Bishop](https://lishogi.org/study/A7danIVZ)
 * Start watching Shuji Muranaka’s [commented Shogi Wars games](https://www.youtube.com/playlist?list=PLi002ZNuMn65AZlsQJNnl4MVm_gjh4DV_), with English subtitles (turn on CC!)
     * A great resource to quickly get exposure to a wide variety of openings
     * He covers the main points in the game

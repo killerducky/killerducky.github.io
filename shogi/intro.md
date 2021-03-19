@@ -1,6 +1,6 @@
 Shogi is Japanese chess, similar to Crazyhouse -- every captured piece can be placed on the board as your own!
 
-If you're a beginner, check my [step-by-step study plan](shogi/study_plan)!
+If you're a beginner, check my [step-by-step study plan](study_plan)!
 
 Lishogi
 * For beginners
