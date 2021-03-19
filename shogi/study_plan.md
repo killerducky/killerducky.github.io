@@ -79,11 +79,16 @@ not just talk about it!
 * You're starting to get an idea of what Shogi is all about, congratulations!
 * Keep playing games!
 * Start reviewing your own games
+    * One of the best ways to improve is to review your own games
     * Request computer analysis first, to get it started
     * Then start reviewing on your own without looking at the computer at first
     * Also ask your opponent to join you in the review
         * This takes a few steps on Lishogi, you have to create a study and invite your opponent
-    * Check a few of the computer suggestions, focus on 2 or 3 of the points where the graph changed the most
+    * Think of 2 or 3 points in the game where you wonder if you made the right choice
+    * Check with the computer on those points
+    * Also check a few of the computer suggestions for other points
+        * For the opening and middle game, focus on 2 or 3 of the places where the graph changed the most
+        * For the endgame, focus on a few of the shorter checkmates that you missed
 * Solve problems
     * Survival mode at [Playshogi](http://playshogi.com)
         * These start at mate in 3, but they are quite difficult!
@@ -98,4 +103,16 @@ not just talk about it!
     * A great resource to quickly get exposure to a wide variety of openings
     * He covers the main points in the game
     * The level is above an absolute beginner, if you have questions, ask in Discord!
+
+### Connecting with the Shogi community
+* Join the [Shogi Harbour Discord](https://discord.gg/wggn65v)!
+    * There are many people willing to help, but they will be more willing if you show
+      you're motivated to put in the effort on your own.
+    * Ultimately you need to do the work on your own to understand Shogi
+* Join the weekly shogi ladder in the Discord, see #shogi-ladder-rules
+* Join the next "Tourny To" series, see #tt-series-rules
+* Join some of the many Arena tournaments on Lishogi
+    * Right now there are few players, so these can be hard for beginners
+    * You will probably be matched with many strong opponents
+    * You can also try asking some of the other beginners if they want to bail on the Arena and just play your own games!
 
