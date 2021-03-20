@@ -4,9 +4,9 @@
 This is a step-by-step study plan starting from complete beginner at Shogi.
 There are many different ways to learn, and everyone will have different
 goals and priorities. It's not important what you study or in what order.
-The most important thing is to spend time playing and/or studying!
+It's important to spend time playing and/or studying!
 
-That said, there are good ways and no-so-good ways to spend your time:
+To improve, there are good ways and no-so-good ways to spend your time:
 * S-Tier ways to spend shogi time
     * Playing shogi!
     * Reviewing games you played
@@ -24,11 +24,13 @@ That said, there are good ways and no-so-good ways to spend your time:
 * D-Tier
     * Making tier lists (Kappa)
 
-For some people the B-Tier things might be the most fun. It might look
+For some people the B-Tier things are the most fun. It looks
 like I'm discouraging you from chatting on Discord, but quite the opposite!
 It's great to meet people who share your interest in Shogi, and that can help
 motivate you to play more. But I encourage you to actually play Shogi,
 not just talk about it!
+
+And if you have any fun Tier lists, please share them in the Discord (Kappa)!
 
 ## The Plan
 
@@ -50,7 +52,7 @@ not just talk about it!
     * If you won, move up to the next handicap on the list (8-piece)
 * Play a third game, continue adjusting the handicap
 * Congratulations, you're starting to get an idea how the pieces move!
-    * Not a small thing in such a different game, even if you're used to chess
+    * No small feat in such a different game, even if you're used to chess
     * Most English speakers will have a hard time even recognizing which piece is which!
 
 ### Time for some study
@@ -66,17 +68,18 @@ not just talk about it!
     * The first few chapters focus on Rook Pawn tactics
 * Go through this [List of Castles](https://lishogi.org/study/O591ZfdK)
     * Pick one of these to try out in your first even game
-* For your first even game, I recommend finding another (human) beginner
-    * Lishogi is new, there are not many human opponents, you need to be proactive to get one!
+* For your first even game, find another (human) beginner
+    * Lishogi is new and there are not many human opponents, so you need to be proactive to get one!
     * Or ask in the [Shogi Harbour Discord](https://discord.gg/wggn65v)
     * Or go to a Lishogi arena, and ask if a beginner there wants to pause the arena and play
     * Or try 81dojo, there are more humans there
         * See the 81dojo section [here](shogi/intro)
     * As a last resort, you can play Lishogi Computer Level 1, but even that level is quite strong!
+* Congratulations for finishing your first even game!
 * Play two more games!
 
 ### The long haul
-* You're starting to get an idea of what Shogi is all about, congratulations!
+* You're starting to get an idea of what Shogi is about, congratulations!
 * Keep playing games!
 * Start reviewing your own games
     * One of the best ways to improve is to review your own games
@@ -86,14 +89,14 @@ not just talk about it!
         * This takes a few steps on Lishogi, you have to create a study and invite your opponent
     * Think of 2 or 3 points in the game where you wonder if you made the right choice
     * Check with the computer on those points
-    * Also check a few of the computer suggestions for other points
+    * Also check the computer suggestions for a few other points
         * For the opening and middle game, focus on 2 or 3 of the places where the graph changed the most
         * For the endgame, focus on a few of the shorter checkmates that you missed
 * Solve problems
     * It's hard to find good collections of beginner problems for free on the internet, most of them are too difficult. I hope Lishogi gets Puzzles working soon. 
-    * Meanwhile, here are a few interstings ones.
+    * Meanwhile, here are a few interesting ones.
     * [Tsume or Hisshi](https://lishogi.org/study/AauH6dBj) (Hisshi = Brinkmate)
-        * These are practical examples
+        * Great practical examples, starts easy but quickly gets tricky
     * Survival mode at [Playshogi](http://playshogi.com)
         * These start at mate in 3, but they are hard
     * [karakoro 1](https://lishogi.org/study/Ke2kN7y8) [karakoro 2](https://lishogi.org/study/TAwMYdcw) [karakoro 3](https://lishogi.org/study/Fookcq1d)
