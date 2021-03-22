@@ -4,10 +4,10 @@
 This is a step-by-step study plan starting from complete beginner at Shogi.
 There are many different ways to learn, and everyone will have different
 goals and priorities. It's not important what you study or in what order.
-It's important to spend time playing and/or studying!
+It's important to spend time playing and/or studying.
 
 This plan is just one way to spend your time studying Shogi.
-I emphasize getting in there and playing lots of games, don't be shy!
+I emphasize getting in there and playing lots of games, don't be shy.
 
 ## The Plan
 
@@ -35,9 +35,9 @@ I emphasize getting in there and playing lots of games, don't be shy!
 ### Time for some study
 * Complete [KD's Beginner tsumes](https://lishogi.org/study/4XssSDlR) (checkmate problems)
 * In Shogi, when you get an advantage you cannot simplify the position by trading all the pieces
-    * In fact, trading pieces makes the game *more* complicated, because of the drop rule!
+    * In fact, trading pieces makes the game *more* complicated, because of the drop rule.
 * The safest way to win is to checkmate them quickly
-    * To do this, you're going to need to know some common checkmating techniques!
+    * To do this, you're going to need to know some common checkmating techniques.
 * Play 3 more handicap games
 
 ### Playing your first even game
@@ -46,12 +46,12 @@ I emphasize getting in there and playing lots of games, don't be shy!
 * Go through this [List of Castles](https://lishogi.org/study/O591ZfdK)
     * Pick one of these to try out in your first even game
 * For your first even game, find another (human) beginner
-    * Lishogi is new and there are not many human opponents, so you need to be proactive to get one!
+    * Lishogi is new and there are not many human opponents, so you need to be proactive to get one.
     * Or ask in the [Shogi Harbour Discord](https://discord.gg/wggn65v)
     * Or go to a Lishogi arena, and ask if a beginner there wants to pause the arena and play
     * Or try 81dojo, there are more humans there
         * See the 81dojo section [here](shogi/intro)
-    * As a last resort, you can play Lishogi Computer Level 1, but even that level is quite strong!
+    * As a last resort, you can play Lishogi Computer Level 1, but even that level is quite strong.
 * Congratulations for finishing your first even game!
 * Play two more games!
 
@@ -77,7 +77,7 @@ I emphasize getting in there and playing lots of games, don't be shy!
     * Survival mode at [Playshogi](http://playshogi.com)
         * These start at mate in 3, but they are hard
     * [karakoro 1](https://lishogi.org/study/Ke2kN7y8) [karakoro 2](https://lishogi.org/study/TAwMYdcw) [karakoro 3](https://lishogi.org/study/Fookcq1d)
-        * Level 1 is called beginner, but they are hard. The others are even harder!
+        * Level 1 is called beginner, but they are hard. The others are even harder.
     * [Knight and Gold sacrifices](https://lishogi.org/study/5kMrKUiG)
         * This one is hard too, but it has two themes and repeats those over and over
 * Studies about openings
@@ -85,13 +85,13 @@ I emphasize getting in there and playing lots of games, don't be shy!
     * [Central Rook](https://lishogi.org/study/8L2ZWmEy)
     * [Bishop Exchange Rightside King](https://lishogi.org/study/1aG4uoEP)
     * [Wrong Diagonal Bishop](https://lishogi.org/study/A7danIVZ)
-* Start watching Shuji Muranaka’s [commented Shogi Wars games](https://www.youtube.com/playlist?list=PLi002ZNuMn65AZlsQJNnl4MVm_gjh4DV_), with English subtitles (turn on CC!)
+* Start watching Shuji Muranaka’s [commented Shogi Wars games](https://www.youtube.com/playlist?list=PLi002ZNuMn65AZlsQJNnl4MVm_gjh4DV_), with English subtitles (turn on CC)
     * A great resource to quickly get exposure to a wide variety of openings
     * He covers the main points in the game
-    * The level is above an absolute beginner, if you have questions, ask in Discord!
+    * The level is above an absolute beginner, if you have questions, ask in Discord.
 
 ### Connecting with the Shogi community
-* Join the [Shogi Harbour Discord](https://discord.gg/wggn65v)!
+* Join the [Shogi Harbour Discord](https://discord.gg/wggn65v).
     * There are many people willing to help, but they will be more willing if you show
       you're motivated to put in the effort on your own.
     * Ultimately you need to do the work on your own to understand Shogi
@@ -100,5 +100,5 @@ I emphasize getting in there and playing lots of games, don't be shy!
 * Join some of the many Arena tournaments on Lishogi
     * Right now there are few players, so these can be hard for beginners
     * You will probably be matched with many strong opponents
-    * You can also try asking some of the other beginners if they want to bail on the Arena and just play your own games!
+    * You can also try asking some of the other beginners if they want to bail on the Arena and just play your own games.
 
