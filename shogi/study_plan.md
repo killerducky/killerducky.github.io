@@ -6,31 +6,8 @@ There are many different ways to learn, and everyone will have different
 goals and priorities. It's not important what you study or in what order.
 It's important to spend time playing and/or studying!
 
-To improve, there are good ways and no-so-good ways to spend your time:
-* S-Tier ways to spend shogi time
-    * Playing shogi!
-    * Reviewing games you played
-    * Solving problems
-* A-Tier
-    * Studying openings
-    * Studying castles
-    * Studying games other people play
-* B-Tier
-    * Talking about Shogi on Discord
-    * Debating (with yourself or others) what is the best
-        * Castle
-        * Opening
-        * Way to study
-* D-Tier
-    * Making tier lists (Kappa)
-
-For some people the B-Tier things are the most fun. It looks
-like I'm discouraging you from chatting on Discord, but quite the opposite!
-It's great to meet people who share your interest in Shogi, and that can help
-motivate you to play more. But I encourage you to actually play Shogi,
-not just talk about it!
-
-And if you have any fun Tier lists, please share them in the Discord (Kappa)!
+This plan is just one way to spend your time studying Shogi.
+I emphasize getting in there and playing lots of games, don't be shy!
 
 ## The Plan
 
