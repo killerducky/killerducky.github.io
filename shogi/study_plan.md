@@ -50,7 +50,7 @@ I emphasize getting in there and playing lots of games, don't be shy.
     * Or ask in the [Shogi Harbour Discord](https://discord.gg/wggn65v)
     * Or go to a Lishogi arena, and ask if a beginner there wants to pause the arena and play
     * Or try 81dojo, there are more humans there
-        * See the 81dojo section [here](shogi/intro)
+        * See the 81dojo section [here](intro)
     * As a last resort, you can play Lishogi Computer Level 1, but even that level is quite strong.
 * Congratulations for finishing your first even game!
 * Play two more games!

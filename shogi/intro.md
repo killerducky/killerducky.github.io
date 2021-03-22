@@ -1,8 +1,9 @@
+# Introduction
 Shogi is Japanese chess, similar to Crazyhouse -- every captured piece can be placed on the board as your own!
 
 If you're a beginner, check my [step-by-step study plan](study_plan)!
 
-Lishogi
+## Lishogi
 * For beginners
     * [Learn](https://lishogi.org/learn) the basics like how the pieces move
     * [KD's Beginner tsumes](https://lishogi.org/study/4XssSDlR) (checkmate problems)
@@ -17,7 +18,7 @@ Lishogi
     * [Wrong Diagonal Bishop](https://lishogi.org/study/A7danIVZ)
 
 
-81dojo
+## 81dojo
 * 81dojo is the largest English Shogi server. If you have trouble finding human opponents on lishogi, try 81dojo.
 * [Register](https://system.81dojo.com/en/players/sign_up) on 81dojo
   * Set your rank to 9-kyu (beginner!)
@@ -29,8 +30,7 @@ Lishogi
   * Highlight movable squares
   * On Communication tab, Notation-Style = Chess-order
 
-
-Extra Links
+## Extra links
 * Shuji Muranaka’s [commented Shogi Wars games](https://www.youtube.com/playlist?list=PLi002ZNuMn65AZlsQJNnl4MVm_gjh4DV_), with English subtitles (turn on CC!)
 * [ShogiGUI tutorial](https://docs.google.com/document/d/19f7z830jw5THh6eDL0eVJO7MxuEqr0IBqIDZ2wCKZKA/edit) - analyze games using this. The tutorial covers how to change from default Japanese to English, etc.
 * Hidetchi’s Youtube series (the pace is slow, try 1.25 speed!).
