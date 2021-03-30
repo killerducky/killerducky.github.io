@@ -72,6 +72,8 @@ I emphasize getting in there and playing lots of games, don't be shy.
 * Solve problems
     * It's hard to find good collections of beginner problems for free on the internet, most of them are too difficult. I hope Lishogi gets Puzzles working soon. 
     * Meanwhile, here are a few interesting ones.
+    * [Next move problems](https://lishogi.org/study/EBB09B2r) by karakoro
+    * [Easy Brinkmates](https://lishogi.org/study/kDG1whmZ) by karakoro
     * [Tsume or Hisshi](https://lishogi.org/study/AauH6dBj) (Hisshi = Brinkmate)
         * Great practical examples, starts easy but quickly gets tricky
     * Survival mode at [Playshogi](http://playshogi.com)
