@@ -9,6 +9,32 @@ It's important to spend time playing and/or studying.
 This plan is just one way to spend your time studying Shogi.
 I emphasize getting in there and playing lots of games, don't be shy.
 
+## Just the links
+
+The main plan has a bunch of extra advice about how to study, but here is a
+shortcut list of resources and the order to use them.
+
+* Register on [Lishogi](https://lishogi.org)
+* Complete the [Learn](https://lishogi.org/learn) section to learn how all the pieces move
+* Complete [KD's Beginner tsumes](https://lishogi.org/study/4XssSDlR) (checkmate problems)
+* Complete [KD's Game concepts and tactics](https://lishogi.org/study/cgqKMj1v)
+* Go through this [List of Castles](https://lishogi.org/study/O591ZfdK)
+* Solve [Next move problems](https://lishogi.org/study/EBB09B2r) by karakoro
+* Solve [Easy Brinkmates](https://lishogi.org/study/kDG1whmZ) by karakoro
+* Start watching Shuji Muranaka’s [commented Shogi Wars games](https://www.youtube.com/playlist?list=PLi002ZNuMn65AZlsQJNnl4MVm_gjh4DV_), with English subtitles (turn on CC)
+* Solve lishogi [puzzles](https://lishogi.org/training)
+* Studies about openings, pick a few you like
+    * [Ranging Rook](https://lishogi.org/study/eo0pa339)
+    * [Central Rook](https://lishogi.org/study/8L2ZWmEy)
+    * [Central Rook 2](https://lishogi.org/study/T6GPWhvE)
+    * [Bishop Exchange Rightside King](https://lishogi.org/study/1aG4uoEP)
+    * [Wrong Diagonal Bishop](https://lishogi.org/study/A7danIVZ)
+* Some more problems/studies
+    * Survival mode at [Playshogi](http://playshogi.com)
+    * [Tsume or Hisshi](https://lishogi.org/study/AauH6dBj) (Hisshi = Brinkmate)
+    * [karakoro 1](https://lishogi.org/study/Ke2kN7y8) [karakoro 2](https://lishogi.org/study/TAwMYdcw) [karakoro 3](https://lishogi.org/study/Fookcq1d)
+    * [Knight and Gold sacrifices](https://lishogi.org/study/5kMrKUiG)
+
 ## The Plan
 
 ### Your first three games
@@ -70,18 +96,13 @@ I emphasize getting in there and playing lots of games, don't be shy.
         * For the opening and middle game, focus on 2 or 3 of the places where the graph changed the most
         * For the endgame, focus on a few of the shorter checkmates that you missed
 * Solve problems
-    * It's hard to find good collections of beginner problems for free on the internet, most of them are too difficult. I hope Lishogi gets Puzzles working soon. 
-    * Meanwhile, here are a few interesting ones.
     * [Next move problems](https://lishogi.org/study/EBB09B2r) by karakoro
     * [Easy Brinkmates](https://lishogi.org/study/kDG1whmZ) by karakoro
     * [Tsume or Hisshi](https://lishogi.org/study/AauH6dBj) (Hisshi = Brinkmate)
         * Great practical examples, starts easy but quickly gets tricky
+    * Solve lishogi [puzzles](https://lishogi.org/training)
     * Survival mode at [Playshogi](http://playshogi.com)
         * These start at mate in 3, but they are hard
-    * [karakoro 1](https://lishogi.org/study/Ke2kN7y8) [karakoro 2](https://lishogi.org/study/TAwMYdcw) [karakoro 3](https://lishogi.org/study/Fookcq1d)
-        * Level 1 is called beginner, but they are hard. The others are even harder.
-    * [Knight and Gold sacrifices](https://lishogi.org/study/5kMrKUiG)
-        * This one is hard too, but it has two themes and repeats those over and over
 * Studies about openings
     * [Ranging Rook](https://lishogi.org/study/eo0pa339)
     * [Central Rook](https://lishogi.org/study/8L2ZWmEy)
