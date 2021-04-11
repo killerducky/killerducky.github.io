@@ -89,7 +89,14 @@ shortcut list of resources and the order to use them.
     * Request computer analysis first, to get it started
     * Then start reviewing on your own without looking at the computer at first
     * Also ask your opponent to join you in the review
-        * This takes a few steps on Lishogi, you have to create a study and invite your opponent
+        * [Video](https://www.twitch.tv/videos/984277495) of the steps
+        * Analysis Board 
+        * Menu (bottom right of move list) -> Study -> Create Study
+        * Add members (top left)
+        * Type opponent name -> close add member box
+        * Make opponent contributor (top left)
+        * Opponent will get a notification (top right bell)
+        * Everyone make sure SYNC and REC are on (bottom left of board)
     * Think of 2 or 3 points in the game where you wonder if you made the right choice
     * Check with the computer on those points
     * Also check the computer suggestions for a few other points
