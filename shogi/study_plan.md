@@ -25,7 +25,7 @@ list of resources and the order to use them.
 * Complete [KD's Game concepts and tactics](https://lishogi.org/study/cgqKMj1v)
 * Go through this [List of Castles](https://lishogi.org/study/O591ZfdK)
 * Start watching Shuji Muranaka’s [commented Shogi Wars games](https://www.youtube.com/playlist?list=PLi002ZNuMn65AZlsQJNnl4MVm_gjh4DV_), with English subtitles (turn on CC)
-* Solve Beginner [Tsume in 1](https://playshogi.com/#Problems:7:0:null), and [Tsume in 3](https://playshogi.com/#Problems:19:0:null) collections https://playshogi.com/#ProblemCollections:Beginners on [PlayShogi](http://playshogi.com)
+* Solve Beginner [Tsume in 1](https://playshogi.com/#Problems:7:0:null), and [Tsume in 3](https://playshogi.com/#Problems:19:0:null) on [PlayShogi](http://playshogi.com)
 * Solve [Next move problems](https://lishogi.org/study/EBB09B2r) by karakoro
 * Solve [Easy Brinkmates](https://lishogi.org/study/kDG1whmZ) by karakoro
 * Solve [More Brinkmates](https://lishogi.org/study/ER1gVQZM) by Shogitown
@@ -95,7 +95,7 @@ list of resources and the order to use them.
 * Start reviewing your own games
     * One of the best ways to improve is to review your own games
     * Lishogi can analyze the game with it's servers
-    * Or install [ShogiGUI](https://docs.google.com/document/d/19f7z830jw5THh6eDL0eVJO7MxuEqr0IBqIDZ2wCKZKA/edit?usp=sharing)
+    * Or install [ShogiGUI](https://drive.google.com/file/d/1c1ceiA24FYA8_s8goBMvdQOvsBi2HVFb)
     * But First review without looking at the computer lines
     * Ask your opponent to join you in the review
         * [Video](https://www.twitch.tv/videos/984277495) of the steps
