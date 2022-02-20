@@ -1,4 +1,5 @@
 - [Introduction](#introduction)
+- [Connecting with the Shogi community](#connecting-with-the-shogi-community)
 - [Places to Play](#places-to-play)
   - [Lishogi](#lishogi)
   - [81dojo](#81dojo)
@@ -12,6 +13,11 @@
 Shogi is Japanese chess, similar to Crazyhouse -- every captured piece can be placed on the board as your own!
 
 If you're a beginner, check my [step-by-step study plan](study_plan)!
+
+# Connecting with the Shogi community
+* Join the [Shogi Harbour Discord](https://discord.gg/wggn65v).
+* Join the weekly shogi ladder in the Discord, see #shogi-ladder-rules
+* Join the next "Tourny To" series, see #tt-series-rules
 
 # Places to Play
 

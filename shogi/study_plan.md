@@ -1,6 +1,14 @@
-# Study Plan
+[Back to Shogi top](intro.md)
 
-## Introduction
+- [Introduction](#introduction)
+- [Just the links](#just-the-links)
+- [The Plan](#the-plan)
+  - [Your first three games](#your-first-three-games)
+  - [Time for some study](#time-for-some-study)
+  - [Playing your first even game](#playing-your-first-even-game)
+  - [The long haul](#the-long-haul)
+
+# Introduction
 This is a step-by-step study plan starting from complete beginner at Shogi.
 There are many different ways to learn, and everyone will have different
 goals and priorities. It's not important what you study or in what order.
@@ -9,13 +17,7 @@ It's important to spend time playing and/or studying.
 This plan is just one way to spend your time studying Shogi.
 I emphasize getting in there and playing lots of games (and reviewing), don't be shy.
 
-## Connecting with the Shogi community
-* Join the [Shogi Harbour Discord](https://discord.gg/wggn65v).
-* Join the weekly shogi ladder in the Discord, see #shogi-ladder-rules
-* Join the next "Tourny To" series, see #tt-series-rules
-
-## Just the links
-
+# Just the links
 The main plan has a bunch of extra advice about how to study, but here is a
 list of resources and the order to use them.
 
@@ -43,9 +45,9 @@ list of resources and the order to use them.
     * [karakoro 1](https://lishogi.org/study/Ke2kN7y8) [karakoro 2](https://lishogi.org/study/TAwMYdcw) [karakoro 3](https://lishogi.org/study/Fookcq1d)
     * [Knight and Gold sacrifices](https://lishogi.org/study/5kMrKUiG)
 
-## The Plan
+# The Plan
 
-### Your first three games
+## Your first three games
 * Register on [Lishogi](https://lishogi.org)
 * Pick your favorite piece set, I recommend shogi_cz because it has the traditional Kanji on top 
   and shows how the piece moves on the bottom. 
@@ -66,7 +68,7 @@ list of resources and the order to use them.
     * No small feat in such a different game, even if you're used to chess
     * Most English speakers will have a hard time even recognizing the pieces!
 
-### Time for some study
+## Time for some study
 * Complete [KD's Beginner tsumes](https://lishogi.org/study/4XssSDlR) (checkmate problems)
 * In Shogi, when you get an advantage you cannot simplify the position by trading all the pieces
     * In fact, trading pieces makes the game *more* complicated, because of the drop rule.
@@ -74,7 +76,7 @@ list of resources and the order to use them.
     * To do this, you're going to need to know some common checkmating techniques.
 * Play 3 more handicap games
 
-### Playing your first even game
+## Playing your first even game
 * Complete [KD's Game concepts and tactics](https://lishogi.org/study/cgqKMj1v)
     * The first few chapters focus on Rook Pawn tactics
 * Go through this [List of Castles](https://lishogi.org/study/O591ZfdK)
@@ -89,7 +91,7 @@ list of resources and the order to use them.
 * Congratulations for finishing your first even game!
 * Play two more games!
 
-### The long haul
+## The long haul
 * You're starting to get an idea of what Shogi is about, congratulations!
 * Keep playing games!
 * Start reviewing your own games
@@ -112,18 +114,12 @@ list of resources and the order to use them.
         * For the opening and middle game, focus on 2 or 3 of the places where the graph changed the most
         * For the endgame, focus on a few of the shorter checkmates that you missed
 * Solve problems
-    * [Next move problems](https://lishogi.org/study/EBB09B2r) by karakoro
-    * [Easy Brinkmates](https://lishogi.org/study/kDG1whmZ) by karakoro
-    * [Tsume or Hisshi](https://lishogi.org/study/AauH6dBj) (Hisshi = Brinkmate)
-        * Great practical examples, starts easy but quickly gets tricky
-    * Solve lishogi [puzzles](https://lishogi.org/training)
+    * See [Just the links](#just-the-links) section for a list of collections
+    * Solve lishogi [tsume only puzzles](https://lishogi.org/training/tsume)
     * Survival mode at [Playshogi](http://playshogi.com)
         * These start at mate in 3, but they are hard
 * Studies about openings
-    * [Ranging Rook](https://lishogi.org/study/eo0pa339)
-    * [Central Rook](https://lishogi.org/study/8L2ZWmEy)
-    * [Bishop Exchange Rightside King](https://lishogi.org/study/1aG4uoEP)
-    * [Wrong Diagonal Bishop](https://lishogi.org/study/A7danIVZ)
+    * See [Just the links](#just-the-links) section
 * Start watching Shuji Muranaka’s [commented Shogi Wars games](https://www.youtube.com/playlist?list=PLi002ZNuMn65AZlsQJNnl4MVm_gjh4DV_), with English subtitles (turn on CC)
     * A great resource to quickly get exposure to a wide variety of openings
     * He covers the main points in the game
