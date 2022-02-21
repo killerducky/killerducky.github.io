@@ -39,6 +39,7 @@ list of resources and the order to use them.
     * [Bishop Exchange Rightside King](https://lishogi.org/study/1aG4uoEP)
     * [Wrong Diagonal Bishop](https://lishogi.org/study/A7danIVZ)
     * [All about Ureshino style](https://lishogi.org/study/1EZOLd9i)
+    * [Openings Explorer](https://playshogi.com/#Openings:lnsgkgsnl/1r5b1/ppppppppp/9/9/9/PPPPPPPPP/1B5R1/LNSGKGSNL%20b%20-) on Playshogi -> Practice -> Openings Explorer
 * Some more problems/studies
     * Survival mode at [Playshogi](http://playshogi.com)
     * [Tsume or Hisshi](https://lishogi.org/study/AauH6dBj) (Hisshi = Brinkmate)

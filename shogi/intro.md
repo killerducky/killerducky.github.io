@@ -16,6 +16,10 @@ If you're a beginner, check my [step-by-step study plan](study_plan)!
 
 # Connecting with the Shogi community
 * Join the [Shogi Harbour Discord](https://discord.gg/wggn65v).
+  * [Shogi Harbour Youtube](https://www.youtube.com/c/ShogiHarbour)
+  * [Shogi Harbour Twitch](https://www.twitch.tv/shogi_harbour)
+    * You can submit your own game records to be reviewed!
+    * If you can't catch the live streams, catch the VODs before they expire
 * Join the weekly shogi ladder in the Discord, see #shogi-ladder-rules
 * Join the next "Tourny To" series, see #tt-series-rules
 
