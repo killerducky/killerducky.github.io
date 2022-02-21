@@ -1,4 +1,4 @@
-[Back to Shogi top](intro.md)
+[Back to Shogi top](intro.md) including links to Shogi Harbour's community and other places to play.
 
 - [Introduction](#introduction)
 - [Just the links](#just-the-links)
