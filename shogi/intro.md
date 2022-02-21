@@ -40,6 +40,8 @@ If you're a beginner, check my [step-by-step study plan](study_plan)!
 
 ## Shogi Wars
 * [Shogi Wars](https://shogiwars.heroz.jp/) has the most players
+* Use [shogi extend](https://www.shogi-extend.com/swars/search) to search your game records
+  * The third button (コピー) will copy the KIF (game record), and you can paste it into e.g. ShogiGUI or lishogi.
 * Only has blitz games
 * Only 3 free games per day, after that its ~$5 USD per month
 * Phone app and webapp
