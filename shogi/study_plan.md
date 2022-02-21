@@ -10,11 +10,10 @@
 
 # Introduction
 This is a step-by-step study plan starting from complete beginner at Shogi.
-There are many different ways to learn, and everyone will have different
+There are many different ways to learn, and everyone has different
 goals and priorities. It's not important what you study or in what order.
-It's important to spend time playing and/or studying.
+Just spend time playing and/or studying.
 
-This plan is just one way to spend your time studying Shogi.
 I emphasize getting in there and playing lots of games (and reviewing), don't be shy.
 
 # Just the links
@@ -114,6 +113,10 @@ list of resources and the order to use them.
     * Also check the computer suggestions for a few other points
         * For the opening and middle game, focus on 2 or 3 of the places where the graph changed the most
         * For the endgame, focus on a few of the shorter checkmates that you missed
+* Start watching Shuji Muranaka’s [commented Shogi Wars games](https://www.youtube.com/playlist?list=PLi002ZNuMn65AZlsQJNnl4MVm_gjh4DV_), with English subtitles (turn on CC)
+    * A great resource to quickly get exposure to a wide variety of openings
+    * He covers the main points in the game
+    * The level is above an absolute beginner, if you have questions, ask in Discord.
 * Solve problems
     * See [Just the links](#just-the-links) section for a list of collections
     * Solve lishogi [tsume only puzzles](https://lishogi.org/training/tsume)
@@ -121,10 +124,6 @@ list of resources and the order to use them.
         * These start at mate in 3, but they are hard
 * Studies about openings
     * See [Just the links](#just-the-links) section
-* Start watching Shuji Muranaka’s [commented Shogi Wars games](https://www.youtube.com/playlist?list=PLi002ZNuMn65AZlsQJNnl4MVm_gjh4DV_), with English subtitles (turn on CC)
-    * A great resource to quickly get exposure to a wide variety of openings
-    * He covers the main points in the game
-    * The level is above an absolute beginner, if you have questions, ask in Discord.
 
 
 
