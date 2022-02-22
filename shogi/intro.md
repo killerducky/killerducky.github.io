@@ -44,6 +44,11 @@ If you're a beginner, check my [step-by-step study plan](study_plan)!
 
 ## Shogi Wars
 * [Shogi Wars](https://shogiwars.heroz.jp/) has the most players
+  * You have to register first before changing language to English
+  * Gear icon (top row, 4th icon) for settings
+  * Third tab "その他" for other
+  * Change to English
+  * Click "設定を保存する" to save settings
 * Use [shogi extend](https://www.shogi-extend.com/swars/search) to search your game records
   * The third button (コピー) will copy the KIF (game record), and you can paste it into e.g. ShogiGUI or lishogi.
 * Only has blitz games
