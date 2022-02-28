@@ -27,10 +27,20 @@ list of resources and the order to use them.
 * Go through this [List of Castles](https://lishogi.org/study/O591ZfdK)
 * Start watching Shuji Muranaka’s [commented Shogi Wars games](https://www.youtube.com/playlist?list=PLi002ZNuMn65AZlsQJNnl4MVm_gjh4DV_), with English subtitles (turn on CC)
 * Solve Beginner [Tsume in 1](https://playshogi.com/#Problems:7:0:null), and [Tsume in 3](https://playshogi.com/#Problems:19:0:null) on [PlayShogi](http://playshogi.com)
-* Solve [Next move problems](https://lishogi.org/study/EBB09B2r) by karakoro
-* Solve [Easy Brinkmates](https://lishogi.org/study/kDG1whmZ) by karakoro
-* Solve [More Brinkmates](https://lishogi.org/study/ER1gVQZM) by Shogitown
-* Solve lishogi [puzzles](https://lishogi.org/training)
+* [PlayShogi](http://playshogi.com) problem collections
+  * Beginner [Tsume in 1](https://playshogi.com/#Problems:7:0:null)
+  * Beginner [Tsume in 3](https://playshogi.com/#Problems:19:0:null) 
+  * More [Public problem collections](https://playshogi.com/#PublicCollections:null)
+    * Click Problems Collections tab
+    * Sort by Difficulty
+* Lishogi [puzzles - > tsume](https://lishogi.org/training/tsume)
+    * Automatically adjusts puzzle difficulty to your level
+    * You can also adjust difficulty level
+      * Try Easier or Easiest if you like to quickly solve many easier puzzles
+      * In Normal mode lishogi will try to give you around 50% puzzles that get wrong!
+    * In the tsume (checkmate) category, every move must be check, and ends in checkmate
+      * Use this category if you don't like the opening/middlegame puzzles
+    * But many puzzles are not the traditional minimal pieces type
 * Studies about openings, pick a few you like
     * [Ranging Rook](https://lishogi.org/study/eo0pa339)
     * [Central Rook](https://lishogi.org/study/8L2ZWmEy)
@@ -40,8 +50,10 @@ list of resources and the order to use them.
     * [All about Ureshino style](https://lishogi.org/study/1EZOLd9i)
     * [Openings Explorer](https://playshogi.com/#Openings:lnsgkgsnl/1r5b1/ppppppppp/9/9/9/PPPPPPPPP/1B5R1/LNSGKGSNL%20b%20-) on Playshogi -> Practice -> Openings Explorer
 * Some more problems/studies
-    * Survival mode at [Playshogi](http://playshogi.com)
-    * [Tsume or Hisshi](https://lishogi.org/study/AauH6dBj) (Hisshi = Brinkmate)
+    * [Standard shape Tsumes](https://lishogi.org/study/AauH6dBj) From book by Aono Teruichi, study by Shogi Harbour
+    * Solve [Next move problems](https://lishogi.org/study/EBB09B2r) by karakoro
+    * Solve [Easy Brinkmates](https://lishogi.org/study/kDG1whmZ) (Hisshi) by karakoro
+    * Solve [More Brinkmates](https://lishogi.org/study/ER1gVQZM) (Hisshi) by Shogitown
     * [karakoro 1](https://lishogi.org/study/Ke2kN7y8) [karakoro 2](https://lishogi.org/study/TAwMYdcw) [karakoro 3](https://lishogi.org/study/Fookcq1d)
     * [Knight and Gold sacrifices](https://lishogi.org/study/5kMrKUiG)
 
@@ -119,9 +131,6 @@ list of resources and the order to use them.
     * The level is above an absolute beginner, if you have questions, ask in Discord.
 * Solve problems
     * See [Just the links](#just-the-links) section for a list of collections
-    * Solve lishogi [tsume only puzzles](https://lishogi.org/training/tsume)
-    * Survival mode at [Playshogi](http://playshogi.com)
-        * These start at mate in 3, but they are hard
 * Studies about openings
     * See [Just the links](#just-the-links) section
 
