@@ -8,6 +8,7 @@
   - [Shogi Quest](#shogi-quest)
 - [Ranks and Ratings](#ranks-and-ratings)
 - [ShogiGUI](#shogigui)
+- [Shogi Pieces and Boards](#shogi-pieces-and-boards)
 
 # Introduction
 Shogi is Japanese chess, similar to Crazyhouse -- every captured piece can be placed on the board as your own!
@@ -71,3 +72,8 @@ If you're a beginner, check my [step-by-step study plan](study_plan)!
 
 # ShogiGUI
 * [ShogiGUI tutorial](https://docs.google.com/document/d/19f7z830jw5THh6eDL0eVJO7MxuEqr0IBqIDZ2wCKZKA/edit) - analyze games using this. The tutorial covers how to change from default Japanese to English, etc.
+
+# Shogi Pieces and Boards
+* I ordered international from [Aoyama](http://www5b.biglobe.ne.jp/~goban/english@shogi@version.html) to USA
+  * [Fushin 2](http://www5b.biglobe.ne.jp/~goban/s1go7f/english@pura@red2.html) plastic set
+  * [Vinyl Shogi Board B](http://www5b.biglobe.ne.jp/~goban/s1go15f/english@shogi2.html)
