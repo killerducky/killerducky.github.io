@@ -26,7 +26,6 @@ list of resources and the order to use them.
 * Complete [KD's Game concepts and tactics](https://lishogi.org/study/cgqKMj1v)
 * Go through this [List of Castles](https://lishogi.org/study/O591ZfdK)
 * Start watching Shuji Muranaka’s [commented Shogi Wars games](https://www.youtube.com/playlist?list=PLi002ZNuMn65AZlsQJNnl4MVm_gjh4DV_), with English subtitles (turn on CC)
-* Solve Beginner [Tsume in 1](https://playshogi.com/#Problems:7:0:null), and [Tsume in 3](https://playshogi.com/#Problems:19:0:null) on [PlayShogi](http://playshogi.com)
 * [PlayShogi](http://playshogi.com) problem collections
   * Beginner [Tsume in 1](https://playshogi.com/#Problems:7:0:null)
   * Beginner [Tsume in 3](https://playshogi.com/#Problems:19:0:null) 
