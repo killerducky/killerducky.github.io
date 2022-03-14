@@ -65,12 +65,16 @@ list of resources and the order to use them.
   You will naturally start to recognize the Kanji alone (important for sites that only have the Kanji).
 * Complete the [Learn](https://lishogi.org/learn) section to learn how all the pieces move
 * Play a 10-piece handicap game vs the computer 
+    * The idea is just to practice recognizing and moving the pieces
     * From the main Lishogi page, click play with the computer
     * Variant -> From Position
     * 10-piece (Computer starts with 10 pieces missing -- only King and Pawns left)
     * Select Sente (Black King)
     * Or find an experienced human opponent, try the [Shogi Harbour Discord](https://discord.gg/wggn65v)
-    * The idea is just to practice moving the pieces and understanding the rules
+* If lishogi vs computer is broken, try [playshogi](playshogi.com) instead
+    * Practice -> Play vs Computer
+    * Ten pieces handicap
+    * New game
 * Play a second game
     * If you lost, try the same handicap    
     * If you won, move up to the next handicap on the list (8-piece)
