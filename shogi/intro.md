@@ -1,4 +1,11 @@
+# Introduction
+Shogi is Japanese chess, similar to Crazyhouse -- every captured piece can be placed on the board as your own!
+
+If you're a beginner, check my [step-by-step study plan](study_plan)!
+
+# Table of Contents
 - [Introduction](#introduction)
+- [Table of Contents](#table-of-contents)
 - [Connecting with the Shogi community](#connecting-with-the-shogi-community)
 - [Places to Play](#places-to-play)
   - [Lishogi](#lishogi)
@@ -9,11 +16,6 @@
 - [Ranks and Ratings](#ranks-and-ratings)
 - [ShogiGUI](#shogigui)
 - [Shogi Pieces and Boards](#shogi-pieces-and-boards)
-
-# Introduction
-Shogi is Japanese chess, similar to Crazyhouse -- every captured piece can be placed on the board as your own!
-
-If you're a beginner, check my [step-by-step study plan](study_plan)!
 
 # Connecting with the Shogi community
 * Join the [Shogi Harbour Discord](https://discord.gg/wggn65v).
