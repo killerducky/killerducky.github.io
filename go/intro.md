@@ -25,21 +25,21 @@
 
 # 101Weiqi Progressive problems
 * This site does have total beginner problems, but since the site is in Chinese it’s probably only worth the trouble when you get to ~15kyu or stronger. But it’s the best curated collection of problems out there:
-* https://www.101weiqi.com
-* https://imgur.com/a/Sh67B8w - howto
-* https://www.101weiqi.com/guan - timed problems (45s)
-* https://www.101weiqi.com/task/do - untimed problems, automatically adjusts to your level
+* [101weiqi](https://www.101weiqi.com)
+* [howto](https://imgur.com/a/Sh67B8w) guide
+* [timed problems](https://www.101weiqi.com/guan) (45s)
+* [untimed problems](https://www.101weiqi.com/task/do) - automatically adjusts to your level
 If you have other suggested resources please let me know. Especially if you’re a beginner that recently started learning, let me know your opinion of the various resources you used.
 
 # Rough equivalence of Go ranks to Chess ranks
   * Traditional amatuer ranks start at 30-kyu and work up to 1-kyu. Then dan (black belt) ranks start from 1-dan and go up.
   * Professional players have a separate rank system 1-dan (1p) to 9-dan (9p).
   * Every server/organisation has very different difficulties for ranks
-    * These assume OGS ratings. Asian servers (Fox etc) and AGA is easier, EGF harder
-  * 30k-20k = Beginner
-  * 19k-10k = Casual player
-  * 9k-1k = Club player
-  * 1d-3d = Expert
-  * 4d-6d = NM
-  * 7d+ = IM
-  * 1p-9p = GM
+  * These assume OGS ratings. Asian servers (Fox etc) and AGA is easier, EGF harder
+    * 30k-20k = Beginner
+    * 19k-10k = Casual player
+    * 9k-1k = Club player
+    * 1d-3d = Expert
+    * 4d-6d = NM
+    * 7d+ = IM
+    * 1p-9p = GM
