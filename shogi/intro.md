@@ -34,7 +34,7 @@ If you're a beginner, check my [step-by-step study plan](study_plan)!
   and shows how the piece moves on the bottom. 
 
 ## 81dojo
-* 81dojo is the largest English Shogi server. If you have trouble finding human opponents on lishogi.
+* 81dojo is the largest English Shogi server.
 * [Register](https://system.81dojo.com/en/players/sign_up) on 81dojo
   * Set your rank to 9-kyu (beginner!)
   * The kyu (beginner) ranks are backwards, starting at 9-kyu and working up to 1-kyu. Then dan (black belt) ranks start from 1-dan and go up.
@@ -69,8 +69,16 @@ If you're a beginner, check my [step-by-step study plan](study_plan)!
 * Phone app and webapp, but webapp is minimal
 
 # Ranks and Ratings
-* Traditional ranks start at 9-kyu (or sometimes lower e.g. 15-kyu) and work up to 1-kyu. Then dan (black belt) ranks start from 1-dan and go up.
+* Traditional ranks start at 9-kyu (or lower e.g. 15-kyu) and work up to 1-kyu. Then dan (black belt) ranks start from 1-dan and go up.
 * Each site's ranks/ratings will vary in how hard they are, see e.g. [Lishogi vs 81dojo](ratings.md)
+* Professionals have a different system
+  * Apprentice professionals (shoreikai) go from 6-kyu up to 3-dan
+  * Professionals start from 4-dan and go up
+  * Women are allowed, but as of 2022 the top women made it to 3-dan, just short of regular professional status
+* Women professionals have another system
+  * They start in the traning group (kenshukai)
+  * 3-kyu is provisional women's professional
+  * 2-kyu and up is regular women's professional
 
 # ShogiGUI
 * [ShogiGUI tutorial](https://docs.google.com/document/d/19f7z830jw5THh6eDL0eVJO7MxuEqr0IBqIDZ2wCKZKA/edit) - analyze games using this. The tutorial covers how to change from default Japanese to English, etc.
