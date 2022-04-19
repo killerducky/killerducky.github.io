@@ -4,6 +4,7 @@
 - [Learning Go from scratch](#learning-go-from-scratch)
 - [Playing on OGS](#playing-on-ogs)
 - [Black to Play problems](#black-to-play-problems)
+- [Reviewing with AI](#reviewing-with-ai)
 - [101Weiqi Progressive problems](#101weiqi-progressive-problems)
 - [Rough equivalence of Go ranks to Chess ranks](#rough-equivalence-of-go-ranks-to-chess-ranks)
 
@@ -26,7 +27,10 @@
 
 # Black to Play problems
 * [Black to play](http://blacktoplay.com)
-  
+
+# Reviewing with AI
+* [KaTrain](https://github.com/sanderland/katrain/releases) GUI (comes with KataGo engine) to review games with AI
+
 # 101Weiqi Progressive problems
 * This site does have total beginner problems, but since the site is in Chinese it’s probably only worth the trouble when you get to ~15kyu or stronger. But it’s the best curated collection of problems out there:
 * [101weiqi](https://www.101weiqi.com)
