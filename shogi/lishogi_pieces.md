@@ -14,50 +14,51 @@ lishogi has many options for how the pieces look:
   * (Important for sites that only have the Kanji)
 
 ### Shogi_cz
-![](media%5Clishogi%20sets%5CShogi_cz.png)
+![](media/lishogi_sets/Shogi_cz.png)
   * \+ I recommend this set
   * \+ The bottom shows how the pieces move
   * \+ The top has traditional Kanji
   * \- Kanji and move guide share space, making both smaller
+  * \- No border on pieces so they bleed into the board (pick a board color with good contrast)
 
-#### Kanji_Guide_Shadowed
-![](media%5Clishogi_sets%5CKanji_Guide_Shadowed.png)
+#### Kanji_Guide_Shadowed (aka the Tiger Stripe set)
+![](media/lishogi_sets/Kanji_Guide_Shadowed.png)
   * \+ Another good choice
   * \+ Move guide is small so the Kanji is larger
   * \- Move guide is small!
   * \- Uses multiple colors for different pieces
 
 ### Valdivia
-![](media%5Clishogi_sets%5CValdivia.png)
+![](media/lishogi_sets/Valdivia.png)
   * \+ Another good choice, similar to Shogi_cz
 
 ## Beginner sets without Kanji
 * Some of these are good, but the big drawback is you don't have an easy transition to traditional Kanji
 
 ### western
-![](media%5Clishogi_sets%5Cwestern.png)
+![](media/lishogi_sets/western.png)
   * \+ Borrows Western chess for pieces that crossover
   * \+ Gold General, Silver General, and Lance designs hint how they move
   * \- No easy bridge to traditional Kanji
 
 ### Intl_Colored_3d
-![](media%5Clishogi_sets%5CIntl_Colored_3D.png)
+![](media/lishogi_sets/Intl_Colored_3D.png)
   * Similar to western
 
 ### international
-![](media%5Clishogi_sets%5Cinternational.png)
+![](media/lishogi_sets/international.png)
   * Similar to western
   
 ### Doubotsu
-![](media%5Clishogi_sets%5Cdoubotsu.png)
+![](media/lishogi_sets/doubotsu.png)
   * \+ Cute!
   * \- The tops are not slanted to indicate which side owns them (a huge minus!)
   * \- No easy bridge to traditional Kanji
 
 ## Traditional sets
 ### kanji_light
-![](media%5Clishogi_sets%5Ckanji_light.png)
+![](media/lishogi_sets/kanji_light.png)
 
 ### orangian
-![](media%5Clishogi_sets%5Corangain.png)
+![](media/lishogi_sets/orangain.png)
 
