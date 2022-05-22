@@ -49,8 +49,8 @@ lishogi has many options for how the pieces look:
 ![](media/lishogi_sets/international.png)
   * Similar to western
   
-### Doubotsu
-![](media/lishogi_sets/doubotsu.png)
+### Doubutsu
+![](media/lishogi_sets/doubutsu.png)
   * \+ Cute!
   * \- The tops are not slanted to indicate which side owns them (a huge minus!)
   * \- No easy bridge to traditional Kanji
