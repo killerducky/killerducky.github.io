@@ -21,42 +21,43 @@ lishogi has many options for how the pieces look:
   * \- Kanji and move guide share space, making both smaller
 
 #### Kanji_Guide_Shadowed
-![](media%5Clishogi%20sets%5CKanji_Guide_Shadowed.png)
+![](media%5Clishogi_sets%5CKanji_Guide_Shadowed.png)
   * \+ Another good choice
   * \+ Move guide is small so the Kanji is larger
   * \- Move guide is small!
   * \- Uses multiple colors for different pieces
 
+### Valdivia
+![](media%5Clishogi_sets%5CValdivia.png)
+  * \+ Another good choice, similar to Shogi_cz
+
 ## Beginner sets without Kanji
 * Some of these are good, but the big drawback is you don't have an easy transition to traditional Kanji
 
 ### western
-![](media%5Clishogi%20sets%5Cwestern.png)
+![](media%5Clishogi_sets%5Cwestern.png)
   * \+ Borrows Western chess for pieces that crossover
   * \+ Gold General, Silver General, and Lance designs hint how they move
   * \- No easy bridge to traditional Kanji
 
 ### Intl_Colored_3d
-![](media%5Clishogi%20sets%5CIntl_Colored_3D.png)
+![](media%5Clishogi_sets%5CIntl_Colored_3D.png)
   * Similar to western
 
 ### international
-![](media%5Clishogi%20sets%5Cinternational.png)
+![](media%5Clishogi_sets%5Cinternational.png)
   * Similar to western
   
 ### Doubotsu
-![](media%5Clishogi%20sets%5Cdoubotsu.png)
+![](media%5Clishogi_sets%5Cdoubotsu.png)
   * \+ Cute!
   * \- The tops are not slanted to indicate which side owns them (a huge minus!)
   * \- No easy bridge to traditional Kanji
 
 ## Traditional sets
 ### kanji_light
-![](media%5Clishogi%20sets%5Ckanji_light.png)
+![](media%5Clishogi_sets%5Ckanji_light.png)
 
 ### orangian
-![](media%5Clishogi%20sets%5Corangain.png)
-
-### Valdivia
-![](media%5Clishogi%20sets%5CValdivia.png)
+![](media%5Clishogi_sets%5Corangain.png)
 
