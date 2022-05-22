@@ -60,9 +60,11 @@ list of resources and the order to use them.
 
 ## Your first three games
 * Register on [Lishogi](https://lishogi.org)
-* Pick your favorite piece set, I recommend shogi_cz because it has the traditional Kanji on top 
-  and shows how the piece moves on the bottom. 
+* Pick your favorite piece set
+  * Click your username in the upper right, and Piece Set
+  * I recommend shogi_cz because it has the traditional Kanji on top and shows how the piece moves on the bottom. 
   You will naturally start to recognize the Kanji alone (important for sites that only have the Kanji).
+  * [Pros and Cons](lishogi_pieces.md) for some of the sets
 * Complete the [Learn](https://lishogi.org/learn) section to learn how all the pieces move
 * Play a 10-piece handicap game vs the computer 
     * The idea is just to practice recognizing and moving the pieces
