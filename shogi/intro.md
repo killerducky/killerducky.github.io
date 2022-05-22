@@ -59,9 +59,13 @@ If you're a beginner, check my [step-by-step study plan](study_plan)!
 * Phone app and webapp
 
 ## Shogi Club 24
-* [Shogi Club 24](https://web.shogidojo.net/24member/p/regi_verify.jsp) is second behind Shogi Wars in players
+* [Shogi Club 24](https://shogidojo.net/eng/) is second behind Shogi Wars in players
+* [Register](https://web.shogidojo.net/24member/p/regi_verify.jsp)
+  * No English site for registration
   * Add @+ for non-Japanese phone numbers e.g. @+15125551234
 * Very old site with old look
+* Ratings are extremely strong, an 81dojo 1-dan may be 10-kyu on SC24!
+  * [Comparison chart](http://81dojo.com/documents/Rating_System)
 
 ## Shogi Quest
 * [Shogi Quest](http://wars.fm/shogi10)
@@ -81,7 +85,11 @@ If you're a beginner, check my [step-by-step study plan](study_plan)!
   * 2-kyu and up is regular women's professional
 
 # ShogiGUI
-* [ShogiGUI tutorial](https://docs.google.com/document/d/19f7z830jw5THh6eDL0eVJO7MxuEqr0IBqIDZ2wCKZKA/edit) - analyze games using this. The tutorial covers how to change from default Japanese to English, etc.
+* [ShogiGUI tutorial](https://docs.google.com/document/d/1c1ceiA24FYA8_s8goBMvdQOvsBi2HVFb/edit) - analyze games using this. The tutorial covers how to change from default Japanese to English, etc.
+  * Upgrade engine to Suisho vX + YaneuraOu
+  * Divide Shogi engine evals by ~5 to get similar range as chess
+  * Reversals in Shogi are way more common so even very large eval differences can be overcome
+
 
 # Playing IRL
 * [Aoyama](http://www5b.biglobe.ne.jp/~goban/english@shogi@version.html) ships Shogi (and Go/Baduk/Weiqi) Pieces and Boards internationally
