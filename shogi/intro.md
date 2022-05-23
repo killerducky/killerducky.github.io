@@ -30,8 +30,11 @@ If you're a beginner, check my [step-by-step study plan](study_plan)!
 
 ## Lishogi
 * [Lishogi](https://lishogi.org) is a clone of lichess, and has a modern interface. But as of 2022 there are not many humans playing there.
-* Pick your favorite piece set, I recommend shogi_cz because it has the traditional Kanji on top 
-  and shows how the piece moves on the bottom. 
+* [Pros and Cons](lishogi_pieces.md) for some of the sets
+* Click your username in the upper right, and Piece Set
+* I recommend shogi_cz because it has the traditional Kanji on top and shows how the piece moves on the bottom. 
+  You will naturally start to recognize the Kanji alone (important for sites that only have the Kanji).
+
 
 ## 81dojo
 * 81dojo is the largest English Shogi server.

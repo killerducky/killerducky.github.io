@@ -18,6 +18,7 @@ lishogi has many options for how the pieces look:
   * \+ I recommend this set
   * \+ The bottom shows how the pieces move
   * \+ The top has traditional Kanji
+  * \+ 81dojo also has this set so you can use it on both sites
   * \- Kanji and move guide share space, making both smaller
   * \- No border on pieces so they bleed into the board (pick a board color with good contrast)
 
@@ -52,8 +53,9 @@ lishogi has many options for how the pieces look:
 ### Doubutsu
 ![](media/lishogi_sets/doubutsu.png)
   * \+ Cute!
-  * \- The tops are not slanted to indicate which side owns them (a huge minus!)
+  * \-- The tops are not slanted to indicate which side owns them (a huge minus!)
   * \- No easy bridge to traditional Kanji
+    * \-- The piece names (dog, cat, etc) do not match with the Japanese name (Gold, Silver, etc)
 
 ## Traditional sets
 ### kanji_light

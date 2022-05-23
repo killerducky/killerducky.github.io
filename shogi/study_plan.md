@@ -1,12 +1,12 @@
 [Back to Shogi top](intro.md) including links to Shogi Harbour's community and other places to play.
 
 - [Introduction](#introduction)
-- [Just the links](#just-the-links)
 - [The Plan](#the-plan)
   - [Your first three games](#your-first-three-games)
   - [Time for some study](#time-for-some-study)
   - [Playing your first even game](#playing-your-first-even-game)
   - [The long haul](#the-long-haul)
+- [Just the links](#just-the-links)
 
 # Introduction
 This is a step-by-step study plan starting from complete beginner at Shogi.
@@ -16,67 +16,30 @@ Just spend time playing and/or studying.
 
 I emphasize getting in there and playing lots of games (and reviewing), don't be shy.
 
-# Just the links
-The main plan has a bunch of extra advice about how to study, but here is a
-list of resources and the order to use them.
-
-* Register on [Lishogi](https://lishogi.org)
-* Complete the [Learn](https://lishogi.org/learn) section to learn how all the pieces move
-* Complete [KD's Beginner tsumes](https://lishogi.org/study/4XssSDlR) (checkmate problems)
-* Complete [KD's Game concepts and tactics](https://lishogi.org/study/cgqKMj1v)
-* Go through this [List of Castles](https://lishogi.org/study/O591ZfdK)
-* Start watching Shuji Muranaka’s [commented Shogi Wars games](https://www.youtube.com/playlist?list=PLi002ZNuMn65AZlsQJNnl4MVm_gjh4DV_), with English subtitles (turn on CC)
-* [PlayShogi](http://playshogi.com) problem collections
-  * Beginner [Tsume in 1](https://playshogi.com/#Problems:7:0:null)
-  * Beginner [Tsume in 3](https://playshogi.com/#Problems:19:0:null) 
-  * More [Public problem collections](https://playshogi.com/#PublicCollections:null)
-    * Click Problems Collections tab
-    * Sort by Difficulty
-* Lishogi [puzzles - > tsume](https://lishogi.org/training/tsume)
-    * Automatically adjusts puzzle difficulty to your level
-    * You can also adjust difficulty level
-      * Try Easier or Easiest if you like to quickly solve many easier puzzles
-      * In Normal mode lishogi will try to give you around 50% puzzles that get wrong!
-    * In the tsume (checkmate) category, every move must be check, and ends in checkmate
-      * Use this category if you don't like the opening/middlegame puzzles
-    * But many puzzles are not the traditional minimal pieces type
-* Studies about openings, pick a few you like
-    * [Ranging Rook](https://lishogi.org/study/eo0pa339)
-    * [Central Rook](https://lishogi.org/study/8L2ZWmEy)
-    * [Central Rook 2](https://lishogi.org/study/T6GPWhvE)
-    * [Bishop Exchange Rightside King](https://lishogi.org/study/1aG4uoEP)
-    * [Wrong Diagonal Bishop](https://lishogi.org/study/A7danIVZ)
-    * [All about Ureshino style](https://lishogi.org/study/1EZOLd9i)
-    * [Openings Explorer](https://playshogi.com/#Openings:lnsgkgsnl/1r5b1/ppppppppp/9/9/9/PPPPPPPPP/1B5R1/LNSGKGSNL%20b%20-) on Playshogi -> Practice -> Openings Explorer
-* Some more problems/studies
-    * [Standard shape Tsumes](https://lishogi.org/study/AauH6dBj) From book by Aono Teruichi, study by Shogi Harbour
-    * Solve [Next move problems](https://lishogi.org/study/EBB09B2r) by karakoro
-    * Solve [Easy Brinkmates](https://lishogi.org/study/kDG1whmZ) (Hisshi) by karakoro
-    * Solve [More Brinkmates](https://lishogi.org/study/ER1gVQZM) (Hisshi) by Shogitown
-    * [karakoro 1](https://lishogi.org/study/Ke2kN7y8) [karakoro 2](https://lishogi.org/study/TAwMYdcw) [karakoro 3](https://lishogi.org/study/Fookcq1d)
-    * [Knight and Gold sacrifices](https://lishogi.org/study/5kMrKUiG)
+At the end there are links to many other good resources [Just the links](#just-the-links) 
 
 # The Plan
 
 ## Your first three games
 * Register on [Lishogi](https://lishogi.org)
 * Pick your favorite piece set
+  * [Pros and Cons](lishogi_pieces.md) for some of the sets
   * Click your username in the upper right, and Piece Set
   * I recommend shogi_cz because it has the traditional Kanji on top and shows how the piece moves on the bottom. 
   You will naturally start to recognize the Kanji alone (important for sites that only have the Kanji).
-  * [Pros and Cons](lishogi_pieces.md) for some of the sets
 * Complete the [Learn](https://lishogi.org/learn) section to learn how all the pieces move
 * Play a 10-piece handicap game vs the computer 
-    * The idea is just to practice recognizing and moving the pieces
+  * The idea is just to practice recognizing and moving the pieces
+  * As of May 2022, lishogi vs computer with handicap is broken
+  * Use [playshogi](https://playshogi.com) instead
+    * Practice -> Play vs Computer
+    * Ten pieces handicap
+    * New game
+  * If lishogi vs computer with handicap gets fixed:
     * From the main Lishogi page, click play with the computer
     * Variant -> From Position
     * 10-piece (Computer starts with 10 pieces missing -- only King and Pawns left)
     * Select Sente (Black King)
-    * Or find an experienced human opponent, try the [Shogi Harbour Discord](https://discord.gg/wggn65v)
-* If lishogi vs computer is broken, try [playshogi](playshogi.com) instead
-    * Practice -> Play vs Computer
-    * Ten pieces handicap
-    * New game
 * Play a second game
     * If you lost, try the same handicap    
     * If you won, move up to the next handicap on the list (8-piece)
@@ -138,6 +101,46 @@ list of resources and the order to use them.
     * See [Just the links](#just-the-links) section for a list of collections
 * Studies about openings
     * See [Just the links](#just-the-links) section
+
+# Just the links
+The main plan has a bunch of extra advice about how to study, but here is a
+list of resources and the order to use them.
+
+* Register on [Lishogi](https://lishogi.org)
+* Complete the [Learn](https://lishogi.org/learn) section to learn how all the pieces move
+* Complete [KD's Beginner tsumes](https://lishogi.org/study/4XssSDlR) (checkmate problems)
+* Complete [KD's Game concepts and tactics](https://lishogi.org/study/cgqKMj1v)
+* Go through this [List of Castles](https://lishogi.org/study/O591ZfdK)
+* Start watching Shuji Muranaka’s [commented Shogi Wars games](https://www.youtube.com/playlist?list=PLi002ZNuMn65AZlsQJNnl4MVm_gjh4DV_), with English subtitles (turn on CC)
+* [PlayShogi](http://playshogi.com) problem collections
+  * Beginner [Tsume in 1](https://playshogi.com/#Problems:7:0:null)
+  * Beginner [Tsume in 3](https://playshogi.com/#Problems:19:0:null) 
+  * More [Public problem collections](https://playshogi.com/#PublicCollections:null)
+    * Click Problems Collections tab
+    * Sort by Difficulty
+* Lishogi [puzzles - > tsume](https://lishogi.org/training/tsume)
+    * Automatically adjusts puzzle difficulty to your level
+    * You can also adjust difficulty level
+      * Try Easier or Easiest if you like to quickly solve many easier puzzles
+      * In Normal mode lishogi will try to give you around 50% puzzles that get wrong!
+    * In the tsume (checkmate) category, every move must be check, and ends in checkmate
+      * Use this category if you don't like the opening/middlegame puzzles
+    * But many puzzles are not the traditional minimal pieces type
+* Studies about openings, pick a few you like
+    * [Ranging Rook](https://lishogi.org/study/eo0pa339)
+    * [Central Rook](https://lishogi.org/study/8L2ZWmEy)
+    * [Central Rook 2](https://lishogi.org/study/T6GPWhvE)
+    * [Bishop Exchange Rightside King](https://lishogi.org/study/1aG4uoEP)
+    * [Wrong Diagonal Bishop](https://lishogi.org/study/A7danIVZ)
+    * [All about Ureshino style](https://lishogi.org/study/1EZOLd9i)
+    * [Openings Explorer](https://playshogi.com/#Openings:lnsgkgsnl/1r5b1/ppppppppp/9/9/9/PPPPPPPPP/1B5R1/LNSGKGSNL%20b%20-) on Playshogi -> Practice -> Openings Explorer
+* Some more problems/studies
+    * [Standard shape Tsumes](https://lishogi.org/study/AauH6dBj) From book by Aono Teruichi, study by Shogi Harbour
+    * Solve [Next move problems](https://lishogi.org/study/EBB09B2r) by karakoro
+    * Solve [Easy Brinkmates](https://lishogi.org/study/kDG1whmZ) (Hisshi) by karakoro
+    * Solve [More Brinkmates](https://lishogi.org/study/ER1gVQZM) (Hisshi) by Shogitown
+    * [karakoro 1](https://lishogi.org/study/Ke2kN7y8) [karakoro 2](https://lishogi.org/study/TAwMYdcw) [karakoro 3](https://lishogi.org/study/Fookcq1d)
+    * [Knight and Gold sacrifices](https://lishogi.org/study/5kMrKUiG)
 
 
 
