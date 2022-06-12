@@ -2,9 +2,9 @@
 lishogi has many options for how the pieces look:
   * Click your username in the upper right, and Piece Set
   * The traditional sets use Japanese character (Kanji) which takes more time to get used to if you cannot read Japanese
-  * There are many more beginner friently sets that make it quicker to learn how each piece moves.
+  * There are many beginner friently sets that make it quicker to learn how each piece moves.
     * But many resources will only use traditional sets
-  * There are many types of beginner sets:
+  * Types of beginner sets:
     * Use traditional Japanese Kanji, but also have hints on how they move
     * Use Western chess style pieces
     * Pieces that visually cue how the pieces move
@@ -22,16 +22,23 @@ lishogi has many options for how the pieces look:
   * \- Kanji and move guide share space, making both smaller
   * \- No border on pieces so they bleed into the board (pick a board color with good contrast)
 
-#### Kanji_Guide_Shadowed (aka the Tiger Stripe set)
+### Kanji_Guide_Shadowed (aka the Tiger Stripe set)
 ![](media/lishogi_sets/Kanji_Guide_Shadowed.png)
   * \+ Another good choice
+  * o Uses multiple colors for different pieces
+    * Gold and Silver generals are colored Gold and Silver
   * \+ Move guide is small so the Kanji is larger
-  * \- Move guide is small!
-  * \- Uses multiple colors for different pieces
+  * \- Move guide is small, harder to see
 
 ### Valdivia
 ![](media/lishogi_sets/Valdivia.png)
   * \+ Another good choice, similar to Shogi_cz
+
+### Portella_cz
+![](media/lishogi_sets/portella_cz.png)
+  * [Link](https://userstyles.org/styles/241246/portella-cz) to this custom chrome plugin by ShogiExplained 
+  * \+ Beautiful version of Shogi_cz
+  * \- Requires third party Chrome plugin
 
 ## Beginner sets without Kanji
 * Some of these are good, but the big drawback is you don't have an easy transition to traditional Kanji
