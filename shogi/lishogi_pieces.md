@@ -36,9 +36,9 @@ lishogi has many options for how the pieces look:
 
 ### Portella_cz
 ![](media/lishogi_sets/portella_cz.png)
-  * [Link](https://userstyles.org/styles/241246/portella-cz) to this custom chrome plugin by ShogiExplained 
+  * [Link](https://userstyles.world/style/5141/portella-cz-for-lishogi-org) to this CSS plugin by ShogiExplained 
   * \+ Beautiful version of Shogi_cz
-  * \- Requires third party Chrome plugin
+  * \- Requires third party browser plugin
 
 ## Beginner sets without Kanji
 * Some of these are good, but the big drawback is you don't have an easy transition to traditional Kanji
