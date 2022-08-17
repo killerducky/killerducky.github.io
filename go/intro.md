@@ -7,6 +7,7 @@
 - [Reviewing with AI](#reviewing-with-ai)
 - [101Weiqi Progressive problems](#101weiqi-progressive-problems)
 - [Rough equivalence of Go ranks to Chess ranks](#rough-equivalence-of-go-ranks-to-chess-ranks)
+- [Playing IRL](#playing-irl)
 
 # Learning Go from scratch
 * [Rules](https://learn-go.now.sh) - Rules at learn-go.now.sh
@@ -51,3 +52,7 @@ If you have other suggested resources please let me know. Especially if you’re
     * 4d-6d = NM
     * 7d+ = IM
     * 1p-9p = GM
+
+# Playing IRL
+[Go Board](https://store.baduk.club/collections/club-tournament-gear/products/foldable-go-board)
+[Go stones](https://store.baduk.club/collections/club-tournament-gear/products/baduk-pieces-set-of-black-and-white)

@@ -14,7 +14,7 @@ If you're a beginner, check my [step-by-step study plan](study_plan)!
   - [Shogi Club 24](#shogi-club-24)
   - [Shogi Quest](#shogi-quest)
 - [Ranks and Ratings](#ranks-and-ratings)
-- [ShogiGUI](#shogigui)
+- [Shogi Engine](#shogi-engine)
 - [Playing IRL](#playing-irl)
 
 # Connecting with the Shogi community
@@ -86,7 +86,9 @@ If you're a beginner, check my [step-by-step study plan](study_plan)!
   * 3-kyu is provisional women's professional
   * 2-kyu and up is regular women's professional
 
-# ShogiGUI
+# Shogi Engine
+* Lishogi has a builtin engine using your webbrowser
+* Or download ShogiGUI for offline use
 * [ShogiGUI tutorial](https://docs.google.com/document/d/1c1ceiA24FYA8_s8goBMvdQOvsBi2HVFb/edit) - analyze games using this. The tutorial covers how to change from default Japanese to English, etc.
   * Upgrade engine to Suisho vX + YaneuraOu
   * Divide Shogi engine evals by ~5 to get similar range as chess

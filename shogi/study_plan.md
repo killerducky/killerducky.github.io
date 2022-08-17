@@ -30,16 +30,10 @@ At the end there are links to many other good resources [Just the links](#just-t
 * Complete the [Learn](https://lishogi.org/learn) section to learn how all the pieces move
 * Play a 10-piece handicap game vs the computer 
   * The idea is just to practice recognizing and moving the pieces
-  * As of May 2022, lishogi vs computer with handicap is broken
-  * Use [playshogi](https://playshogi.com) instead
-    * Practice -> Play vs Computer
-    * Ten pieces handicap
-    * New game
-  * If lishogi vs computer with handicap gets fixed:
-    * From the main Lishogi page, click play with the computer
-    * Variant -> From Position
-    * 10-piece (Computer starts with 10 pieces missing -- only King and Pawns left)
-    * Select Sente (Black King)
+  * From the main Lishogi page, click play with the computer
+  * Variant -> From Position
+  * 10-piece (Computer starts with 10 pieces missing -- only King and Pawns left)
+  * Select Sente (Black King)
 * Play a second game
     * If you lost, try the same handicap    
     * If you won, move up to the next handicap on the list (8-piece)

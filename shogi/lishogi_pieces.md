@@ -13,8 +13,8 @@ lishogi has many options for how the pieces look:
 * I recommend these so you naturally start to recognize the Kanji alone
   * (Important for sites that only have the Kanji)
 
-### Shogi_cz
-![](media/lishogi_sets/Shogi_cz.png)
+### Engraved_cz
+![](media/lishogi_sets/Engraved_cz.png)
   * \+ I recommend this set
   * \+ The bottom shows how the pieces move
   * \+ The top has traditional Kanji
@@ -33,12 +33,6 @@ lishogi has many options for how the pieces look:
 ### Valdivia
 ![](media/lishogi_sets/Valdivia.png)
   * \+ Another good choice, similar to Shogi_cz
-
-### Portella_cz
-![](media/lishogi_sets/portella_cz.png)
-  * [Link](https://userstyles.world/style/5141/portella-cz-for-lishogi-org) to this CSS plugin by ShogiExplained 
-  * \+ Beautiful version of Shogi_cz
-  * \- Requires third party browser plugin
 
 ## Beginner sets without Kanji
 * Some of these are good, but the big drawback is you don't have an easy transition to traditional Kanji
