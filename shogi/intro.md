@@ -30,11 +30,10 @@ If you're a beginner, check my [step-by-step study plan](study_plan)!
 
 ## Lishogi
 * [Lishogi](https://lishogi.org) is a clone of lichess, and has a modern interface. But as of 2022 there are not many humans playing there.
-* [Pros and Cons](lishogi_pieces.md) for some of the sets
+* Pick your favorite [piece set style](lishogi_pieces.md)
 * Click your username in the upper right, and Piece Set
-* I recommend shogi_cz because it has the traditional Kanji on top and shows how the piece moves on the bottom. 
+* I recommend Engraved_cz because it has the traditional Kanji on top and shows how the piece moves on the bottom. 
   You will naturally start to recognize the Kanji alone (important for sites that only have the Kanji).
-
 
 ## 81dojo
 * 81dojo is the largest English Shogi server.
@@ -58,7 +57,7 @@ If you're a beginner, check my [step-by-step study plan](study_plan)!
 * Use [shogi extend](https://www.shogi-extend.com/swars/search) to search your game records
   * The third button (コピー) will copy the KIF (game record), and you can paste it into e.g. ShogiGUI or lishogi.
 * Only has blitz games
-* Only 3 free games per day, after that its ~$5 USD per month
+* Only 3 free games per day, more games requires a subscription (~$5 USD per month)
 * Phone app and webapp
 
 ## Shogi Club 24
@@ -93,7 +92,6 @@ If you're a beginner, check my [step-by-step study plan](study_plan)!
   * Upgrade engine to Suisho vX + YaneuraOu
   * Divide Shogi engine evals by ~5 to get similar range as chess
   * Reversals in Shogi are way more common so even very large eval differences can be overcome
-
 
 # Playing IRL
 * [Aoyama](http://www5b.biglobe.ne.jp/~goban/english@shogi@version.html) ships Shogi (and Go/Baduk/Weiqi) Pieces and Boards internationally

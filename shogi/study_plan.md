@@ -1,10 +1,11 @@
-[Back to Shogi top](intro.md) including links to Shogi Harbour's community and other places to play.
+[Back to Shogi top](intro.md) 
+Join [Shogi Harbour's Discord](https://discord.gg/wggn65v)
 
 - [Introduction](#introduction)
 - [The Plan](#the-plan)
   - [Your first three games](#your-first-three-games)
   - [Time for some study](#time-for-some-study)
-  - [Playing your first even game](#playing-your-first-even-game)
+  - [Playing your first human opponent](#playing-your-first-human-opponent)
   - [The long haul](#the-long-haul)
 - [Just the links](#just-the-links)
 
@@ -22,14 +23,13 @@ At the end there are links to many other good resources [Just the links](#just-t
 
 ## Your first three games
 * Register on [Lishogi](https://lishogi.org)
-* Pick your favorite piece set
-  * [Pros and Cons](lishogi_pieces.md) for some of the sets
+* Pick your favorite [piece set style](lishogi_pieces.md)
   * Click your username in the upper right, and Piece Set
-  * I recommend shogi_cz because it has the traditional Kanji on top and shows how the piece moves on the bottom. 
+  * I recommend Engraved_cz because it has the traditional Kanji on top and shows how the piece moves on the bottom. 
   You will naturally start to recognize the Kanji alone (important for sites that only have the Kanji).
-* Complete the [Learn](https://lishogi.org/learn) section to learn how all the pieces move
+* [Learn](https://lishogi.org/learn) how all the pieces move
 * Play a 10-piece handicap game vs the computer 
-  * The idea is just to practice recognizing and moving the pieces
+  * The goal is to practice recognizing and moving the pieces
   * From the main Lishogi page, click play with the computer
   * Variant -> From Position
   * 10-piece (Computer starts with 10 pieces missing -- only King and Pawns left)
@@ -46,33 +46,40 @@ At the end there are links to many other good resources [Just the links](#just-t
 * Complete [KD's Beginner tsumes](https://lishogi.org/study/4XssSDlR) (checkmate problems)
 * In Shogi, when you get an advantage you cannot simplify the position by trading all the pieces
     * In fact, trading pieces makes the game *more* complicated, because of the drop rule.
-* The safest way to win is to checkmate them quickly
+* The safest way to win is to checkmate quickly
     * To do this, you're going to need to know some common checkmating techniques.
 * Play 3 more handicap games
-
-## Playing your first even game
 * Complete [KD's Game concepts and tactics](https://lishogi.org/study/cgqKMj1v)
     * The first few chapters focus on Rook Pawn tactics
 * Go through this [List of Castles](https://lishogi.org/study/O591ZfdK)
-    * Pick one of these to try out in your first even game
-* For your first even game, find another (human) beginner
-    * Lishogi is new and there are not many human opponents, so you need to be proactive to get one.
+    * Pick one of these to try out
+
+## Playing your first human opponent
+* Try finding another beginner
+    * Lishogi is new and there are not many human opponents, so you need to be proactive to find one.
     * Or ask in the [Shogi Harbour Discord](https://discord.gg/wggn65v)
     * Or go to a Lishogi arena, and ask if a beginner there wants to pause the arena and play
     * Or try 81dojo, there are more humans there
         * See the 81dojo section [here](intro)
-    * As a last resort, you can play Lishogi Computer Level 1, but even that level is quite strong.
+    * If you cannot find a beginner, try playing a handicap game instead.
 * Congratulations for finishing your first even game!
 * Play two more games!
 
 ## The long haul
 * You're starting to get an idea of what Shogi is about, congratulations!
 * Keep playing games!
-* Start reviewing your own games
-    * One of the best ways to improve is to review your own games
-    * Lishogi can analyze the game with it's servers
-    * Or install [ShogiGUI](https://drive.google.com/file/d/1c1ceiA24FYA8_s8goBMvdQOvsBi2HVFb)
-    * But First review without looking at the computer lines
+* Start watching Shuji Muranaka’s [commented Shogi Wars games](https://www.youtube.com/playlist?list=PLi002ZNuMn65AZlsQJNnl4MVm_gjh4DV_), with English subtitles (turn on CC)
+    * A great resource to quickly see a wide variety of openings
+    * He covers the main points in the game
+    * The level is above an absolute beginner, if you have questions, ask in Discord.
+* Solve problems
+    * See [Just the links](#just-the-links) section for a list of collections
+* Studies about openings
+    * See [Just the links](#just-the-links) section
+* Review your games
+    * First review with your (human) opponent or by yourself
+    * Once a week, pick an interesting game and submit it to Shogi Harbour's weekly game reviews on her twitch channel. 
+      * More information about this in the [Shogi Harbour Discord](https://discord.gg/wggn65v).
     * Ask your opponent to join you in the review
         * [Video](https://www.twitch.tv/videos/984277495) of the steps
         * Analysis Board 
@@ -81,20 +88,14 @@ At the end there are links to many other good resources [Just the links](#just-t
         * Type opponent name -> close add member box
         * Make opponent contributor (top left)
         * Opponent will get a notification (top right bell)
-        * Everyone make sure SYNC and REC are on (bottom left of board)
+        * Everyone turn SYNC and REC on (bottom left of board)
     * Think of 2 or 3 points in the game where you wonder if you made the right choice
     * Check with the computer on those points
+    * Lishogi can analyze the game with it's servers, and interactively with the webengine
+    * Or install [ShogiGUI](https://drive.google.com/file/d/1c1ceiA24FYA8_s8goBMvdQOvsBi2HVFb)
     * Also check the computer suggestions for a few other points
         * For the opening and middle game, focus on 2 or 3 of the places where the graph changed the most
         * For the endgame, focus on a few of the shorter checkmates that you missed
-* Start watching Shuji Muranaka’s [commented Shogi Wars games](https://www.youtube.com/playlist?list=PLi002ZNuMn65AZlsQJNnl4MVm_gjh4DV_), with English subtitles (turn on CC)
-    * A great resource to quickly get exposure to a wide variety of openings
-    * He covers the main points in the game
-    * The level is above an absolute beginner, if you have questions, ask in Discord.
-* Solve problems
-    * See [Just the links](#just-the-links) section for a list of collections
-* Studies about openings
-    * See [Just the links](#just-the-links) section
 
 # Just the links
 The main plan has a bunch of extra advice about how to study, but here is a
@@ -116,10 +117,8 @@ list of resources and the order to use them.
     * Automatically adjusts puzzle difficulty to your level
     * You can also adjust difficulty level
       * Try Easier or Easiest if you like to quickly solve many easier puzzles
-      * In Normal mode lishogi will try to give you around 50% puzzles that get wrong!
+      * In Normal mode lishogi will give harder puzzles until you get around 50% wrong!
     * In the tsume (checkmate) category, every move must be check, and ends in checkmate
-      * Use this category if you don't like the opening/middlegame puzzles
-    * But many puzzles are not the traditional minimal pieces type
 * Studies about openings, pick a few you like
     * [Ranging Rook](https://lishogi.org/study/eo0pa339)
     * [Central Rook](https://lishogi.org/study/8L2ZWmEy)
@@ -135,6 +134,3 @@ list of resources and the order to use them.
     * Solve [More Brinkmates](https://lishogi.org/study/ER1gVQZM) (Hisshi) by Shogitown
     * [karakoro 1](https://lishogi.org/study/Ke2kN7y8) [karakoro 2](https://lishogi.org/study/TAwMYdcw) [karakoro 3](https://lishogi.org/study/Fookcq1d)
     * [Knight and Gold sacrifices](https://lishogi.org/study/5kMrKUiG)
-
-
-
