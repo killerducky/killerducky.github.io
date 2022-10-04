@@ -1,13 +1,13 @@
 # lishogi piece sets
-lishogi has many options for how the pieces look:
+lishogi has many options piece stlye:
   * Click your username in the upper right, and Piece Set
-  * The traditional sets use Japanese character (Kanji) which takes more time to get used to if you cannot read Japanese
-  * There are many beginner friently sets that make it quicker to learn how each piece moves.
-    * But many resources will only use traditional sets
+  * Traditional sets use Japanese characters (Kanji), steep learning curve if you cannot read Japanese
+  * Beginner friendly sets make it quicker to learn how each piece moves.
+    * But many resources only use traditional sets
   * Types of beginner sets:
-    * Use traditional Japanese Kanji, but also have hints on how they move
-    * Use Western chess style pieces
-    * Pieces that visually cue how the pieces move
+    * Traditional Japanese Kanji, but also have hints on how they move
+    * Western chess style pieces
+    * Visual cues for how the pieces move
 
 ## Beginner sets with Kanji included
 * I recommend these so you naturally start to recognize the Kanji alone
@@ -16,11 +16,11 @@ lishogi has many options for how the pieces look:
 ### Engraved_cz
 ![](media/lishogi_sets/Engraved_cz.png)
   * \+ I recommend this set
-  * \+ The bottom shows how the pieces move
-  * \+ The top has traditional Kanji
+  * \+ Bottom shows how the pieces move
+  * \+ Top has traditional Kanji
   * \+ 81dojo also has this set so you can use it on both sites
   * \- Kanji and move guide share space, making both smaller
-  * \- No border on pieces so they bleed into the board (pick a board color with good contrast)
+  * \- No border on pieces so they bleed into the board (pick e.g. Oak background for good contrast)
 
 ### Kanji_Guide_Shadowed (aka the Tiger Stripe set)
 ![](media/lishogi_sets/Kanji_Guide_Shadowed.png)
