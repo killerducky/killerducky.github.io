@@ -95,6 +95,6 @@ If you're a beginner, check my [step-by-step study plan](study_plan)!
 
 # Playing IRL
 * [Aoyama](http://www5b.biglobe.ne.jp/~goban/english@shogi@version.html) ships Shogi (and Go/Baduk/Weiqi) Pieces and Boards internationally
-  * [Fushin 2](http://www5b.biglobe.ne.jp/~goban/s1go7f/english@pura@red2.html) plastic set
+  * [Fushin 2](http://www5b.biglobe.ne.jp/~goban/s1go7f/englishxpuraxred1.html) plastic set
   * [Vinyl Shogi Board B](http://www5b.biglobe.ne.jp/~goban/s1go15f/english@shogi2.html)
 * [English pamphlet](https://www.shogi.or.jp/event/english-pamphlet.pdf) two page rules summary

@@ -1,4 +1,5 @@
-[Back to Shogi top](intro.md) 
+[Back to Shogi top](intro.md)
+
 Join [Shogi Harbour's Discord](https://discord.gg/wggn65v)
 
 - [Introduction](#introduction)
