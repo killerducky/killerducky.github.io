@@ -64,6 +64,7 @@ If you're a beginner, check my [step-by-step study plan](study_plan)!
 * [Shogi Club 24](https://shogidojo.net/eng/) is second behind Shogi Wars in players
 * [Register](https://web.shogidojo.net/24member/p/regi_verify.jsp) (Japanese only, need to translate page)
   * Add @+ for non-Japanese phone numbers e.g. @+15125551234
+* Use https://www.shogidojo.net/shogi24kifu/?lang=en to search your game records.
 * Very old site with old look
 * Ratings are extremely strong, an 81dojo 1-dan may be 10-kyu on SC24!
   * [Comparison chart](http://81dojo.com/documents/Rating_System)
