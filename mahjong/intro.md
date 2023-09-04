@@ -10,9 +10,11 @@
 
 # Learning Mahjong from scratch
 * [Mahjong Soul](https://mahjongsoul.yo-star.com) aka MJS
-  * Do the tutorial (Right side, 3rd icon = graduation cap)
+  * Do the tutorial
+    * It will auto-start on your first login
+    * If you want to do it again, look on the right side, 3rd icon (graduation cap)
   * For your first games:
-    *  Try for a normal 5 group hand (pair plus four melds of 3)
+    *  Try for a normal five group hand (pair plus four melds of 3)
     *  Ignore the Chii, Pon, and Kan buttons
        *  This guarantees your hand will be able to Riichi = Yaku = qualify
     *  When the Riichi button appears, click it and the computer will recommend a discard
@@ -40,11 +42,11 @@
   * Seat wind
   * 2s and 8s
   * Other isolated tiles
-* Learn the [Basic Yaku](media/Riichi%20Mahjong%20simplified.pdf) by unknown (is this also by reddit u/Aranlyed?)
+* Learn the [Basic Yaku](media/Riichi%20Mahjong%20simplified.pdf) by reddit user u/Aranlyed
 * Full [Yaku List](media/Riichi%20Mahjong%20Yaku%20List.png) by reddit u/Aranlyde [Source](https://www.reddit.com/r/Mahjong/comments/l5b221/riichi_mahjong_cheat_sheet_1_page_pdf_or_images/) License CC/BY/NC 4.0
   * Order to learn:
     * Riichi
-      * You cannot call Pon/Chii
+      * You cannot call Pon/Chii/Kan
     * Yakuhai (value honor triplet)
       * You can consider calling Pon to form a value honor triplet
     * Tanyao (all simples) 
@@ -70,12 +72,13 @@
 # Intermediate resources
 * [Riichi Book 1](https://dainachiba.github.io/RiichiBooks/) Intermediate Mahjong Strategy Primer
   * Focus on the Basic Tile Efficiency part
+* [Uzaku's Guide to Mahjong Tile Efficiency](https://www.reddit.com/r/Mahjong/comments/tv950t/uzakus_guide_to_mahjong_tile_efficiency_english) English translation by reddit user u/konomu [Direct link](https://drive.google.com/file/d/1ApHp2Dm-3dkEQTEAnmfTsk8J6OaH8d4G/view?usp=sharing)
 * Four types of [iishanten](https://www.youtube.com/watch?v=mKEOEWEc5JE&ab_channel=%E3%81%86%E3%81%AB%E4%B8%B8%E9%BA%BB%E9%9B%80%E3%81%A1%E3%82%83%E3%82%93%E3%81%AD%E3%82%8B) (1-away) shapes
 * [Scoring Guide](media/Riichi%20Mahjong%20Scoring%20Guide.png) by reddit u/Aranlyde [Source](https://www.reddit.com/r/Mahjong/comments/l5b221/riichi_mahjong_cheat_sheet_1_page_pdf_or_images/) License CC/BY/NC 4.0
   * More Yaku = more Han = bigger score
 * [Stats scraper](https://amae-koromo.sapk.ch) (Gold room or higher only)
 
 # Advanced resources
-* [Common Waits](media/Common_Waits.png) by unknown [Source](https://cdn.discordapp.com/attachments/560284657229234196/1059251851033313350/Common_Waits.png)    
+* [Common Waits](media/Common_Waits.png) by reddit user u/Mr_Blarney [Source](https://cdn.discordapp.com/attachments/560284657229234196/1059251851033313350/Common_Waits.png)    
 * [Discard reading](https://rentry.co/8gmub) rough notes by Twitch user Xomnom
 * [Early discards](https://rentry.co/shha7) rough notes by Twitch user Xomnom
