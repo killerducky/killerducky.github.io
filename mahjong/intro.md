@@ -2,6 +2,7 @@
 [Riichi Mahjong](https://riichi.wiki/Main_Page) is the Japanese variation of mahjong, a combination of gin rummy and poker.
 
 # Table of Contents
+- [Introduction](#introduction)
 - [Table of Contents](#table-of-contents)
 - [Learning Mahjong from scratch](#learning-mahjong-from-scratch)
 - [Intermediate resources](#intermediate-resources)
@@ -11,7 +12,7 @@
 * [Mahjong Soul](https://mahjongsoul.yo-star.com) aka MJS
   * Do the tutorial (Right side, 3rd icon = graduation cap)
   * For your first games:
-    *  Try for a normal 4 groups of 3 and a pair
+    *  Try for a normal 5 group hand (pair plus four melds of 3)
     *  Ignore the Chii, Pon, and Kan buttons
        *  This guarantees your hand will be able to Riichi = Yaku = qualify
     *  When the Riichi button appears, click it and the computer will recommend a discard
@@ -20,34 +21,56 @@
     * Vs AI, 300+0s (300 seconds for every turn)
     * Create
     * Start
-* Start learning more Yaku
-  * [Yaku List](media/Riichi%20Mahjong%20Yaku%20List.png) by reddit u/Aranlyde [Source](https://www.reddit.com/r/Mahjong/comments/l5b221/riichi_mahjong_cheat_sheet_1_page_pdf_or_images/) License CC/BY/NC 4.0
+* Tile types
+  * Honors
+    * Dragons (White, Green, Red)
+    * Winds (East, South, West, North)
+      * Seat wind
+      * Round wind
+      * Guest wind
+    * Value Honors (Dragons, Seat wind, Round wind)
+  * Suits (Characters, Dots, Bamboo)
+    * Terminals (1s, 9s)
+    * Simples (2-8)
+* Discard priority order (only if isolated -- not paired or part of a possible run)
+  * Guest Winds (not the round wind or your seat wind)
+  * 1s and 9s
+  * Round wind (if its not also your seat wind)
+  * Dragons
+  * Seat wind
+  * 2s and 8s
+  * Other isolated tiles
+* Learn the [Basic Yaku](media/Riichi%20Mahjong%20simplified.pdf) by unknown (is this also by reddit u/Aranlyed?)
+* Full [Yaku List](media/Riichi%20Mahjong%20Yaku%20List.png) by reddit u/Aranlyde [Source](https://www.reddit.com/r/Mahjong/comments/l5b221/riichi_mahjong_cheat_sheet_1_page_pdf_or_images/) License CC/BY/NC 4.0
   * Order to learn:
     * Riichi
       * You cannot call Pon/Chii
-    * Yakuhai (value triplet)
-      * You can consider calling Pon on a value triplet
+    * Yakuhai (value honor triplet)
+      * You can consider calling Pon to form a value honor triplet
     * Tanyao (all simples) 
       * If you have no 1s, 9s, or honors you can consider calling Pon/Chii
       * But be careful with 23 or 78 draws, if you open the hand you are committed to no 1s or 9s!
     * Chiitoitsu  (seven pairs)
-      * One of two exceptions to the 4 groups of 3 and a pair pattern
-      * If you end up with 5 pairs, go for this
-      * Otherwise it's usually best to go for a normal 4 groups of 3 and a pair hand
-      * BTW the final exception for 4 groups of 3 and a pair is:
+      * One of two exceptions to the pair plus four melds of 3 pattern
+      * If you end up with five pairs, go for this
+      * Otherwise it's usually best to go for a pair plus four melds of 3 hand
+      * BTW the final exception:
         * Kokushi Musou (thirteen orphans) only go for this if:
           * You start the hand with 9+ terminals
           * The game will ask if you want to re-deal
           * If you feel lucky, click continue and go for it!
           * If you start with 9 terminals, your odds are about 5.5% [Source](https://osamuko.com/i-told-you-not-to-go-for-kokushi/)
-    * The rest of the ones labelled "Basic"
-    * The rest of the Closed Hands Only section
+    * Toitoi (all triplets)
+      * If you were heading for seven pairs but get one or more triplets, consider switching to all triplets
+      * Pon everything!
+    * Honitsu (half flush -- only one suit plus honors)
+      * If you start with many honor tiles and a long suit, consider discarding the other two suits first instead of the normal discard order
     * All the rest
 
 # Intermediate resources
 * [Riichi Book 1](https://dainachiba.github.io/RiichiBooks/) Intermediate Mahjong Strategy Primer
   * Focus on the Basic Tile Efficiency part
-* 4 types of [iishanten](https://www.youtube.com/watch?v=mKEOEWEc5JE&ab_channel=%E3%81%86%E3%81%AB%E4%B8%B8%E9%BA%BB%E9%9B%80%E3%81%A1%E3%82%83%E3%82%93%E3%81%AD%E3%82%8B) (1-away) shapes
+* Four types of [iishanten](https://www.youtube.com/watch?v=mKEOEWEc5JE&ab_channel=%E3%81%86%E3%81%AB%E4%B8%B8%E9%BA%BB%E9%9B%80%E3%81%A1%E3%82%83%E3%82%93%E3%81%AD%E3%82%8B) (1-away) shapes
 * [Scoring Guide](media/Riichi%20Mahjong%20Scoring%20Guide.png) by reddit u/Aranlyde [Source](https://www.reddit.com/r/Mahjong/comments/l5b221/riichi_mahjong_cheat_sheet_1_page_pdf_or_images/) License CC/BY/NC 4.0
   * More Yaku = more Han = bigger score
 * [Stats scraper](https://amae-koromo.sapk.ch) (Gold room or higher only)
