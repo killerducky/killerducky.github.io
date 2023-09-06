@@ -15,9 +15,9 @@
     * If you want to do it again, look on the right side, 3rd icon (graduation cap)
   * For your first games:
     *  Try for a normal five group hand (pair plus four melds of 3)
-    *  Ignore the Chii, Pon, and Kan buttons
-       *  This guarantees your hand will be able to Riichi = Yaku = qualify
-    *  When the Riichi button appears, click it and the computer will recommend a discard
+    *  Ignore the Chii, Pon, and Kan buttons ([tile calls](https://riichi.wiki/Naki#Tile_calls))
+       *  This keeps your hand closed, and guarantees your can call [Riichi](https://riichi.wiki/Riichi) = [Yaku](https://riichi.wiki/Yaku) = qualify
+    *  When the [Riichi](https://riichi.wiki/Riichi) button appears, click it and the computer will recommend a discard
   * Friendly Match for more thinking time when you start
     * Create Room
     * Vs AI, 300+0s (300 seconds for every turn)
@@ -31,7 +31,7 @@
       * Round wind
       * Guest wind
     * Value Honors (Dragons, Seat wind, Round wind)
-  * Suits (Characters, Dots, Bamboo)
+  * Suits (Character/Crack/Manzu, Dot/Pinzu, Bamboo/Bam/Souzu)
     * Terminals (1s, 9s)
     * Simples (2-8)
 * Discard priority order (only if isolated -- not paired or part of a possible run)
@@ -45,14 +45,14 @@
 * Learn the [Basic Yaku](media/Riichi%20Mahjong%20simplified.pdf) by reddit user u/Aranlyed
 * Full [Yaku List](media/Riichi%20Mahjong%20Yaku%20List.png) by reddit u/Aranlyde [Source](https://www.reddit.com/r/Mahjong/comments/l5b221/riichi_mahjong_cheat_sheet_1_page_pdf_or_images/) License CC/BY/NC 4.0
   * Order to learn:
-    * Riichi
-      * You cannot call Pon/Chii/Kan
-    * Yakuhai (value honor triplet)
+    * [Riichi](https://riichi.wiki/Riichi)
+      * You cannot [call Pon/Chii/Kan](https://riichi.wiki/Naki#Tile_calls)
+    * [Yakuhai](https://riichi.wiki/Yakuhai) (value honor triplet)
       * You can consider calling Pon to form a value honor triplet
-    * Tanyao (all simples) 
-      * If you have no 1s, 9s, or honors you can consider calling Pon/Chii
+    * [Tanyao](https://riichi.wiki/Tanyao) (all simples) 
+      * If you have only 2-8 (no 1s, 9s, or honors) you can consider calling Pon/Chii
       * But be careful with 23 or 78 draws, if you open the hand you are committed to no 1s or 9s!
-    * Chiitoitsu  (seven pairs)
+    * [Chiitoitsu](https://riichi.wiki/Chiitoitsu) (seven pairs)
       * One of two exceptions to the pair plus four melds of 3 pattern
       * If you end up with five pairs, go for this
       * Otherwise it's usually best to go for a pair plus four melds of 3 hand
@@ -62,10 +62,10 @@
           * The game will ask if you want to re-deal
           * If you feel lucky, click continue and go for it!
           * If you start with 9 terminals, your odds are about 5.5% [Source](https://osamuko.com/i-told-you-not-to-go-for-kokushi/)
-    * Toitoi (all triplets)
+    * [Toitoi](https://riichi.wiki/Toitoihou) (all triplets)
       * If you were heading for seven pairs but get one or more triplets, consider switching to all triplets
       * Pon everything!
-    * Honitsu (half flush -- only one suit plus honors)
+    * [Honitsu](https://riichi.wiki/Honiisou) (half flush -- only one suit plus honors)
       * If you start with many honor tiles and a long suit, consider discarding the other two suits first instead of the normal discard order
     * All the rest
 
