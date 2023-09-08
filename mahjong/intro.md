@@ -7,6 +7,7 @@
 - [Learning Mahjong from scratch](#learning-mahjong-from-scratch)
 - [Intermediate resources](#intermediate-resources)
 - [Advanced resources](#advanced-resources)
+- [Other links](#other-links)
 
 # Learning Mahjong from scratch
 * [Mahjong Soul](https://mahjongsoul.yo-star.com) aka MJS
@@ -82,3 +83,6 @@
 * [Common Waits](media/Common_Waits.png) by reddit user u/Mr_Blarney [Source](https://cdn.discordapp.com/attachments/560284657229234196/1059251851033313350/Common_Waits.png)    
 * [Discard reading](https://rentry.co/8gmub) rough notes by Twitch user Xomnom
 * [Early discards](https://rentry.co/shha7) rough notes by Twitch user Xomnom
+
+# Other links
+* [Rough notes](rough_notes.md) Some rough personal notes for my own use
