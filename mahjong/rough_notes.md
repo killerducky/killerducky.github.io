@@ -10,25 +10,25 @@ These are some rough notes for my own personal use.
 - [Riichi](#riichi)
 - [Toitoi vs. chiitoitsu](#toitoi-vs-chiitoitsu)
 - [Links](#links)
+- [Random examples](#random-examples)
 
 # Terms
-ryanmen two-sided (-56-)
-kanchan gap shape (5-7)   Kanchan+  577
-penchan edge shape (-89)
-tanki Single tile waiting to pair
-shanpon  double pair wait  (AABB)
-Ryankan (double kanchan = double gutter) (3-5-7)
-
-Pentan (penchan+tanki = edge + pair draw)  1222 waits 13
-Ryantan (ryanmen+tanki) 5556 waits 47 or 6
-Kantan (kanchan+tanki) 5557 waits 6 or 7
-
-Long Kanchan+ 112346 -> 123 456 (drop 1) or 111 234 (drop 6)
-
-Kamicha - Left
-Toimen - Across
-Shimocha - Right
-Oya - Dealer
+* ryanmen two-sided (-56-)
+* kanchan gap shape (5-7)   Kanchan+  577
+* penchan edge shape (-89)
+* tanki Single tile waiting to pair
+* 
+* shanpon  double pair wait  (AABB)
+* Ryankan (double kanchan = double gutter) (3-5-7)
+* Pentan (penchan+tanki = edge + pair draw)  1222 waits 13
+* Ryantan (ryanmen+tanki) 5556 waits 47 or 6
+* Kantan (kanchan+tanki) 5557 waits 6 or 7
+* Long Kanchan+ 112346 -> 123 456 (drop 1) or 111 234 (drop 6)
+* 
+* Kamicha - Left
+* Toimen - Across
+* Shimocha - Right
+* Oya - Dealer
 
 # Melding
 * Do not meld if one of the two holds:
@@ -63,3 +63,8 @@ Oya - Dealer
 # Links
 [Game analyzer](https://mjai.ekyu.moe/)
 
+# Random examples
+* XXX XXX 244 778 45 
+  * cut 2 = keep the good 778 shape
+* XXX 112 899 566 45
+  * cut 6 = go back to 2 pairs?
