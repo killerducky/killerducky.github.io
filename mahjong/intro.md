@@ -5,6 +5,7 @@
 - [Introduction](#introduction)
 - [Table of Contents](#table-of-contents)
 - [Learning Mahjong from scratch](#learning-mahjong-from-scratch)
+- [Beginner resources](#beginner-resources)
 - [Intermediate resources](#intermediate-resources)
 - [Advanced resources](#advanced-resources)
 - [Other links](#other-links)
@@ -43,12 +44,12 @@
   * Seat wind
   * 2s and 8s
   * Other isolated tiles
-* Learn the [Basic Yaku](media/Riichi%20Mahjong%20simplified.pdf) by reddit user u/Aranlyed
+* Learn the [Basic Yaku and scoring](media/Riichi%20Mahjong%20simplified.pdf) by reddit user u/Aranlyed
 * Full [Yaku List](media/Riichi%20Mahjong%20Yaku%20List.png) by reddit u/Aranlyde [Source](https://www.reddit.com/r/Mahjong/comments/l5b221/riichi_mahjong_cheat_sheet_1_page_pdf_or_images/) License CC/BY/NC 4.0
   * Order to learn:
     * [Riichi](https://riichi.wiki/Riichi)
       * You cannot [call Pon/Chii/Kan](https://riichi.wiki/Naki#Tile_calls)
-    * [Yakuhai](https://riichi.wiki/Yakuhai) (value honor triplet)
+    * [Yakuhai](https://riichi.wiki/Yakuhai) (value honor triplet = set of dragons, seat wind, or round wind)
       * You can consider calling Pon to form a value honor triplet
     * [Tanyao](https://riichi.wiki/Tanyao) (all simples) 
       * If you have only 2-8 (no 1s, 9s, or honors) you can consider calling Pon/Chii
@@ -64,19 +65,22 @@
           * If you feel lucky, click continue and go for it!
           * If you start with 9 terminals, your odds are about 5.5% [Source](https://osamuko.com/i-told-you-not-to-go-for-kokushi/)
     * [Toitoi](https://riichi.wiki/Toitoihou) (all triplets)
-      * If you were heading for seven pairs but get one or more triplets, consider switching to all triplets
+      * If you were heading for seven pairs but draw one or more triplets, consider switching to all triplets
       * Pon everything!
     * [Honitsu](https://riichi.wiki/Honiisou) (half flush -- only one suit plus honors)
       * If you start with many honor tiles and a long suit, consider discarding the other two suits first instead of the normal discard order
     * All the rest
+
+# Beginner resources
+* [Basic Yaku and scoring](media/Riichi%20Mahjong%20simplified.pdf) by reddit user u/Aranlyed
+* Full [Yaku List](media/Riichi%20Mahjong%20Yaku%20List.png) by reddit u/Aranlyde [Source](https://www.reddit.com/r/Mahjong/comments/l5b221/riichi_mahjong_cheat_sheet_1_page_pdf_or_images/) License CC/BY/NC 4.0
+* Full [Scoring Guide](media/Riichi%20Mahjong%20Scoring%20Guide.png) by reddit u/Aranlyde [Source](https://www.reddit.com/r/Mahjong/comments/l5b221/riichi_mahjong_cheat_sheet_1_page_pdf_or_images/) License CC/BY/NC 4.0
 
 # Intermediate resources
 * [Riichi Book 1](https://dainachiba.github.io/RiichiBooks/) Intermediate Mahjong Strategy Primer
   * Focus on the Basic Tile Efficiency part
 * [Uzaku's Guide to Mahjong Tile Efficiency](https://www.reddit.com/r/Mahjong/comments/tv950t/uzakus_guide_to_mahjong_tile_efficiency_english) English translation by reddit user u/konomu [Direct link](https://drive.google.com/file/d/1ApHp2Dm-3dkEQTEAnmfTsk8J6OaH8d4G/view?usp=sharing)
 * Four types of [iishanten](https://www.youtube.com/watch?v=mKEOEWEc5JE&ab_channel=%E3%81%86%E3%81%AB%E4%B8%B8%E9%BA%BB%E9%9B%80%E3%81%A1%E3%82%83%E3%82%93%E3%81%AD%E3%82%8B) (1-away) shapes
-* [Scoring Guide](media/Riichi%20Mahjong%20Scoring%20Guide.png) by reddit u/Aranlyde [Source](https://www.reddit.com/r/Mahjong/comments/l5b221/riichi_mahjong_cheat_sheet_1_page_pdf_or_images/) License CC/BY/NC 4.0
-  * More Yaku = more Han = bigger score
 * [Stats scraper](https://amae-koromo.sapk.ch) (Gold room or higher only)
 
 # Advanced resources
