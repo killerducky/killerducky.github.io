@@ -9,6 +9,7 @@ These are some rough notes for my own personal use.
 - [Push/Fold](#pushfold)
 - [Riichi](#riichi)
 - [Toitoi vs. chiitoitsu](#toitoi-vs-chiitoitsu)
+- [1-away iishanten](#1-away-iishanten)
 - [Links](#links)
 - [Random examples](#random-examples)
 
@@ -64,6 +65,13 @@ These are some rough notes for my own personal use.
   * There is no pair of value tiles in your hand. 
   * There are three or more pairs of simple tiles between 3 and 7 in your hand.
 
+# 1-away iishanten
+Best to worst:
+  1. headless+ankou
+  2. sticky - 4 groups
+  3. headless
+  4. standard/perfect
+
 # Links
 [Game analyzer](https://mjai.ekyu.moe/)
 
@@ -91,3 +99,6 @@ These are some rough notes for my own personal use.
 Going for headless iishanten or not:
 https://tenhou.net/2/?q=1223567m78p56789s
 https://tenhou.net/2/?q=1223567m78p45789s
+
+
+https://cdn.discordapp.com/attachments/584898975446859796/720982540948734002/Gentaros_tile_efficiency_course.pdf
