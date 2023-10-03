@@ -10,7 +10,6 @@ These are some rough notes for my own personal use.
 - [Riichi](#riichi)
 - [Toitoi vs. chiitoitsu](#toitoi-vs-chiitoitsu)
 - [1-away iishanten](#1-away-iishanten)
-- [Links](#links)
 - [Random examples](#random-examples)
 
 # Terms
@@ -71,9 +70,6 @@ Best to worst:
   2. sticky - 4 groups
   3. headless
   4. standard/perfect
-
-# Links
-[Game analyzer](https://mjai.ekyu.moe/)
 
 # Random examples
 * XXX XXX 244 778 45 

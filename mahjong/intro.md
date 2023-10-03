@@ -83,6 +83,13 @@
 * Four types of [iishanten](https://www.youtube.com/watch?v=mKEOEWEc5JE&ab_channel=%E3%81%86%E3%81%AB%E4%B8%B8%E9%BA%BB%E9%9B%80%E3%81%A1%E3%82%83%E3%82%93%E3%81%AD%E3%82%8B) (1-away) shapes
 * [Stats scraper](https://amae-koromo.sapk.ch) (Gold room or higher only)
 * [Mortal AI reviewer](https://mjai.ekyu.moe)
+* [Naga](https://naga.dmv.nico/naga_report/top/)
+  * Better UI than mortal, stronger
+  * But it's a paid service
+  * [Naga guide](https://pathofhouou.blogspot.com/2021/08/training-tool-naga-replay-review.html)
+  * [labels picture](https://1.bp.blogspot.com/-Q667x0aUrCg/YR6q9Xq2UII/AAAAAAAAA50/ygF8x7LuN7QOE7QbCBcNND2NtqFoPhUCgCLcBGAsYHQ/s1018/naga.png)
+  * [MahjongSoul NAGA chrome extension](https://chrome.google.com/webstore/detail/mahjongsoul-review-suppor/kdmfnkdgpialmejpgflfllkjakolamcc)
+    * MJS reviews are single hands only and cost more (10 per hand instead of 50 per hanchan)
 
 # Advanced resources
 * [Common Waits](media/Common_Waits.png) by reddit user u/Mr_Blarney [Source](https://cdn.discordapp.com/attachments/560284657229234196/1059251851033313350/Common_Waits.png)    
