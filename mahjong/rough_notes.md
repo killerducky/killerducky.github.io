@@ -10,6 +10,7 @@ These are some rough notes for my own personal use.
 - [Riichi](#riichi)
 - [Toitoi vs. chiitoitsu](#toitoi-vs-chiitoitsu)
 - [1-away iishanten](#1-away-iishanten)
+- [Gacha notes](#gacha-notes)
 - [Random examples](#random-examples)
 
 # Terms
@@ -51,6 +52,18 @@ These are some rough notes for my own personal use.
   * Ready hand (not iishanten/1-ready!)
   * High scoring hand (7700+ = 4han+)
   * Good wait (2 kinds, 6+ tiles)
+* [Push or Fold judgement](https://youtu.be/XvCAmf4KCBk?t=377)
+  * Iishanten, net score >=1 means push
+  * +1: 2 good waits, 3h(4h), 4th, t5-
+  * =0: 1 bad wait,  (3h), vs non-dealer, t6~8
+  * -1: 2 bad waits, 2h, vs dealer, t9+
+  * By turn (do not include turn in scores)
+    * Turn 5-  : Push score 0+
+    * Turn 6~8 : Push score 1+
+    * Turn 9+  : Push score 2+
+    * Value, Wait, 4th, minus: vs Dealer
+    * Value: 3h(4h)+, (3h), 2h-
+    * Wait: 2 good, 1 good, 2 bad
   
 # Riichi
 * Only dama (skipping Riichi) for: bad-wait riichi-only hand by a non-dealer.
@@ -66,10 +79,16 @@ These are some rough notes for my own personal use.
 
 # 1-away iishanten
 Best to worst:
-  1. headless+ankou
-  2. sticky - 4 groups
-  3. headless
-  4. standard/perfect
+  1. headless+ankou (8t 28k -- all good)
+  2. sticky - 4 groups (11k 40t)
+  3. headless (8t 28k -- good: 4t 16k bad: 4t 12k)
+  4. standard/perfect (6t 20k)
+
+# Gacha notes
+* Gift to Miki: diamonds
+* Donate everything else for dust -- summon cool stuff
+
+* purple tier save for bond (future)
 
 # Random examples
 * XXX XXX 244 778 45 
