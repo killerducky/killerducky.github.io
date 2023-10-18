@@ -4,11 +4,16 @@
 # Table of Contents
 - [Introduction](#introduction)
 - [Table of Contents](#table-of-contents)
-- [Learning Mahjong from scratch](#learning-mahjong-from-scratch)
 - [Beginner resources](#beginner-resources)
+- [Learning Mahjong from scratch](#learning-mahjong-from-scratch)
 - [Intermediate resources](#intermediate-resources)
 - [Advanced resources](#advanced-resources)
 - [Other links](#other-links)
+
+# Beginner resources
+* [Basic Yaku and scoring](media/Riichi%20Mahjong%20simplified.pdf) by reddit user u/Aranlyed
+* Full [Yaku List](media/Riichi%20Mahjong%20Yaku%20List.png) by reddit u/Aranlyde [Source](https://www.reddit.com/r/Mahjong/comments/l5b221/riichi_mahjong_cheat_sheet_1_page_pdf_or_images/) License CC/BY/NC 4.0
+* Full [Scoring Guide](media/Riichi%20Mahjong%20Scoring%20Guide.png) by reddit u/Aranlyde [Source](https://www.reddit.com/r/Mahjong/comments/l5b221/riichi_mahjong_cheat_sheet_1_page_pdf_or_images/) License CC/BY/NC 4.0
 
 # Learning Mahjong from scratch
 * [Mahjong Soul](https://mahjongsoul.yo-star.com) aka MJS
@@ -70,11 +75,6 @@
     * [Honitsu](https://riichi.wiki/Honiisou) (half flush -- only one suit plus honors)
       * If you start with many honor tiles and a long suit, consider discarding the other two suits first instead of the normal discard order
     * All the rest
-
-# Beginner resources
-* [Basic Yaku and scoring](media/Riichi%20Mahjong%20simplified.pdf) by reddit user u/Aranlyed
-* Full [Yaku List](media/Riichi%20Mahjong%20Yaku%20List.png) by reddit u/Aranlyde [Source](https://www.reddit.com/r/Mahjong/comments/l5b221/riichi_mahjong_cheat_sheet_1_page_pdf_or_images/) License CC/BY/NC 4.0
-* Full [Scoring Guide](media/Riichi%20Mahjong%20Scoring%20Guide.png) by reddit u/Aranlyde [Source](https://www.reddit.com/r/Mahjong/comments/l5b221/riichi_mahjong_cheat_sheet_1_page_pdf_or_images/) License CC/BY/NC 4.0
 
 # Intermediate resources
 * [Riichi Book 1](https://dainachiba.github.io/RiichiBooks/) Intermediate Mahjong Strategy Primer
