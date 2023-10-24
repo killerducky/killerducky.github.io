@@ -82,6 +82,9 @@
 * [Uzaku's Guide to Mahjong Tile Efficiency](https://www.reddit.com/r/Mahjong/comments/tv950t/uzakus_guide_to_mahjong_tile_efficiency_english) English translation by reddit user u/konomu [Direct link](https://drive.google.com/file/d/1ApHp2Dm-3dkEQTEAnmfTsk8J6OaH8d4G/view?usp=sharing)
 * Four types of [iishanten](https://www.youtube.com/watch?v=mKEOEWEc5JE&ab_channel=%E3%81%86%E3%81%AB%E4%B8%B8%E9%BA%BB%E9%9B%80%E3%81%A1%E3%82%83%E3%82%93%E3%81%AD%E3%82%8B) (1-away) shapes
 * [Stats scraper](https://amae-koromo.sapk.ch) (Gold room or higher only)
+* [Graph maker](https://colab.research.google.com/drive/1puwnp-_k3aHV8trHYInX9HGsBgnJ-hYY)
+  * プレイヤー名: Put your MJS name here
+  * Click the play button on the left side
 * [Mortal AI reviewer](https://mjai.ekyu.moe)
 * [Naga](https://naga.dmv.nico/naga_report/top/)
   * Better UI than mortal, stronger
