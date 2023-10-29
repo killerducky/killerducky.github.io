@@ -34,17 +34,17 @@
   * Honors
     * Dragons (White, Green, Red)
     * Winds (East, South, West, North)
-      * Seat wind
-      * Round wind
-      * Guest wind
+      * Seat wind (Center area shows what wind you are)
+      * Round wind (Center area shows this -- usually East or South)
+      * Guest wind (The other winds)
     * Value Honors (Dragons, Seat wind, Round wind)
   * Suits (Character/Crack/Manzu, Dot/Pinzu, Bamboo/Bam/Souzu)
-    * Terminals (1s, 9s)
+    * Terminals (1, 9)
     * Simples (2-8)
 * Discard priority order (only if isolated -- not paired or part of a possible run)
   * Guest Winds (not the round wind or your seat wind)
-  * 1s and 9s
-  * Round wind (if its not also your seat wind)
+  * Terminals (1, 9)
+  * Round wind (if not also your seat wind)
   * Dragons
   * Seat wind
   * 2s and 8s
@@ -79,10 +79,9 @@
 # Intermediate resources
 * [Riichi Book 1](https://dainachiba.github.io/RiichiBooks/) Intermediate Mahjong Strategy Primer
   * Focus on the Basic Tile Efficiency part
-* [Uzaku's Guide to Mahjong Tile Efficiency](https://www.reddit.com/r/Mahjong/comments/tv950t/uzakus_guide_to_mahjong_tile_efficiency_english) English translation by reddit user u/konomu [Direct link](https://drive.google.com/file/d/1ApHp2Dm-3dkEQTEAnmfTsk8J6OaH8d4G/view?usp=sharing)
-* Four types of [iishanten](https://www.youtube.com/watch?v=mKEOEWEc5JE&ab_channel=%E3%81%86%E3%81%AB%E4%B8%B8%E9%BA%BB%E9%9B%80%E3%81%A1%E3%82%83%E3%82%93%E3%81%AD%E3%82%8B) (1-away) shapes
+* Four types of [iishanten](https://www.youtube.com/watch?v=p6Fb5oQRjMM) (1-away) shapes
 * [Stats scraper](https://amae-koromo.sapk.ch) (Gold room or higher only)
-* [Graph maker](https://colab.research.google.com/drive/1puwnp-_k3aHV8trHYInX9HGsBgnJ-hYY)
+* [Rank Graph maker](https://colab.research.google.com/drive/1puwnp-_k3aHV8trHYInX9HGsBgnJ-hYY)
   * プレイヤー名: Put your MJS name here
   * Click the play button on the left side
 * [Mortal AI reviewer](https://mjai.ekyu.moe)
@@ -95,6 +94,7 @@
     * MJS reviews are single hands only and cost more (10 per hand instead of 50 per hanchan)
 
 # Advanced resources
+* [Uzaku's Guide to Mahjong Tile Efficiency](https://www.reddit.com/r/Mahjong/comments/tv950t/uzakus_guide_to_mahjong_tile_efficiency_english) English translation by reddit user u/konomu [Direct link](https://drive.google.com/file/d/1ApHp2Dm-3dkEQTEAnmfTsk8J6OaH8d4G/view?usp=sharing)
 * [Common Waits](media/Common_Waits.png) by reddit user u/Mr_Blarney [Source](https://cdn.discordapp.com/attachments/560284657229234196/1059251851033313350/Common_Waits.png)    
 * [Discard reading](https://rentry.co/8gmub) rough notes by Twitch user Xomnom
 * [Early discards](https://rentry.co/shha7) rough notes by Twitch user Xomnom
