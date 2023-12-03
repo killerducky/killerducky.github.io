@@ -111,6 +111,20 @@ Best to worst:
 * Suji on riichi discard not reliable
   * 246 cut 6, suji 3 deals in
 
+1334
+1246
+1244
+1245 
+All these 1s are worse than isolated 3!
+rms p26
+
+KD's challenge: Invent a situation where this rms advice applies.
+
+Probably no:
+https://tenhou.net/2/?q=1245m37s223788p11z
+Probably yes:
+https://tenhou.net/2/?q=1245m1227p355899s
+
 Going for headless iishanten or not:
 https://tenhou.net/2/?q=1223567m78p56789s
 https://tenhou.net/2/?q=1223567m78p45789s
