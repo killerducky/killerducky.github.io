@@ -84,6 +84,8 @@
 * [Rank Graph maker](https://colab.research.google.com/drive/1puwnp-_k3aHV8trHYInX9HGsBgnJ-hYY)
   * プレイヤー名: Put your MJS name here
   * Click the play button on the left side
+* [Expected Score graph maker](https://colab.research.google.com/drive/1o5faMfPrMLzsPIO-ZUj7rY_sJfRblqa4?usp=sharing)
+  * I modified the above script to also draw moving averages of your expected score
 * [Mortal AI reviewer](https://mjai.ekyu.moe)
 * [Naga](https://naga.dmv.nico/naga_report/top/)
   * Better UI than mortal, stronger
