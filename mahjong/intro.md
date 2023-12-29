@@ -97,7 +97,8 @@
 
 # Advanced resources
 * [Uzaku's Guide to Mahjong Tile Efficiency](https://www.reddit.com/r/Mahjong/comments/tv950t/uzakus_guide_to_mahjong_tile_efficiency_english) English translation by reddit user u/konomu [Direct link](https://drive.google.com/file/d/1ApHp2Dm-3dkEQTEAnmfTsk8J6OaH8d4G/view?usp=sharing)
-* [Common Waits](media/Common_Waits.png) by reddit user u/Mr_Blarney [Source](https://cdn.discordapp.com/attachments/560284657229234196/1059251851033313350/Common_Waits.png)    
+* [Common Waits](media/Common_Waits.png) by reddit user u/Mr_Blarney [Source](https://drive.google.com/file/d/1K4NuE2UZgeqhSR-WsYWyQlRiEERh5VQo/view) [Reddit post](https://www.reddit.com/r/Mahjong/comments/100qw6y/mahjong_waits_infographic/)
+  * [Book](https://www.reddit.com/r/Mahjong/comments/175hsqz/reading_multisided_waits_free_guide_book/) on multisided waits expanding on this graphic
 * [Discard reading](https://rentry.co/8gmub) rough notes by Twitch user Xomnom
 * [Early discards](https://rentry.co/shha7) rough notes by Twitch user Xomnom
 * [Push or Fold judgement](https://youtu.be/XvCAmf4KCBk?t=377)
