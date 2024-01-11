@@ -30,3 +30,4 @@ Percentage of bad mistakes for Tenhou by Rate
 
 ![](<media/Naga Bad Mistakes by Tenhou Rate.png>)
 
+Data from January 2023 and earlier. Naga Nishiki version 2.2
