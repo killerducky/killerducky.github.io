@@ -104,5 +104,5 @@
 * [Push or Fold judgement](https://youtu.be/XvCAmf4KCBk?t=377)
 
 # Other links
-* [Nata Stats](naga_stats.md) 
+* [Nata Stats](naga_stats.md) Charts showing average Naga scores for various Ranks on MJS or Tenhou.
 * [Rough notes](rough_notes.md) Some rough personal notes for my own use
