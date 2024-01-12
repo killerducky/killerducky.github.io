@@ -4,11 +4,15 @@ To start with the conclusion, this chart shows each MJS rank, Tenhou dan rank, a
 
 <kbd>![](<media/Score_vs_MJS_and_Tenhou.png>)</kbd>
 
+test
+
+<kbd><img src="media/Score_vs_MJS_and_Tenhou.png"/></kbd>
+
 Roughly MJS Master 3 = Tenhou 4d = Tenhou 1850R. And MJS Saint 3 = Tenhou 7d = Tenhou 2050R. 
 
 Here are individual charts for MJS and Tenhou, starting with MJS. The Red Xs above and below each datapoint shows a +/- 2 Standard Error range. The blue line is a 2nd degree polynomial fit.
 
-<kdb>![](<media/Naga Scores by MJS Rank.png>)</kbd>
+> ![](<media/Naga Scores by MJS Rank.png>)</kbd>
 
 Similar for Tenhou Dan (note the very large error range for 7d and 8d -- there were very few data points for these in the dataset)
 
