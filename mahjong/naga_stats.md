@@ -1,4 +1,4 @@
-These charts show average Naga scores for various Ranks on MJS or Tenhou. The data comes from Naga analysis of my own MJS games and Tenhou games kindly sent by Razout aka Enzegeitor. The results of myself and Razout are excluded to reduce bias.
+These charts show average Naga scores for various Ranks on MJS and Tenhou. The data comes from Naga analysis of my own MJS games and Tenhou games kindly sent by Razout aka Enzegeitor. The results of myself and Razout are excluded to reduce bias. I started collecting this data to get an idea what Naga scores I should be aiming for to get to the next level on MJS.
 
 To start with the conclusion, this chart shows each MJS rank, Tenhou dan rank, and Tenhou Rating bin and their average Nikishi score.
 
