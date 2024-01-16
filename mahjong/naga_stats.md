@@ -1,4 +1,8 @@
-These charts show average Naga scores for various Ranks on MJS and Tenhou. The data comes from Naga analysis of my own MJS games and Tenhou games kindly sent by Razout aka Enzegeitor. The results of myself and Razout are excluded to reduce bias. I started collecting this data to get an idea what Naga scores I should be aiming for to get to the next level on MJS.
+These charts show average [Naga](https://naga.dmv.nico/naga_report/top/) scores for various Ranks on MJS and Tenhou. [Naga](https://naga.dmv.nico/naga_report/top/) is a paid service that can analyze your Mahjong games. It provides statistics that grade how well you played. See my [advanced resources](https://killerducky.github.io/mahjong/intro#advanced-resources) section for more information.
+
+The simplest statistic is Match percent, which shows how often your discard was the same as Naga's. But often there are several choices that are almost the same, e.g. which Dragon to discard. Instead I used Score, which gives partial credit for non-matching discards based on how close Naga thinks your alternative is. I also used the Bad Mistakes metric. This is the percentage of discards that are below a certain threshold.
+
+The data comes from Naga analysis of my own MJS games and Tenhou games kindly sent by Razout aka Enzegeitor. The results of myself and Razout are excluded to reduce bias. I started collecting this data to get an idea what Naga scores I should be aiming for to get to the next level on MJS.
 
 To start with the conclusion, this chart shows each MJS rank, Tenhou dan rank, and Tenhou Rating bin and their average Nikishi score.
 
