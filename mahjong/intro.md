@@ -77,9 +77,9 @@
     * All the rest
 
 # Intermediate resources
+* Four types of [iishanten](https://www.youtube.com/watch?v=p6Fb5oQRjMM) (1-away) shapes
 * [Riichi Book 1](https://dainachiba.github.io/RiichiBooks/) Intermediate Mahjong Strategy Primer
   * Focus on the Basic Tile Efficiency part
-* Four types of [iishanten](https://www.youtube.com/watch?v=p6Fb5oQRjMM) (1-away) shapes
 * [Stats scraper](https://amae-koromo.sapk.ch) (Gold room or higher only)
 * [Rank Graph maker](https://colab.research.google.com/drive/1puwnp-_k3aHV8trHYInX9HGsBgnJ-hYY)
   * プレイヤー名: Put your MJS name here
@@ -96,7 +96,7 @@
     * MJS reviews are single hands only and cost more (10 per hand instead of 50 per hanchan)
 
 # Advanced resources
-* [Uzaku's Guide to Mahjong Tile Efficiency](https://www.reddit.com/r/Mahjong/comments/tv950t/uzakus_guide_to_mahjong_tile_efficiency_english) English translation by reddit user u/konomu [Direct link](https://drive.google.com/file/d/1ApHp2Dm-3dkEQTEAnmfTsk8J6OaH8d4G/view?usp=sharing)
+* [Uzaku's Guide to Mahjong Tile Efficiency](https://drive.google.com/file/d/1ApHp2Dm-3dkEQTEAnmfTsk8J6OaH8d4G/view?usp=sharing) English translation by reddit user u/konomu (Original reddit post deleted)
 * [Common Waits](media/Common_Waits.png) by reddit user u/Mr_Blarney [Source](https://drive.google.com/file/d/1K4NuE2UZgeqhSR-WsYWyQlRiEERh5VQo/view) [Reddit post](https://www.reddit.com/r/Mahjong/comments/100qw6y/mahjong_waits_infographic/)
   * [Book](https://www.reddit.com/r/Mahjong/comments/175hsqz/reading_multisided_waits_free_guide_book/) on multisided waits expanding on this graphic
 * [Discard reading](https://rentry.co/8gmub) rough notes by Twitch user Xomnom
