@@ -1,0 +1,94 @@
+/*
+TODO Different options based on user screen size 
+TODO: size a container instead 
+https://stackoverflow.com/questions/38476117/how-do-i-fix-width-height-of-rotated-img-div/38476256#38476256
+Wrap the image in a div the right size after translation and it'll be fine..
+*/
+
+:root{
+    --main-width: 700px;
+    --main-height: 700px;
+    --neg-margin: -11px; 
+}
+body{
+/*     background: radial-gradient(circle at 40% 20%, rgb(0, 111, 176) 10%, rgb(4, 50, 111) 50%, rgb(2, 35, 77) 150%); */
+    background: lightblue;
+}
+h1{
+    background: deepskyblue;
+}
+.grid-main{
+    display: grid;
+    width: var(--main-width);
+    height: calc(var(--main-height) + 50px);
+    grid-template-columns: 95px 155px 200px 155px 95px;
+    grid-template-rows: 95px 155px 200px 155px 145px;
+    grid-template-areas: "ah-p3 ah-p2 ah-p2   ah-p2 ah-p2"
+                         "ah-p3 .     ad-p2   .     ah-p1"
+                         "ah-p3 ad-p3 a-info  ad-p1 ah-p1"
+                         "ah-p3 .     ad-p0   .     ah-p1"
+                         "ah-p0 ah-p0 ah-p0   ah-p0 ah-p1";
+}
+.grid-hand-p3{
+    grid-area: ah-p3;
+    writing-mode: vertical-rl;
+    background: deepskyblue;
+}
+.grid-hand-p2{
+    grid-area: ah-p2;
+    transform: rotate(180deg);
+    background: deepskyblue;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+.grid-hand-p1{
+    grid-area: ah-p1;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    background: deepskyblue;
+}
+.grid-hand-p0-container{
+    grid-area: ah-p0;
+    background: deepskyblue;
+}
+.grid-hand-p0{
+    padding-top: 10px;
+    padding-left: 10px;
+}
+.grid-discard{
+    display:grid;
+    grid-template-columns: repeat(6, 34px);
+    grid-template-rows: repeat(3, 44px);
+    justify-content:left;
+    align-items:center;
+}
+.grid-discard-p3 {
+    grid-area: ad-p3;
+    writing-mode: vertical-rl;
+}
+.grid-discard-p2 {
+    grid-area: ad-p2;
+    transform: rotate(180deg);
+}
+.grid-discard-p1 {
+    grid-area: ad-p1;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+}
+.grid-discard-p0 {
+    grid-area: ad-p0;
+}
+.grid-info {
+    grid-area: a-info;
+}
+.rotate > img {
+    transform: rotate(90deg);
+    margin-bottom: var(--neg-margin);
+    margin-right: 13px; /* TODO */
+}
+.grid-hand > img {
+    width:30px;
+}
+.grid-discard > img {
+    width:30px;
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="media/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="media/favicon-16x16.png">
+    <title>Killer Mahjong Reviewer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-title-container">
+            <h1>Killer Mortal Reviewer</h1>
+        </div>
+    </header>
+    <main>
+        <div class="grid-main">
+            <span class="grid-hand-p0-container">
+                <span id="discard-bars" class="discard-bars"></span>
+                <br>
+                <span class="grid-hand grid-hand-p0"></span>
+            </span>
+            <span class="grid-hand rotate grid-hand-p3"></span>
+            <span class="grid-hand grid-hand-p2"></span>
+            <span class="grid-hand rotate grid-hand-p1"></span>
+            <span class="grid-discard grid-discard-p0"></span>
+            <span class="grid-discard rotate grid-discard-p3"></span>
+            <span class="grid-discard grid-discard-p2"></span>
+            <span class="grid-discard rotate grid-discard-p1"></span>
+            <div class="grid-info"></div>
+        </div>
+        <div class="controls">
+            <button id="ply-dec2">--</button>
+            <button id="ply-dec">-</button>
+            <input type="number" id="ply-counter" value="0" readonly>
+            <button id="ply-inc">+</button>
+            <button id="ply-inc2">++</button>
+        </div>
+        <div class="mortal-html">
+            <input type="file" id="mortal-html-file">
+        </div>
+    </main>
+    <script src="index.js"></script>
+</body>
+</html>
