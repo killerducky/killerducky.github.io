@@ -5,7 +5,7 @@ json_data = {
     "dan":["雀豪★1","雀豪★1","雀聖★2","雀聖★2"],
     "lobby":0,
     "log":[[
-        [2,0,0], // East 3, no repeats, no riichi sticks
+        [2,0,0], // East 3, no repeats, no riichi sticks  E3 means PID2 is now East/Dealer
         [22000,11300,44700,22000], // start points
         [22], // Dora 2p
         [], // Uradora
@@ -17,18 +17,19 @@ json_data = {
         [37,23,45,42,51,37,13,38,43,23,46,38,12],              // haipai = starting hand
         [47,12,11,44,47,14,"3838p38",43,33,22,36,14,28,12,17], // draws
         [43,42,46,45,44,47,47,11,43,33,22,36,60,14,60],        // discards
-        // PID2 = W in E1,  now: East                          // mortal POV player
+        // PID2 = W in E1  now: East                           // (mortal POV player in this case)
         [41,21,36,26,15,39,29,44,47,32,46,26,35],
         [29,16,43,16,26,52,38,31,32,38,25,36,24,31,"c141516",25],
         [44,39,60,46,47,32,60,60,60,60,21,26,41,60,29,29],
-        // PID3 i N in E1   now: South
+        // PID3 = N in E1  now: South
         [28,19,27,33,15,44,11,22,32,15,19,35,45],       // haipai = starting hand
         [33,39,19,21,29,44,42,14,27,42,45,42,41,16,39], // draws
         [44,60,11,45,35,60,33,60,60,60,60,60,60,42,60], // discards
         [
-            "和了", // "heaven" = Agari = Win (Tsumo or Ron)
+            "和了",           // "heaven" = Agari = Win (Tsumo or Ron)
             [-7700,7700,0,0], // point change
-            [1,0,1,"30符4飜7700点","断幺九(1飜)","ドラ(2飜)","赤ドラ(1飜)"]
+            [1,0,1,           // who won, points from (self if tsumo), who won or if pao: who's responsible
+                "30符4飜7700点","断幺九(1飜)","ドラ(2飜)","赤ドラ(1飜)"]  // score info strings
         ]
     ]],
     "name":["Aさん","Bさん","Cさん","Dさん"],
@@ -40,16 +41,102 @@ json_data = {
 }
 */
 
+class GameLog {
+    constructor(log) {
+        const RUNES  = {
+            /*hand limits*/
+            "mangan"         : ["満貫",         "Mangan ",         "Mangan "               ],
+            "haneman"        : ["跳満",         "Haneman ",        "Haneman "              ],
+            "baiman"         : ["倍満",         "Baiman ",         "Baiman "               ],
+            "sanbaiman"      : ["三倍満",       "Sanbaiman ",      "Sanbaiman "            ],
+            "yakuman"        : ["役満",         "Yakuman ",        "Yakuman "              ],
+            "kazoeyakuman"   : ["数え役満",     "Kazoe Yakuman ",  "Counted Yakuman "      ],
+            "kiriagemangan"  : ["切り上げ満貫", "Kiriage Mangan ", "Rounded Mangan "       ],
+            /*round enders*/
+            "agari"          : ["和了",         "Agari",           "Agari"                 ],
+            "ryuukyoku"      : ["流局",         "Ryuukyoku",       "Exhaustive Draw"       ],
+            "nagashimangan"  : ["流し満貫",     "Nagashi Mangan",  "Mangan at Draw"        ],
+            "suukaikan"      : ["四開槓",       "Suukaikan",       "Four Kan Abortion"     ],
+            "sanchahou"      : ["三家和",       "Sanchahou",       "Three Ron Abortion"    ],
+            "kyuushukyuuhai" : ["九種九牌",     "Kyuushu Kyuuhai", "Nine Terminal Abortion"],
+            "suufonrenda"    : ["四風連打",     "Suufon Renda",    "Four Wind Abortion"    ],
+            "suuchariichi"   : ["四家立直",     "Suucha Riichi",   "Four Riichi Abortion"  ],
+            /*scoring*/
+            "fu"             : ["符",           /*"Fu",*/"符",     "Fu"                    ],
+            "han"            : ["飜",           /*"Han",*/"飜",    "Han"                   ],
+            "points"         : ["点",           /*"Points",*/"点", "Points"                ],
+            "all"            : ["∀",            "∀",               "∀"                     ],
+            "pao"            : ["包",           "pao",             "Responsibility"        ],
+            /*rooms*/
+            "tonpuu"         : ["東喰",         " East",           " East"                 ],
+            "hanchan"        : ["南喰",         " South",          " South"                ],
+            "friendly"       : ["友人戦",       "Friendly",        "Friendly"              ],
+            "tournament"     : ["大会戦",       "Tounament",       "Tournament"            ],
+            "sanma"          : ["三",           "3-Player ",       "3-Player "             ],
+            "red"            : ["赤",           " Red",            " Red Fives"            ],
+            "nored"          : ["",             " Aka Nashi",      " No Red Fives"         ]
+        };
+        
+        let logIdx = 0
+        this.rawRound = log[logIdx++]
+        this.roundWind = Math.floor(this.rawRound[0]/4) + tm2t('e')
+        this.roundNum = this.rawRound[0] % 4 + 1
+        this.honbas = this.rawRound[1]
+        this.roundSticks = this.rawRound[2]
+        this.scores = log[logIdx++]
+        this.dora = log[logIdx++]
+        this.uradora = log[logIdx++]
+        this.hands = []
+        this.drawnTile = [null, null, null, null]
+        this.calls = [[],[],[],[]]
+        this.draws = []
+        this.discards = []
+        for (let pnum=0; pnum<4; pnum++) {
+            this.hands.push(Array.from(log[logIdx++]))
+            this.draws.push(log[logIdx++])
+            this.discards.push(log[logIdx++])
+            this.hands[pnum].sort(tileSort)
+        }
+        this.resultArray = log[logIdx++]
+        this.result = this.resultArray[0]
+        this.scoreChanges = this.resultArray[1]
+        if (this.resultArray.length > 2) {
+            this.winner = this.resultArray[2][0]
+            this.payer = this.resultArray[2][1]
+            this.pao = this.resultArray[2][2] // TODO: Find an example of this
+            this.yakuStrings = this.resultArray[2].slice(3)
+        } else {
+            this.winner = null
+            this.payer = null
+            this.pao = null
+            this.yakuStrings = null
+        }
+        this.handOver = false
+    }
+}
+
 class GlobalState {
     constructor() {
+        this.ui = new UI
+        this.gl = null
+
         this.ply_counter = 0
+        this.hand_counter = 0
+        this.max_hands = 999
         this.max_ply = 999
         this.mortalHtmlDoc = null
         this.json_data = null
-        this.mortalEvals = []    // flat array of all decisions
+        this.mortalEvals = []    // array of rounds -> array of decisions for that round
         this.mortalEvalIdx = 0   // index to current decision
-        this.mortalPidx = null   // player index mortal reviewed
-        this.ui = new UI
+        this.heroPidx = null   // player index mortal reviewed
+
+        this.C_db_height = 60
+        this.C_db_totWidth = 605
+        this.C_db_handPadding = 10
+        this.C_db_padding = 15
+        this.C_db_tileWidth = 34
+        this.C_db_heroBarWidth = 16
+        this.C_db_mortBarWidth = 10
     }
 }
 
@@ -61,7 +148,7 @@ class PIDX {
         return this.pidx
     }
     pov() {
-        return (GS.ui.povPidx + this.pidx) % 4
+        return (4 + this.pidx - GS.ui.povPidx) % 4
     }
 }
 
@@ -75,6 +162,10 @@ class UI {
             this.hands.push(document.querySelector(`.grid-hand-p${pnum}`))
             this.discards.push(document.querySelector(`.grid-discard-p${pnum}`))
         }
+        this.round = document.querySelector('.info-round')
+        this.sticks = document.querySelector('.info-sticks')
+        this.honbas = document.querySelector('.info-honbas')
+        this.doras = document.querySelector('.info-doras')
     }
     #getHand(pidx) { 
         return this.hands[pidx.pov()] 
@@ -82,75 +173,116 @@ class UI {
     #getDiscard(pidx) { 
         return this.discards[pidx.pov()]
     }
-    reset(round, dora, uradora) {
-        this.gridInfo.replaceChildren()
-        this.gridInfo.append('round ', JSON.stringify(round), document.createElement('br'))
-        this.gridInfo.append('dora ', JSON.stringify(dora), document.createElement('br'))
-        this.gridInfo.append('uradora ', JSON.stringify(uradora), document.createElement('br'))
-        for (let i of Array(4).keys()) {
+    reset() {
+        this.round.replaceChildren(createTile(tenhou2str(GS.gl.roundWind)))
+        this.round.lastChild.setAttribute('width', 15)
+        this.round.lastChild.setAttribute('style', null)
+        this.round.append(GS.gl.roundNum)
+        this.round.append(' ', GS.gl.rawRound)
+        this.honbas.replaceChildren(`Honbas ${GS.gl.honbas}`)
+        this.sticks.replaceChildren()
+        this.doras.replaceChildren()
+        for (let i=0; i<5; i++) {
+            if (GS.gl.dora[i] == null) {
+                this.doras.append(createTile('back'))
+            } else {
+                this.doras.append(createTile(tenhou2str(GS.gl.dora[i])))
+            }
+            this.doras.lastChild.setAttribute('width', 15)
+        }
+        for (let i=0; i<4; i++) {
             this.discards[i].replaceChildren()
         }
     }
     updateGridInfo(ply, hands, calls, drawnTile) {
         this.clearDiscardBars()
-        if (GS.mortalPidx == ply.pidx) {
-            this.gridInfo.append('mortalIdx ', GS.mortalPidx, ' idx ', GS.mortalEvalIdx)
-            if (GS.mortalPidx == ply.pidx && (ply.ply%2)==1) {
-                this.gridInfo.append(' discarding')
+        if (GS.heroPidx == ply.pidx) {
+            //this.gridInfo.append('heroIdx ', GS.heroPidx, ' idx ', GS.mortalEvalIdx)
+            if (GS.heroPidx == ply.pidx && (ply.ply%2)==1) {
+                //this.gridInfo.append(' discarding')
                 this.updateDiscardBars(ply, hands, calls, drawnTile)
             }
+        }
+        if (GS.gl.handOver) {
+            console.log(`r${GS.gl.result} w${GS.gl.winner} p${GS.gl.payer}`, 'u', GS.gl.uradora, GS.gl.scoreChanges, GS.gl.yakuStrings)
         }
     }
     clearDiscardBars() {
         const discardBars = document.getElementById("discard-bars")
         discardBars.replaceChildren()
         let svgElement = document.createElementNS("http://www.w3.org/2000/svg", "svg")
-        let maxHeight = 60
-        svgElement.setAttribute("width", 605)
-        svgElement.setAttribute("height", maxHeight)
-        svgElement.setAttribute("padding", 15)
+        svgElement.setAttribute("width", GS.C_db_totWidth)
+        svgElement.setAttribute("height", GS.C_db_height)
+        svgElement.setAttribute("padding", GS.C_db_padding)
         discardBars.appendChild(svgElement);
     }
     updateDiscardBars(ply, hands, calls, drawnTile) {
         const discardBars = document.getElementById("discard-bars")
         discardBars.replaceChildren() // TODO don't recreate the svgElement twice every time
+        console.log(GS.mortalEvals, GS.hand_counter, GS.mortalEvalIdx)
+        let evals = GS.mortalEvals[GS.hand_counter][GS.mortalEvalIdx]
         let svgElement = document.createElementNS("http://www.w3.org/2000/svg", "svg")
-        let maxHeight = 60
-        svgElement.setAttribute("width", 605)
-        svgElement.setAttribute("height", maxHeight)
-        svgElement.setAttribute("padding", 15)
-        for (let tile of hands[ply.pidx]) {
-            console.log(tile, GS.mortalEvals[GS.mortalEvalIdx]['Pvals'][tile])
+        svgElement.setAttribute("width", GS.C_db_totWidth)
+        svgElement.setAttribute("height", GS.C_db_height)
+        svgElement.setAttribute("padding", GS.C_db_height)
+        console.log(evals)
+        let heroDiscard = ply.getDiscard()
+        if (heroDiscard == 60) {
+            heroDiscard = drawnTile[ply.pidx]
         }
-        console.log(GS.mortalEvals[GS.mortalEvalIdx])
+        let match = true // did we discard what mortal would?
+        //console.log(' upcoming discard: ', heroDiscard)
+        if (evals['m_discard'] != evals['p_discard']) {
+            console.log(' mismatch!', evals['m_discard'], evals['p_discard'], heroDiscard)
+            match = false
+        }
         for (let i = -1; i < hands[ply.pidx].length; i++) {
             let tile = null
             let Pval = null
             if (i==-1) {
                 tile = drawnTile[ply.pidx]
+                if (tile == null) {
+                    //console.log('skip tile null')
+                    continue // on calls there was no drawnTile
+                }
+                console.log('tile', tile    )
             } else {
                 tile = hands[ply.pidx][i]
             }
-            Pval = GS.mortalEvals[GS.mortalEvalIdx]['Pvals'][tile]
-            console.log('i', i, tile, Pval, Math.floor(Pval/100*maxHeight))
-            let rect = document.createElementNS("http://www.w3.org/2000/svg", "rect")
-            if (i==-1) {
-                rect.setAttribute("x", 34/2 + (hands[ply.pidx].length+1)*34)
-            } else {
-                rect.setAttribute("x", 34/2 + i*34)
+            Pval = evals['Pvals'][tile]
+            if (Pval == null) {
+                console.log('missing Pval, probably because it is an illegal discard')
+                console.log(`tile=${tile} i=${i}`)
+                continue
             }
-            rect.setAttribute("y", Math.floor((1-Pval/100)*maxHeight))
-            rect.setAttribute("width", 10)
-            rect.setAttribute("height", maxHeight)
+            let slot = (i !== -1) ? i : hands[ply.pidx].length+1
+            let xloc = GS.C_db_handPadding + GS.C_db_tileWidth/2 + slot*GS.C_db_tileWidth
+            if (tile == heroDiscard) {
+                console.log('slot ', slot, i, tile, heroDiscard)
+                let rect2 = document.createElementNS("http://www.w3.org/2000/svg", "rect")
+                rect2.setAttribute("x", xloc-GS.C_db_heroBarWidth/2)
+                rect2.setAttribute("y", 0)
+                rect2.setAttribute("width", GS.C_db_heroBarWidth)
+                rect2.setAttribute("height", Math.ceil(1*GS.C_db_height))
+                rect2.setAttribute("fill", "red")
+                rect2.setAttribute("z-index", -1) // behind Mortal's Bar, but wider
+                svgElement.appendChild(rect2)
+            }
+            let rect = document.createElementNS("http://www.w3.org/2000/svg", "rect")
+            rect.setAttribute("x", xloc-GS.C_db_mortBarWidth/2)
+            //console.log('test', tile, i, Pval, Math.floor((1-Pval/100)*GS.C_db_height))
+            rect.setAttribute("y", Math.floor((1-Pval/100)*GS.C_db_height))
+            rect.setAttribute("width", GS.C_db_mortBarWidth)
+            rect.setAttribute("height", Math.ceil((Pval/100)*GS.C_db_height))
             rect.setAttribute("fill", "blue")
             svgElement.appendChild(rect);
         }
         discardBars.appendChild(svgElement);
     }
     updateHandInfo(hands, calls, drawnTile) {
-        for (let pnum of Array(4).keys()) {
+                for (let pnum of Array(4).keys()) {
             let objPnum = new PIDX(pnum)
-            this.addHandTiles(objPnum, [], true)
+                        this.addHandTiles(objPnum, [], true)
             for (let tileInt of hands[pnum]) {
                 this.addHandTiles(objPnum, [tenhou2str(tileInt)], false)
             }
@@ -197,7 +329,7 @@ class UI {
     // TODO kinda hacky way to add a space
     addBlankSpace(pidx) {
         this.addHandTiles(pidx, ['Blank'], false)
-        this.#getHand(pidx).lastChild.style.opacity = "0.1"
+        this.#getHand(pidx).lastChild.style.opacity = "0"
     }
     addDiscard(pidx, tileStrArray, tsumogiri, riichi) {
         this.addDiscardTiles(pidx, tileStrArray)
@@ -284,9 +416,8 @@ class TurnNum {
     }
     getDraw() {
         let draw = this.draws[this.pidx][this.nextDrawIdx[this.pidx]]
-        if (typeof draw == "undefined") { 
-            console.log("out of draws")
-            GS.max_ply = this.ply
+        if (draw == null) {
+            console.log('undefined out of draws')
             return null
         }
         if (typeof draw == "string") {
@@ -320,7 +451,7 @@ class TurnNum {
         // TODO: It's weird that we don't increment draw in the even ply?
         //       but for now it doesn't matter
         if (this.ply%2==1) {
-            if (this.pidx == GS.mortalPidx) {
+            if (this.pidx == GS.heroPidx) {
                 GS.mortalEvalIdx++
             }
             this.nextDrawIdx[this.pidx]++
@@ -372,7 +503,13 @@ function removeFromArray(array, value) {
 }
 
 function parseJsonData(data) {
-    const log = data['log'][0]
+    if (data == null) {
+        console.log('no data to parse yet')
+        return
+    }
+    GS.gl = new GameLog(data[GS.hand_counter]['log'][0])
+    console.log(GS.gl)
+    const log = data[GS.hand_counter]['log'][0]
     logIdx = 0
     round = log[logIdx++]
     scores = log[logIdx++]
@@ -393,13 +530,16 @@ function parseJsonData(data) {
     // Initialize whose turn it is, and pointers for current draws/discards for each player
     GS.mortalEvalIdx = 0
     let ply = new TurnNum(round[0], draws, discards)
-    GS.ui.reset(round, dora, uradora)
+    GS.ui.reset()
 
     while (ply.ply < GS.ply_counter) {
         //console.log(ply.ply, ply.pidx)
         draw = ply.getDraw(draws)
         if (draw == null) {
-            break 
+            console.log("out of draws")
+            GS.max_ply = this.ply
+            GS.gl.handOver = true
+            break
         }
         if (draw[0] == 'pon') {
             removeFromArray(hands[ply.pidx], draw[2])
@@ -427,9 +567,11 @@ function parseJsonData(data) {
         if (ply.ply >= GS.ply_counter) {
             break
         }
-        let discard = ply.getDiscard(discards)
+        let discard = ply.getDiscard()
         if (typeof discard == "undefined") {
             console.log("out of discards")
+            GS.max_ply = this.ply
+            GS.gl.handOver = true
             break
         }
         let riichi = false
@@ -489,26 +631,40 @@ function convertTileStr(str) {
 }
 
 function incPlyCounter() {
-    GS.ply_counter < GS.max_ply && GS.ply_counter++;
+    GS.ply_counter < GS.max_ply && GS.ply_counter++
 }
 
 function decPlyCounter() {
-    GS.ply_counter > 0 && GS.ply_counter--;
+    GS.ply_counter > 0 && GS.ply_counter--
 }
 
-function getPlyCounter() {
-    return GS.ply_counter;
+function incHandCounter() {
+    GS.hand_counter++
+    if (GS.hand_counter >= GS.mortalEvals.length) {
+        GS.hand_counter = 0
+    }
+    GS.ply_counter = 0
+    GS.max_ply = 999
+}
+
+function decHandCounter() {
+    GS.hand_counter--
+    if (GS.hand_counter < 0) {
+        GS.hand_counter = GS.mortalEvals.length-1
+    }
+    GS.ply_counter = 0
+    GS.max_ply = 999
 }
 
 function connectUI() {
     const inc = document.getElementById("ply-inc");
     const inc2 = document.getElementById("ply-inc2");
-    const input = document.getElementById("ply-counter");
     const dec = document.getElementById("ply-dec");
     const dec2 = document.getElementById("ply-dec2");
+    const handInc = document.getElementById("hand-inc")
+    const handDec = document.getElementById("hand-dec")
     inc.addEventListener("click", () => {
         incPlyCounter();
-        input.value = getPlyCounter();
         parseJsonData(GS.json_data)
     });
     inc2.addEventListener("click", () => {
@@ -516,14 +672,10 @@ function connectUI() {
         incPlyCounter();
         incPlyCounter();
         incPlyCounter();
-        input.value = getPlyCounter();
         parseJsonData(GS.json_data)
     });
     dec.addEventListener("click", () => {
-        if (input.value > 0) {
-          decPlyCounter();
-        }
-        input.value = getPlyCounter();
+        decPlyCounter();
         parseJsonData(GS.json_data)
     });
     dec2.addEventListener("click", () => {
@@ -531,35 +683,45 @@ function connectUI() {
         decPlyCounter();
         decPlyCounter();
         decPlyCounter();
-        input.value = getPlyCounter();
+        parseJsonData(GS.json_data)
+    });
+    handInc.addEventListener("click", () => {
+        incHandCounter();
+        parseJsonData(GS.json_data)
+    });
+    handDec.addEventListener("click", () => {
+        decHandCounter();
         parseJsonData(GS.json_data)
     });
 }
 
 function setMortalHtmlStr(data) {
-    console.log('setMortalHtmlStr')
     const parser = new DOMParser()
     GS.mortalHtmlDoc = parser.parseFromString(data, 'text/html')
-    GS.json_data = JSON.parse(GS.mortalHtmlDoc.querySelector('textarea').value)
-    console.log(GS.json_data)
     parseMortalHtml()
+    GS.json_data = []
+    for (ta of GS.mortalHtmlDoc.querySelectorAll('textarea')) {
+        GS.json_data.push(JSON.parse(ta.value))
+    }
+    console.log('json_data logs', GS.json_data)
+    parseJsonData(GS.json_data)
 }
 
 function parseMortalHtml() {
     let RiichiState = null
     let debug = false
     
-    let pid = null
     for (dtElement of GS.mortalHtmlDoc.querySelectorAll('dt')) {
         if (dtElement.textContent === 'player id') {
-            GS.mortalPidx = parseInt(dtElement.nextSibling.textContent)
-            GS.ui.povPidx = 0
-            GS.ui.povPidx = GS.mortalPidx // TODO: UI for changing povPidx
+            GS.heroPidx = parseInt(dtElement.nextSibling.textContent)
+            GS.ui.povPidx = GS.heroPidx // TODO: UI for changing povPidx
+            console.log('heroPidx ', GS.ui.povPidx)
             break
         }
     }
 
     GS.mortalEvals = []
+    let currRound = -1
     for (d of GS.mortalHtmlDoc.querySelectorAll('details')) {
         debug && console.log(d)
         let summary = d.querySelector('summary')
@@ -567,8 +729,13 @@ function parseMortalHtml() {
         if (!summary) {
             continue
         }
-        if (summary.textContent.includes("Turn 1 ")) {
+        // the Tenhou JSON log is in this, use it to find new rounds
+        if (d.querySelector('textarea')) {
+            console.log(summary.textContent)
             RiichiState = null // reset state
+            currRound++
+            GS.mortalEvals.push([])
+            console.assert(GS.mortalEvals.length-1 == currRound)
         }
         if (summary.textContent.includes("Turn")) {
             currTurn = summary.textContent
@@ -590,8 +757,10 @@ function parseMortalHtml() {
         if (RiichiState === 'discarding') {
             RiichiState = 'complete' // We are now processing the riichi discard set the state now
         }
-        p_discard = roles[0].parentElement.querySelector('use').href.baseVal
-        m_discard = roles[1].parentElement.querySelector('use').href.baseVal
+        // Player is wrapped nicely in a parent span
+        let p_discard = roles[0].parentElement.querySelector('use').href.baseVal
+        // Mortal is not wrapped, use next.next instead
+        let m_discard = roles[1].nextSibling.nextSibling.querySelector('use').href.baseVal
         let tbody = d.querySelector('tbody')
         let m_Pval = null
         let p_Pval = null
@@ -626,9 +795,7 @@ function parseMortalHtml() {
                 if (tile == p_discard) {
                     p_Pval = Pval
                 }
-                // #pai-c
-                // #pai-5sr
-                console.log('parse tile', tile)
+                //console.log('parse tile', tile)
                 tile = tile.replace('#pai-', '')
                 tile = tm2t(tile)
                 info['Pvals'][tile] = Pval
@@ -636,14 +803,16 @@ function parseMortalHtml() {
         }
         info['m_Pval'] = m_Pval
         info['p_Pval'] = p_Pval
-        console.log(info)
-        GS.mortalEvals.push(info)
+        //console.log(info)
+        GS.mortalEvals[currRound].push(info)
     }
+    console.log('done parsing mortal ', GS.mortalEvals.length, currRound)
 }
 
 function getJsonData() {
     data = localStorage.getItem('mortalHtmlStr')
     if (data) {
+        data = LZString.decompressFromUTF16(data)
         setMortalHtmlStr(data)
     }
 
@@ -654,7 +823,8 @@ function getJsonData() {
             let fr = new FileReader()
             fr.readAsText(file)
             fr.onload = function() {
-                localStorage.setItem('mortalHtmlStr', fr.result)
+                let data = LZString.compressToUTF16(fr.result)
+                localStorage.setItem('mortalHtmlStr', data)
                 setMortalHtmlStr(fr.result)
             }
         } else {
