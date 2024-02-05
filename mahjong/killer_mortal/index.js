@@ -41,56 +41,56 @@ json_data = {
 }
 */
 
+const RUNES  = {
+    /*hand limits*/
+    "mangan"         : ["満貫",         "Mangan ",         "Mangan "               ],
+    "haneman"        : ["跳満",         "Haneman ",        "Haneman "              ],
+    "baiman"         : ["倍満",         "Baiman ",         "Baiman "               ],
+    "sanbaiman"      : ["三倍満",       "Sanbaiman ",      "Sanbaiman "            ],
+    "yakuman"        : ["役満",         "Yakuman ",        "Yakuman "              ],
+    "kazoeyakuman"   : ["数え役満",     "Kazoe Yakuman ",  "Counted Yakuman "      ],
+    "kiriagemangan"  : ["切り上げ満貫", "Kiriage Mangan ", "Rounded Mangan "       ],
+    /*round enders*/
+    "agari"          : ["和了",         "Agari",           "Agari"                 ],
+    "ryuukyoku"      : ["流局",         "Ryuukyoku",       "Exhaustive Draw"       ],
+    "nagashimangan"  : ["流し満貫",     "Nagashi Mangan",  "Mangan at Draw"        ],
+    "suukaikan"      : ["四開槓",       "Suukaikan",       "Four Kan Abortion"     ],
+    "sanchahou"      : ["三家和",       "Sanchahou",       "Three Ron Abortion"    ],
+    "kyuushukyuuhai" : ["九種九牌",     "Kyuushu Kyuuhai", "Nine Terminal Abortion"],
+    "suufonrenda"    : ["四風連打",     "Suufon Renda",    "Four Wind Abortion"    ],
+    "suuchariichi"   : ["四家立直",     "Suucha Riichi",   "Four Riichi Abortion"  ],
+    /*scoring*/
+    "fu"             : ["符",           /*"Fu",*/"符",     "Fu"                    ],
+    "han"            : ["飜",           /*"Han",*/"飜",    "Han"                   ],
+    "points"         : ["点",           /*"Points",*/"点", "Points"                ],
+    "all"            : ["∀",            "∀",               "∀"                     ],
+    "pao"            : ["包",           "pao",             "Responsibility"        ],
+    /*rooms*/
+    "tonpuu"         : ["東喰",         " East",           " East"                 ],
+    "hanchan"        : ["南喰",         " South",          " South"                ],
+    "friendly"       : ["友人戦",       "Friendly",        "Friendly"              ],
+    "tournament"     : ["大会戦",       "Tounament",       "Tournament"            ],
+    "sanma"          : ["三",           "3-Player ",       "3-Player "             ],
+    "red"            : ["赤",           " Red",            " Red Fives"            ],
+    "nored"          : ["",             " Aka Nashi",      " No Red Fives"         ]
+};
+
 class GameLog {
     constructor(log) {
-        const RUNES  = {
-            /*hand limits*/
-            "mangan"         : ["満貫",         "Mangan ",         "Mangan "               ],
-            "haneman"        : ["跳満",         "Haneman ",        "Haneman "              ],
-            "baiman"         : ["倍満",         "Baiman ",         "Baiman "               ],
-            "sanbaiman"      : ["三倍満",       "Sanbaiman ",      "Sanbaiman "            ],
-            "yakuman"        : ["役満",         "Yakuman ",        "Yakuman "              ],
-            "kazoeyakuman"   : ["数え役満",     "Kazoe Yakuman ",  "Counted Yakuman "      ],
-            "kiriagemangan"  : ["切り上げ満貫", "Kiriage Mangan ", "Rounded Mangan "       ],
-            /*round enders*/
-            "agari"          : ["和了",         "Agari",           "Agari"                 ],
-            "ryuukyoku"      : ["流局",         "Ryuukyoku",       "Exhaustive Draw"       ],
-            "nagashimangan"  : ["流し満貫",     "Nagashi Mangan",  "Mangan at Draw"        ],
-            "suukaikan"      : ["四開槓",       "Suukaikan",       "Four Kan Abortion"     ],
-            "sanchahou"      : ["三家和",       "Sanchahou",       "Three Ron Abortion"    ],
-            "kyuushukyuuhai" : ["九種九牌",     "Kyuushu Kyuuhai", "Nine Terminal Abortion"],
-            "suufonrenda"    : ["四風連打",     "Suufon Renda",    "Four Wind Abortion"    ],
-            "suuchariichi"   : ["四家立直",     "Suucha Riichi",   "Four Riichi Abortion"  ],
-            /*scoring*/
-            "fu"             : ["符",           /*"Fu",*/"符",     "Fu"                    ],
-            "han"            : ["飜",           /*"Han",*/"飜",    "Han"                   ],
-            "points"         : ["点",           /*"Points",*/"点", "Points"                ],
-            "all"            : ["∀",            "∀",               "∀"                     ],
-            "pao"            : ["包",           "pao",             "Responsibility"        ],
-            /*rooms*/
-            "tonpuu"         : ["東喰",         " East",           " East"                 ],
-            "hanchan"        : ["南喰",         " South",          " South"                ],
-            "friendly"       : ["友人戦",       "Friendly",        "Friendly"              ],
-            "tournament"     : ["大会戦",       "Tounament",       "Tournament"            ],
-            "sanma"          : ["三",           "3-Player ",       "3-Player "             ],
-            "red"            : ["赤",           " Red",            " Red Fives"            ],
-            "nored"          : ["",             " Aka Nashi",      " No Red Fives"         ]
-        };
-        
         let logIdx = 0
         this.rawRound = log[logIdx++]
         this.roundWind = Math.floor(this.rawRound[0]/4) + tm2t('e')
-        this.roundNum = this.rawRound[0] % 4 + 1
+        this.dealerIdx = this.rawRound[0] % 4
+        this.roundNum = this.dealerIdx + 1
         this.honbas = this.rawRound[1]
         this.roundSticks = this.rawRound[2]
         this.scores = log[logIdx++]
         this.dora = log[logIdx++]
         this.uradora = log[logIdx++]
         this.hands = []
-        this.drawnTile = [null, null, null, null]
-        this.calls = [[],[],[],[]]
         this.draws = []
         this.discards = []
+        this.discardPond = [[],[],[],[]]
         for (let pnum=0; pnum<4; pnum++) {
             this.hands.push(Array.from(log[logIdx++]))
             this.draws.push(log[logIdx++])
@@ -111,6 +111,8 @@ class GameLog {
             this.pao = null
             this.yakuStrings = null
         }
+        this.drawnTile = [null, null, null, null]
+        this.calls = [[],[],[],[]]
         this.handOver = false
     }
 }
@@ -119,16 +121,15 @@ class GlobalState {
     constructor() {
         this.ui = new UI
         this.gl = null
+        this.ge = null
 
         this.ply_counter = 0
         this.hand_counter = 0
-        this.max_hands = 999
-        this.max_ply = 999
         this.mortalHtmlDoc = null
         this.json_data = null
-        this.mortalEvals = []    // array of rounds -> array of decisions for that round
-        this.mortalEvalIdx = 0   // index to current decision
         this.heroPidx = null   // player index mortal reviewed
+
+        this.C_soft_T = 2
 
         this.C_db_height = 60
         this.C_db_totWidth = 605
@@ -137,6 +138,10 @@ class GlobalState {
         this.C_db_tileWidth = 34
         this.C_db_heroBarWidth = 16
         this.C_db_mortBarWidth = 10
+        this.C_cb_height = 60
+        this.C_cb_totHeight = 100
+        this.C_cb_totWidth = 100
+        this.C_cb_padding = 10
     }
 }
 
@@ -174,12 +179,16 @@ class UI {
         return this.discards[pidx.pov()]
     }
     reset() {
-        this.round.replaceChildren(createTile(tenhou2str(GS.gl.roundWind)))
-        this.round.lastChild.setAttribute('width', 15)
-        this.round.lastChild.setAttribute('style', null)
-        this.round.append(GS.gl.roundNum)
-        this.round.append(' ', GS.gl.rawRound)
-        this.honbas.replaceChildren(`Honbas ${GS.gl.honbas}`)
+        this.round.replaceChildren(['East', 'South', 'West', 'North'][GS.gl.roundWind-41])
+        this.round.append("-", GS.gl.roundNum)
+        if (GS.gl.honbas > 0) {
+            this.round.append("-", GS.gl.honbas)
+        }
+        if (GS.gl.sticks > 0) {
+            this.round.append(' +', GS.gl.sticks, "000")
+        }
+        // this.round.append('  raw:', GS.gl.rawRound)
+        // this.honbas.replaceChildren(`Honbas ${GS.gl.honbas}`)
         this.sticks.replaceChildren()
         this.doras.replaceChildren()
         for (let i=0; i<5; i++) {
@@ -188,109 +197,144 @@ class UI {
             } else {
                 this.doras.append(createTile(tenhou2str(GS.gl.dora[i])))
             }
-            this.doras.lastChild.setAttribute('width', 15)
+            this.doras.lastChild.setAttribute('width', 20)
         }
         for (let i=0; i<4; i++) {
             this.discards[i].replaceChildren()
         }
     }
-    updateGridInfo(ply, hands, calls, drawnTile) {
+    updateGridInfo() {
         this.clearDiscardBars()
-        if (GS.heroPidx == ply.pidx) {
-            //this.gridInfo.append('heroIdx ', GS.heroPidx, ' idx ', GS.mortalEvalIdx)
-            if (GS.heroPidx == ply.pidx && (ply.ply%2)==1) {
-                //this.gridInfo.append(' discarding')
-                this.updateDiscardBars(ply, hands, calls, drawnTile)
+        this.clearCallBars()
+        let mortalEval = GS.ge[GS.hand_counter][GS.ply_counter].mortalEval
+        if (mortalEval) {
+            if (mortalEval.type == 'Discard') {
+                this.updateDiscardBars()
+                this.updateCallBars()
+            } else {
+                this.updateCallBars()
             }
         }
-        if (GS.gl.handOver) {
-            console.log(`r${GS.gl.result} w${GS.gl.winner} p${GS.gl.payer}`, 'u', GS.gl.uradora, GS.gl.scoreChanges, GS.gl.yakuStrings)
+        //if (GS.gl.handOver) {
+        //   console.log(`r${GS.gl.result} w${GS.gl.winner} p${GS.gl.payer}`, 'u', GS.gl.uradora, GS.gl.scoreChanges, GS.gl.yakuStrings)
+        //}
+    }
+    clearCallBars() {
+        const callBars = document.querySelector('.killer-call-bars')
+        let svgElement = document.createElementNS("http://www.w3.org/2000/svg", "svg")
+        svgElement.setAttribute("width", GS.C_cb_totWidth)
+        svgElement.setAttribute("height", GS.C_cb_totHeight)
+        callBars.replaceChildren(svgElement)
+    }
+    updateCallBars() {
+        let gameEvent = GS.ge[GS.hand_counter][GS.ply_counter]
+        let mortalEval = gameEvent.mortalEval
+        const callBars = document.querySelector('.killer-call-bars')
+        let svgElement = callBars.firstElementChild
+        let heroSlotFound = false
+        let slot = 0
+        for (const key in mortalEval.Pvals) {
+            if (!isNaN(key)) {
+                continue // skip tiles
+            }
+            let Pval = mortalEval.Pvals[key]
+            let xloc = GS.C_db_handPadding + GS.C_db_tileWidth/2 + slot*GS.C_db_tileWidth
+            if (key == mortalEval.p_action) {
+                let rect2 = document.createElementNS("http://www.w3.org/2000/svg", "rect")
+                rect2.setAttribute("x", xloc-GS.C_db_heroBarWidth/2)
+                rect2.setAttribute("y", 0)
+                rect2.setAttribute("width", GS.C_db_heroBarWidth)
+                rect2.setAttribute("height", Math.ceil(1*GS.C_cb_height))
+                rect2.setAttribute("fill", "red")
+                svgElement.appendChild(rect2)
+            }
+            let rect = document.createElementNS("http://www.w3.org/2000/svg", "rect")
+            rect.setAttribute("x", xloc-GS.C_db_mortBarWidth/2)
+            rect.setAttribute("y", Math.floor((1-Pval/100)*GS.C_cb_height))
+            rect.setAttribute("width", GS.C_db_mortBarWidth)
+            rect.setAttribute("height", Math.ceil(Pval/100*GS.C_cb_height))
+            rect.setAttribute("fill", "blue")
+            svgElement.appendChild(rect);
+            let text = document.createElementNS("http://www.w3.org/2000/svg", "text")
+            text.setAttribute("x", xloc-GS.C_db_mortBarWidth/2-10)
+            text.setAttribute("y", GS.C_db_height + 20)
+            let color = getComputedStyle(document.documentElement).getPropertyValue('--color-text')
+            text.setAttribute("fill", color)
+            text.textContent = key
+            svgElement.appendChild(text)
+            slot++
         }
     }
     clearDiscardBars() {
         const discardBars = document.getElementById("discard-bars")
-        discardBars.replaceChildren()
         let svgElement = document.createElementNS("http://www.w3.org/2000/svg", "svg")
         svgElement.setAttribute("width", GS.C_db_totWidth)
         svgElement.setAttribute("height", GS.C_db_height)
         svgElement.setAttribute("padding", GS.C_db_padding)
-        discardBars.appendChild(svgElement);
+        discardBars.replaceChildren(svgElement)
     }
-    updateDiscardBars(ply, hands, calls, drawnTile) {
+    updateDiscardBars() {
+        let gameEvent = GS.ge[GS.hand_counter][GS.ply_counter]
+        let mortalEval = gameEvent.mortalEval
         const discardBars = document.getElementById("discard-bars")
-        discardBars.replaceChildren() // TODO don't recreate the svgElement twice every time
-        console.log(GS.mortalEvals, GS.hand_counter, GS.mortalEvalIdx)
-        let evals = GS.mortalEvals[GS.hand_counter][GS.mortalEvalIdx]
-        let svgElement = document.createElementNS("http://www.w3.org/2000/svg", "svg")
-        svgElement.setAttribute("width", GS.C_db_totWidth)
-        svgElement.setAttribute("height", GS.C_db_height)
-        svgElement.setAttribute("padding", GS.C_db_height)
-        console.log(evals)
-        let heroDiscard = ply.getDiscard()
-        if (heroDiscard == 60) {
-            heroDiscard = drawnTile[ply.pidx]
-        }
-        let match = true // did we discard what mortal would?
-        //console.log(' upcoming discard: ', heroDiscard)
-        if (evals['m_discard'] != evals['p_discard']) {
-            console.log(' mismatch!', evals['m_discard'], evals['p_discard'], heroDiscard)
-            match = false
-        }
-        for (let i = -1; i < hands[ply.pidx].length; i++) {
+        let svgElement = discardBars.firstElementChild 
+        let heroSlotFound = mortalEval.p_action == 'Riichi' && 'Riichi' in mortalEval.Pvals
+        for (let i = -1; i < GS.gl.hands[gameEvent.pidx].length; i++) {
             let tile = null
             let Pval = null
             if (i==-1) {
-                tile = drawnTile[ply.pidx]
+                tile = GS.gl.drawnTile[gameEvent.pidx]
                 if (tile == null) {
                     //console.log('skip tile null')
                     continue // on calls there was no drawnTile
                 }
-                console.log('tile', tile    )
             } else {
-                tile = hands[ply.pidx][i]
+                tile = GS.gl.hands[gameEvent.pidx][i]
             }
-            Pval = evals['Pvals'][tile]
+            Pval = mortalEval['Pvals'][tile]
+            Pval = mortalEval['Pvals_soft'][tile]
             if (Pval == null) {
                 console.log('missing Pval, probably because it is an illegal discard')
                 console.log(`tile=${tile} i=${i}`)
                 continue
             }
-            let slot = (i !== -1) ? i : hands[ply.pidx].length+1
+            let slot = (i !== -1) ? i : GS.gl.hands[gameEvent.pidx].length+1
             let xloc = GS.C_db_handPadding + GS.C_db_tileWidth/2 + slot*GS.C_db_tileWidth
-            if (tile == heroDiscard) {
-                console.log('slot ', slot, i, tile, heroDiscard)
+            if (tile == mortalEval.p_action) {
+                heroSlotFound = true
                 let rect2 = document.createElementNS("http://www.w3.org/2000/svg", "rect")
                 rect2.setAttribute("x", xloc-GS.C_db_heroBarWidth/2)
                 rect2.setAttribute("y", 0)
                 rect2.setAttribute("width", GS.C_db_heroBarWidth)
                 rect2.setAttribute("height", Math.ceil(1*GS.C_db_height))
                 rect2.setAttribute("fill", "red")
-                rect2.setAttribute("z-index", -1) // behind Mortal's Bar, but wider
                 svgElement.appendChild(rect2)
             }
             let rect = document.createElementNS("http://www.w3.org/2000/svg", "rect")
             rect.setAttribute("x", xloc-GS.C_db_mortBarWidth/2)
-            //console.log('test', tile, i, Pval, Math.floor((1-Pval/100)*GS.C_db_height))
             rect.setAttribute("y", Math.floor((1-Pval/100)*GS.C_db_height))
             rect.setAttribute("width", GS.C_db_mortBarWidth)
             rect.setAttribute("height", Math.ceil((Pval/100)*GS.C_db_height))
             rect.setAttribute("fill", "blue")
             svgElement.appendChild(rect);
         }
-        discardBars.appendChild(svgElement);
+        if (!heroSlotFound) {
+            console.log('!heroSlotFound', gameEvent)
+            throw new Error()
+        }
     }
     updateHandInfo(hands, calls, drawnTile) {
-                for (let pnum of Array(4).keys()) {
+        for (let pnum=0; pnum<4; pnum++) {
             let objPnum = new PIDX(pnum)
-                        this.addHandTiles(objPnum, [], true)
+            this.addHandTiles(objPnum, [], true)
             for (let tileInt of hands[pnum]) {
                 this.addHandTiles(objPnum, [tenhou2str(tileInt)], false)
             }
+            this.addBlankSpace(objPnum)
             if (drawnTile[pnum] != null) {
+                this.addHandTiles(objPnum, [tenhou2str(drawnTile[pnum])], false)
+            } else {
                 this.addBlankSpace(objPnum)
-                for (let tileInt of [drawnTile[pnum]]) {
-                    this.addHandTiles(objPnum, [tenhou2str(tileInt)], false)
-                }
             }
             if (calls[pnum].length > 0) {
                 this.addBlankSpace(objPnum)
@@ -325,15 +369,24 @@ class UI {
         this.#getHand(pidx).lastChild.style.transform = `rotate(${angle}deg)`
         this.#getHand(pidx).lastChild.style.margin = '6px'
     }
-
-    // TODO kinda hacky way to add a space
     addBlankSpace(pidx) {
         this.addHandTiles(pidx, ['Blank'], false)
         this.#getHand(pidx).lastChild.style.opacity = "0"
     }
+    updateDiscardPond() {
+        for (let pidx=0; pidx<4; pidx++) {
+            let pidxObj = new PIDX(pidx)
+            for (let tile of GS.gl.discardPond[pidx]) {
+                this.addDiscard(pidxObj, [tenhou2str(tile.tile)], tile.tsumogiri, tile.riichi)
+                if (tile.called) {
+                    this.lastDiscardWasCalled(pidxObj)
+                }
+            }
+        }
+    }
     addDiscard(pidx, tileStrArray, tsumogiri, riichi) {
         this.addDiscardTiles(pidx, tileStrArray)
-        if (!tsumogiri) {
+        if (tsumogiri) {
             this.#getDiscard(pidx).lastChild.style.background = "lightgrey"
         }
         if (riichi) {
@@ -345,7 +398,23 @@ class UI {
         this.#getDiscard(pidx).lastChild.style.opacity = "0.5"
     }
 }
-                
+
+class Tile {
+    constructor(tile) {
+        this.tile = tile
+        this.tsumogiri = false
+        this.riichi = false
+        this.rotate = false
+        this.called = false
+    }
+}
+             
+function mortalHashTile2tenhou(tileStr) {
+    tileStr = tileStr.replace('#pai-', '')
+    tileStr = tm2t(tileStr)
+    return tileStr
+}
+
 //take '2m' and return 2 + 10 etc.
 function tm2t(str) { 
     //tenhou's tile encoding:
@@ -403,21 +472,22 @@ function tileSort(a, b) {
     return a1-b1
 }
 
-// TODO: Need work on dividing stuff into classes
 class TurnNum {
-    constructor(dealerIdx, draws, discards) {
-        this.dealerIdx = dealerIdx
-        this.draws = draws
-        this.discards = discards
+    constructor() {
+        this.draws = GS.gl.draws
+        this.discards = GS.gl.discards
         this.ply = 0
-        this.pidx = dealerIdx
+        this.pidx = GS.gl.dealerIdx
         this.nextDiscardIdx = [0,0,0,0]
         this.nextDrawIdx = [0,0,0,0]
+    }
+    stringState() {
+        return `TurnNum: ${this.ply} ${this.pidx} ${this.nextDiscardIdx} ${this.nextDrawIdx}`
     }
     getDraw() {
         let draw = this.draws[this.pidx][this.nextDrawIdx[this.pidx]]
         if (draw == null) {
-            console.log('undefined out of draws')
+            //console.log('undefined out of draws')
             return null
         }
         if (typeof draw == "string") {
@@ -446,25 +516,21 @@ class TurnNum {
     getDiscard() {
         return this.discards[this.pidx][this.nextDiscardIdx[this.pidx]]
     }
-    incPly() {
+    incPly(selfKan) {
         // even ply draw, odd ply discard
-        // TODO: It's weird that we don't increment draw in the even ply?
-        //       but for now it doesn't matter
         if (this.ply%2==1) {
-            if (this.pidx == GS.heroPidx) {
-                GS.mortalEvalIdx++
-            }
             this.nextDrawIdx[this.pidx]++
             this.nextDiscardIdx[this.pidx]++
-            this.pidx = this.whoIsNext()
+            if (!selfKan) {
+                this.pidx = this.whoIsNext()
+            }
         }
         this.ply++
     }
     whoIsNext() {
         // To know who is next we have to look at the other three players draw arrays
         // and determine there were any calls to disrupt the normal turn order
-        let debug = false
-        for (let tmpPidx of Array(4).keys()) {
+        for (let tmpPidx=0; tmpPidx<4; tmpPidx++) {
             if (tmpPidx == this.pidx) {
                 continue // cannot call own tile
             }
@@ -477,15 +543,9 @@ class TurnNum {
                 // 21p2121 p0 pon from their toimen/cross  p2   idx/2=1   (4+0-2)%4 = 2-1 = 1
                 // 2121p21 p0 pon from their shimo/right   p1   idx/2=2   (4+0-1)%4 = 3-1 = 2
                 let offset = (4 + tmpPidx - this.pidx) % 4 - 1
-                debug && console.log('whoisnext', draw, this.draws[tmpPidx], this.pidx, tmpPidx, offset)
-                let called = false
                 // check if the non-numeric (e.g. 'p') is in the calculated offset spot
-                if (draw[offset*2]<'0' || draw[offset*2]>'9') {
-                    called = true
-                    debug && console.log('huh', offset, draw, draw[offset*2])
-                }
-                if (called) {
-                    GS.ui.lastDiscardWasCalled(new PIDX(this.pidx))
+                //if (draw[offset*2]<'0' || draw[offset*2]>'9' || (offset==2 && draw[offset*2]) {
+                if (isNaN(draw[offset*2]) || (offset==2 && isNaN(draw[(offset+1)*2]))) {
                     return tmpPidx
                 }
             }
@@ -502,109 +562,196 @@ function removeFromArray(array, value) {
     array.splice(indexToRemove, 1)
 }
 
-function parseJsonData(data) {
+function updateState() {
+    if (GS.json_data == null) {
+        console.log('no data to parse yet')
+        return
+    }
+    GS.gl = new GameLog(GS.json_data[GS.hand_counter]['log'][0])
+    for (let ply=0; ply <= GS.ply_counter; ply++) {
+        let event = GS.ge[GS.hand_counter][ply]
+        if (event.type == 'draw') {
+            GS.gl.drawnTile[event.pidx] = event.draw
+        } else if (event.type == 'call') {
+            let dp = GS.gl.discardPond[event.fromIdxAbs]
+            dp[dp.length-1].called = true
+            GS.gl.calls[event.pidx].push(event.draw)
+            if (event.fromIdxRel == 0) {
+                GS.gl.calls[event.pidx].push('rotate')
+            }
+            for (let i=0; i<event.meldedTiles.length; i++) {
+                removeFromArray(GS.gl.hands[event.pidx], event.meldedTiles[i])
+                GS.gl.calls[event.pidx].push(event.meldedTiles[i])
+                if (event.fromIdxRel == i+1) {
+                    GS.gl.calls[event.pidx].push('rotate')
+                }
+            }
+        }
+        if (event.type == 'discard') {
+            let tsumogiri = event.discard==60
+            if (tsumogiri) {
+                let tile = new Tile(GS.gl.drawnTile[event.pidx])
+                tile.tsumogiri = true
+                GS.gl.discardPond[event.pidx].push(tile)
+                GS.gl.drawnTile[event.pidx] = null
+            } else {
+                let tile = new Tile(event.discard)
+                GS.gl.discardPond[event.pidx].push(tile)
+                removeFromArray(GS.gl.hands[event.pidx], event.discard)
+                // for calls there will not be a drawnTile
+                if (GS.gl.drawnTile[event.pidx]) {
+                    GS.gl.hands[event.pidx].push(GS.gl.drawnTile[event.pidx])
+                    GS.gl.hands[event.pidx].sort(tileSort)
+                    GS.gl.drawnTile[event.pidx] = null
+                }
+            }
+        }
+    }
+    GS.ui.reset()
+    GS.ui.updateHandInfo(GS.gl.hands, GS.gl.calls, GS.gl.drawnTile)
+    GS.ui.updateDiscardPond()
+    GS.ui.updateGridInfo()
+}
+
+class GameEvent {
+    constructor(type, pidx, args) {
+        this.type = type
+        this.pidx = pidx
+        if (this.type == 'call') {
+            this.draw = args['draw']
+            this.fromIdxRel = args['fromIdxRel']
+            this.fromIdxAbs = (4 + this.pidx - this.fromIdxRel - 1) % 4
+            this.meldedTiles = args['meldedTiles']
+        } else if (this.type == 'draw') {
+            this.draw = args['draw']
+        } else if (this.type == 'discard') {
+            this.discard = args['discard']
+        } else if (this.type == 'ankan') {
+            this.discard = args['discard']
+        } else if (this.type == 'kakan') {
+            this.discard = args['discard']
+        } else if (this.type == 'riichi') {
+            // do nothing
+        } else {
+            throw new Error('invalid')
+        }
+    }
+}
+///////////////////////////////////////////////////
+// kan naki:
+//   daiminkan: (open kan)
+//     kamicha   "m39393939" (0)
+//     toimen    "39m393939" (1)
+//     shimocha  "222222m22" (3)
+//     (writes to draws; 0 to discards)
+//   shouminkan: (kakan aka added kan) (same order as pon; immediate tile after k is the added tile)
+//     kamicha   "k37373737" (0)
+//     toimen    "31k313131" (1)
+//     shimocha  "3737k3737" (2)
+//     (writes to discards)
+//   ankan: (closed kan)
+//     "121212a12" (3)
+//     (writes to discards)
+///////////////////////////////////////////////////
+function preParseTenhouLogs(data) {
+    GS.ge = []
     if (data == null) {
         console.log('no data to parse yet')
         return
     }
-    GS.gl = new GameLog(data[GS.hand_counter]['log'][0])
-    console.log(GS.gl)
-    const log = data[GS.hand_counter]['log'][0]
-    logIdx = 0
-    round = log[logIdx++]
-    scores = log[logIdx++]
-    dora = log[logIdx++]
-    uradora = log[logIdx++]
-    let hands = []
-    let drawnTile = [null, null, null, null]
-    let calls = [[],[],[],[]]
-    let draws = []
-    let discards = []
-    for (pnum of Array(4).keys()) {
-        hands.push(Array.from(log[logIdx++]))
-        draws.push(log[logIdx++])
-        discards.push(log[logIdx++])
-        hands[pnum].sort(tileSort)
+    for (round of data) {
+        // console.log('round', round)
+        GS.ge.push([])
+        GS.gl = new GameLog(round['log'][0])
+        // console.log(GS.gl)
+        let ply = new TurnNum()
+        while (1) {
+            draw = ply.getDraw(GS.gl.draws)
+            if (draw == null) {
+                break
+            }
+            if (draw[0] == 'draw') {
+                GS.ge[GS.ge.length-1].push(new GameEvent('draw', ply.pidx, {'draw':draw[1]}))
+            } else {
+                let fromIdxRel = 1
+                if (draw[0] == 'pon') {
+                    let ge = new GameEvent('call', ply.pidx, {'draw':draw[2], 'fromIdxRel':draw[1], 'meldedTiles':[draw[2], draw[2]]})
+                    GS.ge[GS.ge.length-1].push(ge)
+                } else if (draw[0] == 'chi') {
+                    let ge = new GameEvent('call', ply.pidx, {'draw':draw[1], 'fromIdxRel':0, 'meldedTiles':[draw[2], draw[3]]})
+                    GS.ge[GS.ge.length-1].push(ge)
+                } else {
+                    throw new Error('add code for open kan case', draw)
+                }
+            }
+            ply.incPly(false)
+            let discard = ply.getDiscard()
+            if (typeof discard == "undefined") {
+                break
+            }
+            if (typeof discard == 'string' && discard.indexOf('k') != -1) {
+                GS.ge[GS.ge.length-1].push(new GameEvent('kakan', ply.pidx, {'discard':discard}))
+                // kakan and ankan mean we get another draw
+                ply.incPly(true)
+            } else if (typeof discard == 'string' && discard.indexOf('a') != -1) {
+                GS.ge[GS.ge.length-1].push(new GameEvent('kakan', ply.pidx, {'discard':discard}))
+                ply.incPly(true)
+            } else {
+                if (discard[0] == 'r') {
+                    // split riichi into two events
+                    GS.ge[GS.ge.length-1].push(new GameEvent('riichi', ply.pidx))
+                    discard = parseInt(discard.substring(1))
+                    // let the next if statement handle the discard
+                }
+                if (typeof discard == 'number') {
+                    GS.ge[GS.ge.length-1].push(new GameEvent('discard', ply.pidx, {'discard':discard}))
+                } else {
+                    console.log(typeof discard, discard)
+                    throw new Error('discard should be number')
+                }
+                ply.incPly(false)
+            }
+        }
+        let checkPlies = 0
+        for (i=0; i<4; i++) {
+            checkPlies += GS.gl.draws[i].length
+            checkPlies += GS.gl.discards[i].length
+        }
+        checkPlies == ply.ply || console.log('error', checkPlies, ply.stringState())
     }
-
-    // Initialize whose turn it is, and pointers for current draws/discards for each player
-    GS.mortalEvalIdx = 0
-    let ply = new TurnNum(round[0], draws, discards)
-    GS.ui.reset()
-
-    while (ply.ply < GS.ply_counter) {
-        //console.log(ply.ply, ply.pidx)
-        draw = ply.getDraw(draws)
-        if (draw == null) {
-            console.log("out of draws")
-            GS.max_ply = this.ply
-            GS.gl.handOver = true
-            break
+    console.log(GS.ge)
+    // merge in mortalEval events
+    for (let roundNum=0; roundNum<GS.ge.length-1; roundNum++) {
+        let mortalEvalIdx = 0
+        for (let event of GS.ge[roundNum]) {
+            if (mortalEvalIdx >= GS.mortalEvals[roundNum].length) {
+                break
+            }
+            let mortalEval = GS.mortalEvals[roundNum][mortalEvalIdx]
+            if (event.type == 'draw' && event.pidx == GS.heroPidx && mortalEval.type=='Discard') {
+                event.mortalEval = mortalEval
+                // TODO: I think Mortal only puts a separate entry for Riichi discard if it disagrees with ours?
+/*                 if (mortalEval.p_action == "Riichi") {
+                    console.log('Riichi add second event')
+                    mortalEvalIdx++
+                    mortalEval = GS.mortalEvals[roundNum][mortalEvalIdx]
+                    event.mortalEvalAfterRiichi = mortalEval
+                    console.log(event)
+                } */
+                mortalEvalIdx++
+            } else if (event.type == 'discard' && ((GS.heroPidx + mortalEval.fromIdxRel)%4 == event.pidx) && mortalEval.type=='Call') {
+                event.mortalEval = mortalEval
+                mortalEvalIdx++
+            }
         }
-        if (draw[0] == 'pon') {
-            removeFromArray(hands[ply.pidx], draw[2])
-            removeFromArray(hands[ply.pidx], draw[2])
-            calls[ply.pidx].push(draw[2])
-            if (draw[1] == 0) { calls[ply.pidx].push('rotate')}
-            calls[ply.pidx].push(draw[2])
-            if (draw[1] == 1) { calls[ply.pidx].push('rotate')}
-            calls[ply.pidx].push(draw[2])
-            if (draw[1] == 2) { calls[ply.pidx].push('rotate')}
-        } else if (draw[0] == 'chi') {
-            removeFromArray(hands[ply.pidx], draw[2])
-            removeFromArray(hands[ply.pidx], draw[3])
-            calls[ply.pidx].push(draw[1])
-            calls[ply.pidx].push('rotate')
-            calls[ply.pidx].push(draw[2])
-            calls[ply.pidx].push(draw[3])
-        } else if (draw[0] == 'draw') {
-            drawnTile[ply.pidx] = draw[1]
-        } else {
-            throw new Error(`unknown draw ${draw}`)
-        }
-        //console.log(`ply ${ply.ply} pidx ${ply.pidx} draw ${draw}, ${tenhou2str(draw)}`)
-        ply.incPly()
-        if (ply.ply >= GS.ply_counter) {
-            break
-        }
-        let discard = ply.getDiscard()
-        if (typeof discard == "undefined") {
-            console.log("out of discards")
-            GS.max_ply = this.ply
-            GS.gl.handOver = true
-            break
-        }
-        let riichi = false
-        if (discard[0] == 'r') {
-            riichi = true
-            discard = parseInt(discard.substring(1))
-        } else if (typeof discard != 'number') {
-            throw new Error('discard should be number', typeof discard, discard)
-        }
-        //console.log(`ply ${ply.ply} pidx ${ply.pidx} discard ${discard}`)
-        let tsumogiri = discard==60
-        if (tsumogiri) {
-            discard = drawnTile[ply.pidx] // tsumogiri the drawn tile
-            drawnTile[ply.pidx] = null
-        } else if (draw[0] == 'draw') {
-            // normal draw and discard
-            removeFromArray(hands[ply.pidx], discard)
-            hands[ply.pidx].push(drawnTile[ply.pidx])
-            hands[ply.pidx].sort(tileSort)
-            drawnTile[ply.pidx] = null
-        } else {
-            // otherwise it was a call, no new tile, just discard
-            removeFromArray(hands[ply.pidx], discard)
-        }
-        GS.ui.addDiscard(new PIDX(ply.pidx), [tenhou2str(discard)], !tsumogiri, riichi)
-        ply.incPly()
     }
-
-    GS.ui.updateHandInfo(hands, calls, drawnTile)
-    GS.ui.updateGridInfo(ply, hands, calls, drawnTile)
 }
 
 function createTile(tileStr) {
+    if (!tileStr || tileStr == null || tileStr.length>5) {
+        console.log('error', tileStr)
+        throw new Error()
+    }
     const tileImg = document.createElement('img')
     tileImg.src = `media/Regular_shortnames/${tileStr}.svg`
     tileImg.style.background = "white"
@@ -631,7 +778,7 @@ function convertTileStr(str) {
 }
 
 function incPlyCounter() {
-    GS.ply_counter < GS.max_ply && GS.ply_counter++
+    GS.ply_counter < GS.ge[GS.hand_counter].length-1 && GS.ply_counter++
 }
 
 function decPlyCounter() {
@@ -640,20 +787,18 @@ function decPlyCounter() {
 
 function incHandCounter() {
     GS.hand_counter++
-    if (GS.hand_counter >= GS.mortalEvals.length) {
+    if (GS.hand_counter >= GS.ge.length) {
         GS.hand_counter = 0
     }
     GS.ply_counter = 0
-    GS.max_ply = 999
 }
 
 function decHandCounter() {
     GS.hand_counter--
     if (GS.hand_counter < 0) {
-        GS.hand_counter = GS.mortalEvals.length-1
+        GS.hand_counter = GS.ge.length-1
     }
     GS.ply_counter = 0
-    GS.max_ply = 999
 }
 
 function connectUI() {
@@ -665,33 +810,32 @@ function connectUI() {
     const handDec = document.getElementById("hand-dec")
     inc.addEventListener("click", () => {
         incPlyCounter();
-        parseJsonData(GS.json_data)
+        updateState()
     });
     inc2.addEventListener("click", () => {
-        incPlyCounter();
-        incPlyCounter();
-        incPlyCounter();
-        incPlyCounter();
-        parseJsonData(GS.json_data)
+        do {
+            incPlyCounter();
+            console.log(GS.ge[GS.hand_counter][GS.ply_counter])
+        } while (!('mortalEval' in GS.ge[GS.hand_counter][GS.ply_counter]) && GS.ply_counter < GS.ge[GS.hand_counter].length-1)
+        updateState()
     });
     dec.addEventListener("click", () => {
         decPlyCounter();
-        parseJsonData(GS.json_data)
+        updateState()
     });
     dec2.addEventListener("click", () => {
-        decPlyCounter();
-        decPlyCounter();
-        decPlyCounter();
-        decPlyCounter();
-        parseJsonData(GS.json_data)
+        do {
+            decPlyCounter();
+        } while (!('mortalEval' in GS.ge[GS.hand_counter][GS.ply_counter]) && GS.ply_counter > 0)
+        updateState()
     });
     handInc.addEventListener("click", () => {
         incHandCounter();
-        parseJsonData(GS.json_data)
+        updateState()
     });
     handDec.addEventListener("click", () => {
         decHandCounter();
-        parseJsonData(GS.json_data)
+        updateState()
     });
 }
 
@@ -703,27 +847,56 @@ function setMortalHtmlStr(data) {
     for (ta of GS.mortalHtmlDoc.querySelectorAll('textarea')) {
         GS.json_data.push(JSON.parse(ta.value))
     }
-    console.log('json_data logs', GS.json_data)
-    parseJsonData(GS.json_data)
+    //console.log('json_data logs', GS.json_data)
+    preParseTenhouLogs(GS.json_data)
 }
 
+class MortalEval {
+    constructor(currTurn) {
+        this.currTurn = currTurn
+        this.Pvals = {}
+        this.type = null
+        this.p_discard = null
+        this.p_action = null
+        this.m_action = null
+    }   
+}
+
+//
+// Discard example (Note Player and Mortal have different formats)
+//<span> <span class="role">Player: </span>Discard <svg class="tile"><use class="face" href="#pai-7s"></use></svg></span>
+//<span class="role">Mortal: </span>
+//Discard 
+//<svg class="tile"><use class="face" href="#pai-7s"></use></svg>
+
+// Call example 1
+//<span> <span class="role">Player: </span>Skip</span>
+//<span class="role">Mortal: </span>
+//Skip
+//<tr><td>Skip</td><td><span class="int">0.</span><span class="frac">18420</span></td><td><span class="int">100.</span><span class="frac">00000</span></td></tr>
+//<tr><td><svg class="tile"><use class="face" href="#pai-s"></use></svg><svg class="tile"><use class="face" href="#pai-s"></use></svg> Pon</td><td><span class="int">-1.</span><span class="frac">68001</span></td><td><span class="int">0.</span><span class="frac">00000</span></td></tr>
+
+// Call example 2
+//<td><svg class="tile"><use class="face" href="#pai-s"></use></svg><svg class="tile"><use class="face" href="#pai-s"></use></svg> Pon</td>
+//<span style="background:#ffd5d5"> <span class="role">Player: </span><svg class="tile"><use class="face" href="#pai-4m"></use></svg><svg class="tile"><use class="face" href="#pai-6m"></use></svg> Chii</span>
+//<span class="role">Mortal: </span>
+//Skip
+//<tr><td>Skip</td><td><span class="int">-0.</span><span class="frac">03748</span></td><td><span class="int">99.</span><span class="frac">65749</span></td></tr>
+//<td><svg class="tile"><use class="face" href="#pai-4m"></use></svg><svg class="tile"><use class="face" href="#pai-6m"></use></svg> Chii</td>
+//
 function parseMortalHtml() {
     let RiichiState = null
-    let debug = false
     
     for (dtElement of GS.mortalHtmlDoc.querySelectorAll('dt')) {
         if (dtElement.textContent === 'player id') {
             GS.heroPidx = parseInt(dtElement.nextSibling.textContent)
-            GS.ui.povPidx = GS.heroPidx // TODO: UI for changing povPidx
-            console.log('heroPidx ', GS.ui.povPidx)
+            GS.ui.povPidx = GS.heroPidx
             break
         }
     }
 
     GS.mortalEvals = []
-    let currRound = -1
     for (d of GS.mortalHtmlDoc.querySelectorAll('details')) {
-        debug && console.log(d)
         let summary = d.querySelector('summary')
         let currTurn = null
         if (!summary) {
@@ -731,101 +904,113 @@ function parseMortalHtml() {
         }
         // the Tenhou JSON log is in this, use it to find new rounds
         if (d.querySelector('textarea')) {
-            console.log(summary.textContent)
             RiichiState = null // reset state
-            currRound++
             GS.mortalEvals.push([])
-            console.assert(GS.mortalEvals.length-1 == currRound)
         }
+        // Turn example: <summary>Turn 6 (×50)<span class="turn-info"> &nbsp;&nbsp;&nbsp;2 shanten&nbsp;&nbsp;&nbsp;</span></summary>
         if (summary.textContent.includes("Turn")) {
             currTurn = summary.textContent
         }
-        if (RiichiState === 'complete') {
+        if (RiichiState === 'Complete') {
             continue // skip if we riiched a previous turn
+            // TODO: Post-riichi Kans
         }
+
         let roles = d.querySelectorAll('span.role')
         if (roles.length == 0) {
             continue
         }
-        let p_action = roles[0].nextSibling.textContent
-        if (p_action.includes('Riichi')) {
-            RiichiState = 'discarding' // set flag so we process the Riichi discard next
+        let evals = new MortalEval(currTurn)
+        evals.p_action = roles[0].nextSibling.textContent
+        if (RiichiState == 'Discarding') {
+            RiichiState = 'Complete' // We are now processing the riichi discard set the state now
         }
-        if (!p_action.includes('Discard')) {
-            continue // TODO: Add code for calls also!
+        if (evals.p_action.includes('Riichi')) {
+            RiichiState = 'Discarding' // set flag so we process the Riichi discard next
         }
-        if (RiichiState === 'discarding') {
-            RiichiState = 'complete' // We are now processing the riichi discard set the state now
-        }
-        // Player is wrapped nicely in a parent span
-        let p_discard = roles[0].parentElement.querySelector('use').href.baseVal
-        // Mortal is not wrapped, use next.next instead
-        let m_discard = roles[1].nextSibling.nextSibling.querySelector('use').href.baseVal
-        let tbody = d.querySelector('tbody')
-        let m_Pval = null
-        let p_Pval = null
-        let info = {'p_discard':p_discard, 'm_discard':m_discard, 'currTurn':currTurn, 'Pvals':{}}
-        for (let tr of tbody.querySelectorAll('tr')) {
-            m_Pval = null
-            p_Pval = null
-            let tile = null
-            let riichi = false
-            let action = tr.textContent.trim()
-            //console.log('')
-            //console.log(tr)
-            //console.log('action', typeof action, action)
-            if (action.includes("Riichi")) {
-                riichi = true
-                //console.log('riichied')
+
+        if (evals.p_action.includes('Discard')) {
+            evals.type = 'Discard'
+            // Player is wrapped nicely in a parent span
+            evals.p_action = roles[0].parentElement.querySelector('use').href.baseVal
+            // Mortal is not wrapped, use next.next instead
+            evals.m_action = roles[1].nextSibling.nextSibling.querySelector('use').href.baseVal
+            evals.p_action = mortalHashTile2tenhou(evals.p_action)
+            evals.m_action = mortalHashTile2tenhou(evals.m_action)
+        } else {
+            evals.p_action = roles[0].nextSibling.textContent
+            evals.m_action = roles[1].nextSibling.textContent
+            let beforeAction = d.querySelector('li.tsumo').getAttribute('before')
+            if (beforeAction && !beforeAction.includes('Draw')) {
+                evals.type = 'Call' // Chi, Pon, Open Kan
+                evals.strFromRel = beforeAction.match(/^[^\W]+/)[0]
+                const fromMap = {"Shimocha":1, "Toimen":2, "Kamicha":3}
+                console.assert(evals.strFromRel in fromMap)
+                evals.fromIdxRel = fromMap[evals.strFromRel]
             } else {
-                tile = tr.querySelector('use').href.baseVal
+                evals.type = 'Discard' // Riichi, Tsumo, Ankan, Kakan
             }
+        }
+        let tbody = d.querySelector('tbody')
+        for (let tr of tbody.querySelectorAll('tr')) {
+            let action = tr.firstElementChild.textContent.trim()
             i = tr.querySelectorAll('span.int')
             f = tr.querySelectorAll('span.frac')
             Qval = parseFloat(i[0].textContent + f[0].textContent)
             Pval = parseFloat(i[1].textContent + f[1].textContent)
-            //console.log('tile', tile, riichi)
-            if (riichi) {
-                info['Pvals']['riichi'] = Pval
-                // TODO: m_Pval and p_Pval
+
+            if (evals.type == 'Call' || action == "Riichi" || action == "Tsumo") {
+                evals.Pvals[action] = Pval
+                //console.log('action', action, tr.innerHTML)
+                // TODO: Chi/Pon etc has tiles in it
             } else {
-                if (tile == m_discard) {
-                    m_Pval = Pval
-                }
-                if (tile == p_discard) {
-                    p_Pval = Pval
-                }
-                //console.log('parse tile', tile)
-                tile = tile.replace('#pai-', '')
-                tile = tm2t(tile)
-                info['Pvals'][tile] = Pval
+                let tile = tr.querySelector('use').href.baseVal
+                tile = mortalHashTile2tenhou(tile)
+                evals.Pvals[tile] = Pval
             }
         }
-        info['m_Pval'] = m_Pval
-        info['p_Pval'] = p_Pval
-        //console.log(info)
-        GS.mortalEvals[currRound].push(info)
+        let softmaxed = soften(Object.values(evals.Pvals))
+        evals.Pvals_soft = Object.keys(evals.Pvals).reduce((acc, key, index) => {
+            acc[key] = softmaxed[index];
+            return acc;
+        }, {});
+
+        GS.mortalEvals[GS.mortalEvals.length-1].push(evals)
     }
-    console.log('done parsing mortal ', GS.mortalEvals.length, currRound)
+    console.log('done parsing mortal ', GS.mortalEvals.length, GS.mortalEvals)
+}
+
+function soften(pdfs) {
+    const hotter = pdfs.map(x => Math.pow(x, 1/GS.C_soft_T))
+    const denom = hotter.reduce((a, b) => a + b)
+    return hotter.map(x => x/denom*100)
 }
 
 function getJsonData() {
     data = localStorage.getItem('mortalHtmlStr')
     if (data) {
+        mortalFilename = localStorage.getItem('mortalFilename')
+        let label = document.getElementById('mortal-html-label')
+        label.innerHTML = "Choose Mortal File<br>" + mortalFilename
         data = LZString.decompressFromUTF16(data)
         setMortalHtmlStr(data)
+        updateState()
     }
 
     let fileInput = document.getElementById('mortal-html-file')
     fileInput.addEventListener('change', function(event) {
         let file = event.target.files[0]
         if (file) {
+            let label = document.getElementById('mortal-html-label')
+            label.innerHTML = "Choose Mortal File<br>" + file.name
             let fr = new FileReader()
             fr.readAsText(file)
             fr.onload = function() {
                 let data = LZString.compressToUTF16(fr.result)
                 localStorage.setItem('mortalHtmlStr', data)
+                localStorage.setItem('mortalFilename', file.name)
                 setMortalHtmlStr(fr.result)
+                updateState()
             }
         } else {
             console.log('no file')
@@ -836,7 +1021,6 @@ function getJsonData() {
 const GS = new GlobalState
 function main() {
     getJsonData()
-    parseJsonData(GS.json_data)
     connectUI()
 }
 main()
