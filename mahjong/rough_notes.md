@@ -84,12 +84,6 @@ Best to worst:
   3. headless (8t 28k -- good: 4t 16k bad: 4t 12k)
   4. standard/perfect (6t 20k)
 
-# Gacha notes
-* Gift to Miki: diamonds
-* Donate everything else for dust -- summon cool stuff
-
-* purple tier save for bond (future)
-
 # Random examples
 * XXX XXX 244 778 45 
   * cut 2 = keep the good 778 shape
