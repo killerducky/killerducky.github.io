@@ -6,9 +6,11 @@ Wrap the image in a div the right size after translation and it'll be fine..
 */
 
 :root{
-    --main-width: 700px;
-    --main-height: 700px;
+    --main-width: 750px;
+    --main-height: 800px;
     --neg-margin: -10px;
+ 
+    /* unused */
     /* green-yellow */
     --color-main:   #306000;
     --color-accent: #508000;
@@ -17,15 +19,28 @@ Wrap the image in a div the right size after translation and it'll be fine..
     --color-main:   #007090;
     --color-text:    #005060;
     --color-accent:  #60a0b0;
+    /* Mortal yellow, Hero dark red */
+    --color-bar-mortal: #b0b000;
+    --color-bar-hero: #600000;
+    /* Mortal orange, Hero red-orange*/
+    --color-bar-mortal: #f43a09;
+    --color-bar-hero: #c0b517;
+
     /* blue-green, accents go darker */
-    --color-main:   #007090;
+    --color-main:   #006888;
     --color-accent: #005060;
     --color-accent2: #003040;
+    --color-accent3: #004050;
     --color-text:    #40d0e0;
+    /* Mortal purple, Hero dark blue */
+    --color-bar-mortal: #9000b0;
+    --color-bar-hero: #3000b0;
+    /* Discard background */
+    --color-tsumogiri: #ccc6c0;
 }
 body{
     background: var(--color-main);
-    max-width: 1000px;
+    max-width: 1100px;
     margin: auto;
     color: var(--color-text);
     line-height: 1.5;
@@ -46,14 +61,14 @@ h1{
 }
 .outer {
     display: grid;
-    grid-template-columns: 700px 1fr;
+    grid-template-columns: var(--main-width) 1fr;
 }
 .grid-main{
     display: grid;
     width: var(--main-width);
-    height: calc(var(--main-height) + 50px);
-    grid-template-columns: 95px 145px 220px 145px 95px;
-    grid-template-rows: 95px 145px 220px 145px 145px;
+    height: var(--main-height);
+    grid-template-columns: 95px 170px 220px 170px 95px;
+    grid-template-rows: 95px 170px 220px 170px 145px;
     grid-template-areas: "ah-p3 ah-p2 ah-p2   ah-p2 ah-p2"
                          "ah-p3 .     ad-p2   .     ah-p1"
                          "ah-p3 ad-p3 a-info  ad-p1 ah-p1"
@@ -79,7 +94,7 @@ h1{
     writing-mode: vertical-rl;
     transform: rotate(180deg);
     background: var(--color-accent);;
-    padding-right: 30px;
+    padding-right: 40px;
     padding-top: 10px;
 }
 .grid-hand-p0-container{
@@ -125,12 +140,11 @@ h1{
     border: 1px solid black;
     margin: auto;
     grid-template-columns: 30px 5px 130px 5px 30px;
-    grid-template-rows: repeat(6, 30px);
+    grid-template-rows: repeat(5, 40px);
     grid-template-areas:
       "ai-p3 ai-p2 ai-p2   ai-p2 ai-p2"
       "ai-p3 .    ai-round   .     ai-p1"
       "ai-p3 .    ai-sticks  .     ai-p1"
-      "ai-p3 .    ai-honbas  .     ai-p1"
       "ai-p3 .    ai-doras   .     ai-p1"
       "ai-p0 ai-p0 ai-p0   ai-p0 ai-p1";
     background: var(--color-accent);
@@ -141,9 +155,6 @@ h1{
 .info-sticks {
     grid-area: ai-sticks;
 }
-.info-honbas {
-    grid-area: ai-honbas;
-}
 .info-doras {
     grid-area: ai-doras;
 }
@@ -153,17 +164,23 @@ h1{
 }
 .gi-p0 {
     grid-area: ai-p0;
-    padding: 10px;
     margin: auto;
 }
 .gi-p1 {
     grid-area: ai-p1;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    margin: auto;
 }
 .gi-p2 {
     grid-area: ai-p2;
+    transform: rotate(180deg);
+    margin: auto;
 }
 .gi-p3 {
     grid-area: ai-p3;
+    writing-mode: vertical-rl;
+    margin: auto;
 }
 .rotate > img {
     transform: rotate(90deg);
@@ -209,7 +226,7 @@ h1{
 .killer-call-bars {
     width: 110px;
     height: 90px;
-    background: var(--color-accent2);
+    background: var(--color-accent3);
     padding: 5px;
     margin: auto;
 }
