@@ -255,7 +255,7 @@
      id="layer1"
      transform="translate(0,-652.36216)">
     <rect
-       style="opacity:1;fill:#ff3737;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:10;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       style="opacity:1;fill:hsl(0, 68%, 35%);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:10;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect4164"
        width="300.05896"
        height="400.77808"
