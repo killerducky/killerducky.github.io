@@ -94,7 +94,7 @@ h1{
 .grid-hand-p2{
     grid-area: ah-p2;
     transform: rotate(180deg);
-    background: var(--color-accent);;
+    background: var(--color-accent);
     padding-top: 30px;
     padding-left: 10px;
 }
@@ -102,13 +102,13 @@ h1{
     grid-area: ah-p1;
     writing-mode: vertical-rl;
     transform: rotate(180deg);
-    background: var(--color-accent);;
+    background: var(--color-accent);
     padding-right: 40px;
     padding-top: 10px;
 }
 .grid-hand-p0-container{
     grid-area: ah-p0;
-    background: var(--color-accent);;
+    background: var(--color-accent);
     padding-top: 20px;
 }
 .grid-hand-p0{
@@ -170,7 +170,7 @@ h1{
 .info-doras {
     grid-area: ai-doras;
 }
-.result {
+/* .result {
     margin: auto;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -187,26 +187,30 @@ h1{
     text-align: right;
     border-collapse: collapse;
     padding: 0.4rem;
+} */
+.gi-p0-outer, .gi-p1-outer, .gi-p2-outer, .gi-p3-outer {
+    display: flex;
+    justify-content: space-between;
 }
-.gi-p0 {
+.gi-p0-outer {
     grid-area: ai-p0;
-    margin: auto;
+    margin: auto 10px;
 }
-.gi-p1 {
+.gi-p1-outer {
     grid-area: ai-p1;
     writing-mode: vertical-rl;
     transform: rotate(180deg);
-    margin: auto;
+    margin: 10px auto;
 }
-.gi-p2 {
+.gi-p2-outer {
     grid-area: ai-p2;
     transform: rotate(180deg);
-    margin: auto;
+    margin: auto 10px;
 }
-.gi-p3 {
+.gi-p3-outer {
     grid-area: ai-p3;
     writing-mode: vertical-rl;
-    margin: auto;
+    margin: 10px auto;
 }
 .rotate > img {
     transform: rotate(90deg);
@@ -227,8 +231,7 @@ h1{
 .controls {
     display:grid;
     grid-template-columns: repeat(2, 120px);
-    margin:auto;
-    margin-top:10px;
+    margin:10px auto;
     width:240px;
     padding:10px;
     background:var(--color-accent);
@@ -257,13 +260,20 @@ h1{
 .info-round-modal::backdrop {
     background: rgb(0 0 0 / .3);
 }
+.big-loss {
+    background: rgb(0 0 0 / .6);
+}
+.small-loss {
+    background: rgb(0 0 0 / .3);
+}
 .info-round-table table, th, td {
     text-align: right;
     border: 1px solid var(--color-text);
     border-collapse: collapse;
     padding: 0.4rem;
+    background: var(--color-accent);
 }
-.info-round-table tr:hover {
+.info-round-table tr:hover td {
     background:rgba(0, 0, 0, 0.7);
 }
 .info-round-close {
@@ -289,7 +299,7 @@ button:hover {
     width: 110px;
     height: 90px;
     background: var(--color-accent3);
-    padding: 5px;
+    padding: 10px;
     margin: auto;
 }
 .killer-call-img {

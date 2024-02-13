@@ -1,3 +1,4 @@
+"use strict";
 /* Source: https://mjai.ekyu.moe/report/ac7f456533f7d814.html#kyoku-2-0 
 Also saved in mahjong_mortal_ui/example_logs/Example_mjai_report.html
 
@@ -141,7 +142,8 @@ class GlobalState {
         this.C_db_tileWidth = 34
         this.C_db_heroBarWidth = 20
         this.C_db_mortBarWidth = 10
-        this.C_cb_height = 60
+        this.C_cb_heroBarHeight = 60
+        this.C_cb_mortBarHeightRatio = 0.9
         this.C_cb_totHeight = 100
         this.C_cb_totWidth = 100
         this.C_cb_padding = 10
@@ -172,17 +174,19 @@ class UI {
         this.hands = []
         this.discards = []
         this.pInfo = []
+        this.pInfoResult = []
         this.gridInfo = document.querySelector('.grid-info')
         this.povPidx = 0
         for (let pnum of Array(4).keys()) {
             this.hands.push(document.querySelector(`.grid-hand-p${pnum}`))
             this.discards.push(document.querySelector(`.grid-discard-p${pnum}`))
             this.pInfo.push(document.querySelector(`.gi-p${pnum}`))
+            this.pInfoResult.push(document.querySelector(`.gi-p${pnum}-result`))
         }
         this.round = document.querySelector('.info-round')
         this.prevRoundSticks = document.querySelector('.info-sticks')
         this.doras = document.querySelector('.info-doras')
-        this.result = document.querySelector('.result')
+        // this.result = document.querySelector('.result')
         this.infoRoundModal = document.querySelector('.info-round-modal')
         this.infoRoundTable = document.querySelector('.info-round-table')
     }
@@ -201,6 +205,8 @@ class UI {
         return str
     }
     reset() {
+        let currGeList = GS.ge[GS.hand_counter]
+        let result = currGeList.slice(-1)[0]
         this.round.replaceChildren(GS.C_windStr[GS.gl.roundWind-41])
         this.round.append("-", GS.gl.roundNum+1)
         if (GS.gl.honbas > 0) {
@@ -211,19 +217,35 @@ class UI {
         }
         this.prevRoundSticks.replaceChildren()
         this.doras.replaceChildren()
-        this.result.replaceChildren()
         for (let pidx=0; pidx<4; pidx++) {
-            this.discards[pidx].replaceChildren()
             let pidxObj = new PIDX(pidx)
+            this.discards[pidxObj.pov()].replaceChildren()
             let seatWind = (4 + pidx - GS.gl.roundNum) % 4
             this.pInfo[pidxObj.pov()].replaceChildren(GS.C_windStr[seatWind])
-            this.pInfo[pidxObj.pov()].append(' ', GS.gl.scores[pidx]-GS.gl.thisRoundSticks[pidx]*1000)
+            if (GS.gl.handOver) {
+                this.pInfo[pidxObj.pov()].append(' ', GS.gl.scores[pidx]+result.scoreChangesPlusSticks[pidx])
+            } else {
+                this.pInfo[pidxObj.pov()].append(' ', GS.gl.scores[pidx]-GS.gl.thisRoundSticks[pidx]*1000)
+            }
+            this.pInfoResult[pidxObj.pov()].replaceChildren()
+            if (GS.gl.handOver) {
+                this.pInfoResult[pidxObj.pov()].append(this.formatString(result.scoreChangesPlusSticks[pidx], false, true))
+            } else if (GS.gl.thisRoundSticks[pidx]) {
+                this.pInfoResult[pidxObj.pov()].append(this.formatString(-GS.gl.thisRoundSticks[pidx]*1000, false, true))
+            }
         }
+    }
+    formatString(num, showZero, addPlus) {
+        if (!showZero && num == 0) {
+            return ''
+        }
+        let s = (addPlus && num>0) ? '+' : ''
+        s += num
+        return s
     }
     #relativeToHeroStr(pidx) {
         let relIdx = pidx<4 ? (4 + GS.heroPidx - pidx) % 4 : pidx
         return ['Hero', 'Kami', 'Toimen', 'Shimo', 'Pot'][relIdx]
-        // return ['Self', 'Left', 'Cross', 'Right'][relIdx]
     }
     updateGridInfo() {
         this.clearDiscardBars()
@@ -246,6 +268,7 @@ class UI {
             }
             this.doras.lastChild.setAttribute('width', 20)
         }
+        /*
         if (GS.gl.handOver) {
             if (GS.gl.result == '和了') {
                 if (GS.gl.winner == GS.gl.payer) {
@@ -276,6 +299,7 @@ class UI {
         } else {
             this.result.append('(Result hidden)')
         }
+        */
     }
     clearCallBars() {
         const callBars = document.querySelector('.killer-call-bars')
@@ -298,11 +322,11 @@ class UI {
             let xloc = GS.C_db_handPadding + GS.C_db_tileWidth/2 + slot*GS.C_db_tileWidth
             if (key == mortalEval.p_action) {
                 svgElement.appendChild(this.createRect(
-                    xloc-GS.C_db_heroBarWidth/2, 0, GS.C_db_heroBarWidth, 1*GS.C_cb_height, GS.C_colorBarHero
+                    xloc-GS.C_db_heroBarWidth/2, GS.C_db_heroBarWidth, GS.C_cb_heroBarHeight, 1, GS.C_colorBarHero
                 ))
             }
             svgElement.appendChild(this.createRect(
-                xloc-GS.C_db_mortBarWidth/2, (1-Pval/100)*GS.C_cb_height, GS.C_db_mortBarWidth, Pval/100*GS.C_cb_height, GS.C_colorBarMortal
+                xloc-GS.C_db_mortBarWidth/2, GS.C_db_mortBarWidth, GS.C_cb_heroBarHeight, Pval/100*GS.C_cb_mortBarHeightRatio, GS.C_colorBarMortal
             ));
             let text = document.createElementNS("http://www.w3.org/2000/svg", "text")
             text.setAttribute("x", xloc-GS.C_db_mortBarWidth/2-10)
@@ -315,18 +339,19 @@ class UI {
     }
     clearDiscardBars() {
         const discardBars = document.getElementById("discard-bars")
-        let svgElement = document.createElementNS("http://www.w3.org/2000/svg", "svg")
+        const svgElement = document.createElementNS("http://www.w3.org/2000/svg", "svg")
         svgElement.setAttribute("width", GS.C_db_totWidth)
         svgElement.setAttribute("height", GS.C_db_height)
         svgElement.setAttribute("padding", GS.C_db_padding)
         discardBars.replaceChildren(svgElement)
     }
-    createRect(x, y, width, height, fill) {
+    createRect(x, width, totHeight, fillRatio, fill) {
+        let y = (1-fillRatio)*totHeight
         let rect = document.createElementNS("http://www.w3.org/2000/svg", "rect")
         rect.setAttribute("x", x)
         rect.setAttribute("y", y)
         rect.setAttribute("width", width)
-        rect.setAttribute("height", height)
+        rect.setAttribute("height", totHeight*fillRatio)
         rect.setAttribute("fill", fill)
         return rect
     }
@@ -358,11 +383,11 @@ class UI {
             if (tile == mortalEval.p_action) {
                 heroSlotFound = true
                 svgElement.appendChild(this.createRect(
-                    xloc-GS.C_db_heroBarWidth/2, 0, GS.C_db_heroBarWidth, 1*GS.C_db_height, GS.C_colorBarHero
+                    xloc-GS.C_db_heroBarWidth/2, GS.C_db_heroBarWidth, GS.C_db_height, 1, GS.C_colorBarHero
                 ))
             }
             svgElement.appendChild(this.createRect(
-                xloc-GS.C_db_mortBarWidth/2, (1-Pval/100)*GS.C_db_height, GS.C_db_mortBarWidth, (Pval/100)*GS.C_db_height, GS.C_colorBarMortal
+                xloc-GS.C_db_mortBarWidth/2, GS.C_db_mortBarWidth, GS.C_db_height, Pval/100*GS.C_cb_mortBarHeightRatio, GS.C_colorBarMortal
             ));
         }
         if (!heroSlotFound) {
@@ -372,26 +397,28 @@ class UI {
             throw new Error()
         }
     }
-    updateHandInfo(hands, calls, drawnTile) {
+    updateHandInfo() {
+        let result = GS.ge[GS.hand_counter].slice(-1)[0]
         for (let pnum=0; pnum<4; pnum++) {
             let objPidx = new PIDX(pnum)
             this.addHandTiles(objPidx, [], true)
-            for (let tileInt of hands[pnum]) {
-                if (GS.showHands || pnum==GS.heroPidx) {
+            for (let tileInt of GS.gl.hands[pnum]) {
+                // TODO: Draw and all tenpai could show the hands also?
+                if (GS.showHands || (GS.gl.handOver && GS.gl.scoreChanges[pnum]>0) || pnum==GS.heroPidx) {
                     this.addHandTiles(objPidx, [tenhou2str(tileInt)], false)
                 } else {
                     this.addHandTiles(objPidx, ['back'], false)
                 }
             }
             this.addBlankSpace(objPidx)
-            if (drawnTile[pnum] != null) {
-                this.addHandTiles(objPidx, [tenhou2str(drawnTile[pnum])], false)
+            if (GS.gl.drawnTile[pnum] != null) {
+                this.addHandTiles(objPidx, [tenhou2str(GS.gl.drawnTile[pnum])], false)
             } else {
                 this.addBlankSpace(objPidx)
             }
-            if (calls[pnum].length > 0) {
+            if (GS.gl.calls[pnum].length > 0) {
                 this.addBlankSpace(objPidx)
-                for (let tileInt of calls[pnum]) {
+                for (let tileInt of GS.gl.calls[pnum]) {
                     if (tileInt == 'rotate') {
                         this.rotateLastTile(objPidx, 'hand')
                     } else if (tileInt == 'float') {
@@ -458,6 +485,7 @@ class UI {
         this.#getHand(pidx).lastChild.style.opacity = "0"
     }
     updateDiscardPond() {
+        let event = GS.ge[GS.hand_counter][GS.ply_counter]
         for (let pidx=0; pidx<4; pidx++) {
             let pidxObj = new PIDX(pidx)
             for (let tile of GS.gl.discardPond[pidx]) {
@@ -465,6 +493,11 @@ class UI {
                 if (tile.called) {
                     this.lastDiscardWasCalled(pidxObj)
                 }
+            }
+            if (event.type=='discard' && pidx==event.pidx) {
+                console.log('hi', event)
+                // this.#getDiscard(pidxObj).lastChild.style.transform += ' translate(30px,30px)'
+                // console.log(this.#getDiscard(pidxObj).lastChild)
             }
         }
     }
@@ -514,9 +547,17 @@ class UI {
             for (let pidx=0; pidx<4+1; pidx++) {
                 cell = tr.insertCell()
                 cell.textContent = `${result.scoreChangesPlusSticks[pidx]}`
+                if (result.scoreChangesPlusSticks[pidx] < -7000) {
+                    cell.classList.add('big-loss')
+                } else if (result.scoreChangesPlusSticks[pidx] < 0) {
+                    cell.classList.add('small-loss')
+                }
             }
             hand_counter++
         }
+        this.infoRoundModal.addEventListener('click', (event) => {
+            this.infoRoundModal.close()
+        })
     }
 }
 
@@ -561,7 +602,7 @@ function tm2t(str) {
     if (isNaN(num)) {
         //                                                   Pai=White Fa=Green Chun=Red
         const yakuhai = { 'e': 41, 's': 42, 'w': 43, 'n': 44, 'p':45, 'f':46, 'c': 47}
-        tile = yakuhai[str[0]]
+        let tile = yakuhai[str[0]]
         if (tile == null) {
             throw new Error(`Could not parse ${str}`)
         }
@@ -577,10 +618,10 @@ function tenhou2str(tileInt) {
         const akacon = { 51:'0m', 52:'0p', 53:'0s'}
         return akacon[tileInt]
     }
-    suitInt = Math.floor(tileInt / 10)
+    let suitInt = Math.floor(tileInt / 10)
     tileInt = tileInt % 10
     const tcon = ['m', 'p', 's', 'z']
-    output = tileInt.toString() + tcon[suitInt-1]
+    let output = tileInt.toString() + tcon[suitInt-1]
     return output
 }
 
@@ -705,20 +746,21 @@ function updateState() {
             if (event.draw.type == 'm') {
                 GS.gl.thisRoundExtraDoras++ // openkan
             }
-            let allMeldedTiles = [event.draw.newTile].concat(event.draw.meldedTiles)
+            GS.gl.hands[event.pidx].push(event.draw.newTile)
+            let allMeldedTiles = event.draw.meldedTiles
+            let newCall = []
             for (let i=0; i<allMeldedTiles.length; i++) {
-                if (i>0) {
-                    removeFromArray(GS.gl.hands[event.pidx], allMeldedTiles[i])
-                }
-                GS.gl.calls[event.pidx].push(allMeldedTiles[i])
+                removeFromArray(GS.gl.hands[event.pidx], allMeldedTiles[i])
+                newCall.push(allMeldedTiles[i])
                 if (event.draw.fromIdxRel == i) {
-                    GS.gl.calls[event.pidx].push('rotate')
+                    newCall.push('rotate')
                 }
                 if (event.draw.type == 'm' && event.draw.fromIdxRel+1 == i) {
-                    GS.gl.calls[event.pidx].push('rotate')
-                    GS.gl.calls[event.pidx].push('float')
+                    newCall.push('rotate')
+                    newCall.push('float')
                 }
             }
+            GS.gl.calls[event.pidx] = newCall.concat(GS.gl.calls[event.pidx])
         } else if (event.type == 'kakan') {
             // kakan = added kan
             console.assert(event.kanTile.meldedTiles.length==1)
@@ -746,18 +788,20 @@ function updateState() {
             GS.gl.hands[event.pidx].push(GS.gl.drawnTile[event.pidx])
             GS.gl.hands[event.pidx].sort(tileSort)
             GS.gl.drawnTile[event.pidx] = null
+            let newCall = []
             for (let i=0; i<event.meldedTiles.length; i++) {
                 removeFromArray(GS.gl.hands[event.pidx], event.meldedTiles[i])
                 if (i==0 || i==3) {
-                    GS.gl.calls[event.pidx].push('back')
+                    newCall.push('back')
                 } else {
-                    GS.gl.calls[event.pidx].push(event.meldedTiles[i])
-                    GS.gl.calls[event.pidx].push('rotate')
+                    newCall.push(event.meldedTiles[i])
+                    newCall.push('rotate')
                     if (i==2) {
-                        GS.gl.calls[event.pidx].push('float')
+                        newCall.push('float')
                     }
                 }
             }
+            GS.gl.calls[event.pidx] = newCall.concat(GS.gl.calls[event.pidx])
         } else if (event.type == 'discard') {
             let riichi = GS.ge[GS.hand_counter][ply-1].type == "riichi"
             // If riichi and the tile passed
@@ -793,7 +837,7 @@ function updateState() {
         }
     }
     GS.ui.reset()
-    GS.ui.updateHandInfo(GS.gl.hands, GS.gl.calls, GS.gl.drawnTile)
+    GS.ui.updateHandInfo()
     GS.ui.updateDiscardPond()
     GS.ui.updateGridInfo()
 }
@@ -844,10 +888,6 @@ class NewTile {
         if (this.type == 'k') {
             // only one of the tiles is actually new
             this.meldedTiles = [this.meldedTiles[this.fromIdxRel]]
-        } else if (this.type == 'a') {
-            // meld all
-        } else {
-            this.meldedTiles.splice(this.fromIdxRel, 1)
         }
         // e.g. 151515k51 -- 51 (red 5) was called from relative p2 (there is no p3)
         // But wait until after we got the real called tile
@@ -872,10 +912,9 @@ class NewTile {
 //     (writes to discards)
 ///////////////////////////////////////////////////
 
-function parseOneTenhouRound() {
+function parseOneTenhouRound(round) {
     let currGeList = []
     GS.ge.push(currGeList)
-    GS.gl = new GameLog(round['log'][0])
     GS.gl = new GameLog(round['log'][0])
     let openkanCnt = 0
     let kakanCnt = 0
@@ -959,7 +998,6 @@ function addResult(currGeList) {
     console.assert(sum(result.scoreChangesPlusSticks)==0)
 }
 
-
 function mergeMortalEvents() {
     for (let roundNum=0; roundNum<GS.ge.length; roundNum++) {
         let mortalEvalIdx = 0
@@ -992,6 +1030,8 @@ function mergeMortalEvents() {
             } else if (event.type == 'discard' && ((GS.heroPidx + mortalEval.fromIdxRel)%4 == event.pidx) && mortalEval.type=='Call') {
                 event.mortalEval = mortalEval
                 mortalEvalIdx++
+            } else if (event.type == 'result') {
+                //console.log('result', event, mortalEval)
             }
         }
     }
@@ -999,7 +1039,7 @@ function mergeMortalEvents() {
 
 function checkPlies(openkanCnt, kakanCnt, ply, currGeList) {
     let checkPlies = 0
-    for (i=0; i<4; i++) {
+    for (let i=0; i<4; i++) {
         checkPlies += GS.gl.draws[i].length
         checkPlies += GS.gl.discards[i].length
     }
@@ -1013,16 +1053,17 @@ function preParseTenhouLogs(data) {
         console.log('no data to parse yet')
         return
     }
-    for (round of data) {
+    for (let round of data) {
         let currGeList
         let openkanCnt
         let kakanCnt
         let ply
-        [openkanCnt, kakanCnt, ply, currGeList] = parseOneTenhouRound()
+        [openkanCnt, kakanCnt, ply, currGeList] = parseOneTenhouRound(round)
         addResult(currGeList)
         checkPlies(openkanCnt, kakanCnt, ply, currGeList)
     }
     mergeMortalEvents()
+    console.log('preParseTenhouLogs done', GS.ge)
     GS.ui.updateResultsTable()
 }
 
@@ -1149,7 +1190,7 @@ function setMortalHtmlStr(data) {
     GS.hand_counter = 0
     parseMortalHtml()
     GS.json_data = []
-    for (ta of GS.mortalHtmlDoc.querySelectorAll('textarea')) {
+    for (let ta of GS.mortalHtmlDoc.querySelectorAll('textarea')) {
         GS.json_data.push(JSON.parse(ta.value))
     }
     preParseTenhouLogs(GS.json_data)
@@ -1191,7 +1232,7 @@ class MortalEval {
 function parseMortalHtml() {
     let RiichiState = null
     
-    for (dtElement of GS.mortalHtmlDoc.querySelectorAll('dt')) {
+    for (let dtElement of GS.mortalHtmlDoc.querySelectorAll('dt')) {
         if (dtElement.textContent === 'player id') {
             GS.heroPidx = parseInt(dtElement.nextSibling.textContent)
             GS.ui.povPidx = GS.heroPidx
@@ -1200,7 +1241,7 @@ function parseMortalHtml() {
     }
 
     GS.mortalEvals = []
-    for (d of GS.mortalHtmlDoc.querySelectorAll('details')) {
+    for (let d of GS.mortalHtmlDoc.querySelectorAll('details')) {
         let summary = d.querySelector('summary')
         let currTurn = null
         if (!summary) {
@@ -1266,10 +1307,10 @@ function parseMortalHtml() {
         let tbody = d.querySelector('tbody')
         for (let tr of tbody.querySelectorAll('tr')) {
             let action = tr.firstElementChild.textContent.trim()
-            i = tr.querySelectorAll('span.int')
-            f = tr.querySelectorAll('span.frac')
-            Qval = parseFloat(i[0].textContent + f[0].textContent)
-            Pval = parseFloat(i[1].textContent + f[1].textContent)
+            let i = tr.querySelectorAll('span.int')
+            let f = tr.querySelectorAll('span.frac')
+            let Qval = parseFloat(i[0].textContent + f[0].textContent)
+            let Pval = parseFloat(i[1].textContent + f[1].textContent)
 
             if (evals.type == 'Call' || action == "Riichi" || action == "Tsumo" || action == "Kan" || action == "Ryuukyoku") {
                 evals.Pvals[action] = Pval
@@ -1300,9 +1341,9 @@ function soften(pdfs) {
 }
 
 function getJsonData() {
-    data = localStorage.getItem('mortalHtmlStr')
+    let data = localStorage.getItem('mortalHtmlStr')
     if (data) {
-        mortalFilename = localStorage.getItem('mortalFilename')
+        let mortalFilename = localStorage.getItem('mortalFilename')
         let label = document.getElementById('mortal-html-label')
         label.innerHTML = "Choose Mortal File<br>" + mortalFilename
         data = LZString.decompressFromUTF16(data)
@@ -1334,6 +1375,13 @@ function getJsonData() {
 function tests() {
     console.assert(new NewTile('151515k51').newTile == 51)
     console.assert(new NewTile('151551k15').newTile == 15)
+    // crazy open kans
+    GS.json_data = '{"title":["",""],"name":["","","",""],"rule":{"aka":0,"aka51":1,"aka52":1,"aka53":1,"disp":"玉の間南喰赤"},"sx":["C","C","C","C"],"log":[[[0,0,0],[25000,25000,25000,25000],[47],[],[11,13,51,17,19,21,21,21,23,23,23,25,25],[25,42,42,42,42],[11,13,51,17,19],[31,31,31,31,33,33,33,33,35,35,35,53,37],[],[],[32,32,32,32,34,34,34,34,36,36,36,36,38],[],[],[11,11,11,13,13,13,15,15,15,17,17,17,19],["111111m11",41,"131313m13",41,"151515m51",41,"171717m17",41],[0,60,0,60,0,60,0,60],["不明"]]]}'
+    GS.json_data = [JSON.parse(GS.json_data)]
+    GS.mortalEvals = [[]]
+    preParseTenhouLogs(GS.json_data)
+    updateState()
+    console.log('tests done (remove from production)')
 }
 
 const GS = new GlobalState
