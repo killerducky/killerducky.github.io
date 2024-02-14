@@ -1,46 +1,4 @@
 "use strict";
-/* Source: https://mjai.ekyu.moe/report/ac7f456533f7d814.html#kyoku-2-0 
-Also saved in mahjong_mortal_ui/example_logs/Example_mjai_report.html
-
-json_data = {
-    "dan":["雀豪★1","雀豪★1","雀聖★2","雀聖★2"],
-    "lobby":0,
-    "log":[[
-        [2,0,0], // East 3, no repeats, no riichi sticks  E3 means PID2 is now East/Dealer
-        [22000,11300,44700,22000], // start points
-        [22], // Dora 2p
-        [], // Uradora
-        // PID0 = E in E1  now: West
-        [25,18,18,46,22,31,16,34,29,47,17,13,17],
-        [28,21,13,19,24,41,35,34,11,26,41,45,28,34,37],
-        [31,46,47,25,21,60,28,60,60,29,60,60,60,60,60],
-        // PID1 = S in E1  now: North
-        [37,23,45,42,51,37,13,38,43,23,46,38,12],              // haipai = starting hand
-        [47,12,11,44,47,14,"3838p38",43,33,22,36,14,28,12,17], // draws
-        [43,42,46,45,44,47,47,11,43,33,22,36,60,14,60],        // discards
-        // PID2 = W in E1  now: East                           // (mortal POV player in this case)
-        [41,21,36,26,15,39,29,44,47,32,46,26,35],
-        [29,16,43,16,26,52,38,31,32,38,25,36,24,31,"c141516",25],
-        [44,39,60,46,47,32,60,60,60,60,21,26,41,60,29,29],
-        // PID3 = N in E1  now: South
-        [28,19,27,33,15,44,11,22,32,15,19,35,45],       // haipai = starting hand
-        [33,39,19,21,29,44,42,14,27,42,45,42,41,16,39], // draws
-        [44,60,11,45,35,60,33,60,60,60,60,60,60,42,60], // discards
-        [
-            "和了",           // "heaven" = Agari = Win (Tsumo or Ron)
-            [-7700,7700,0,0], // point change
-            [1,0,1,           // who won, points from (self if tsumo), who won or if pao: who's responsible
-                "30符4飜7700点","断幺九(1飜)","ドラ(2飜)","赤ドラ(1飜)"]  // score info strings
-        ]
-    ]],
-    "name":["Aさん","Bさん","Cさん","Dさん"],
-    "rate":[1538.0,1261.0,2263.0,645.0],
-    "ratingc":"PF4",
-    "rule":{"aka":0,"aka51":1,"aka52":1,"aka53":1,
-    "disp":"玉の間南喰赤"},
-    "sx":["C","C","C","C"]
-}
-*/
 
 const RUNES  = {
     /*hand limits*/
@@ -112,7 +70,7 @@ class GameLog {
             this.winner = null
             this.payer = null
             this.pao = null
-            this.yakuStrings = null
+            this.yakuStrings = []
         }
         this.drawnTile = [null, null, null, null]
         this.calls = [[],[],[],[]]
@@ -153,7 +111,7 @@ class GlobalState {
         this.C_colorBarHero = getComputedStyle(document.documentElement).getPropertyValue('--color-bar-hero')
         this.C_colorTsumogiri = getComputedStyle(document.documentElement).getPropertyValue('--color-tsumogiri')
 
-        this.C_windStr = ['East', 'South', 'West', 'North']
+        this.C_windStr = ['E', 'S', 'W', 'N']
     }
 }
 
@@ -186,19 +144,20 @@ class UI {
         this.round = document.querySelector('.info-round')
         this.prevRoundSticks = document.querySelector('.info-sticks')
         this.doras = document.querySelector('.info-doras')
-        // this.result = document.querySelector('.result')
         this.infoRoundModal = document.querySelector('.info-round-modal')
         this.infoRoundTable = document.querySelector('.info-round-table')
+        this.infoThisRoundModal = document.querySelector('.info-this-round-modal')
+        this.infoThisRoundTable = document.querySelector('.info-this-round-table')
     }
-    #getHand(pidx) { 
+    getHand(pidx) { 
         return this.hands[pidx.pov()] 
     }
-    #getDiscard(pidx) { 
+    getDiscard(pidx) { 
         return this.discards[pidx.pov()]
     }
     roundStr() {
         let str = GS.C_windStr[GS.gl.roundWind-41]
-        str += "-" + (GS.gl.roundNum+1)
+        str += (GS.gl.roundNum+1)
         if (GS.gl.honbas > 0) {
             str += "-" + GS.gl.honbas
         }
@@ -207,14 +166,7 @@ class UI {
     reset() {
         let currGeList = GS.ge[GS.hand_counter]
         let result = currGeList.slice(-1)[0]
-        this.round.replaceChildren(GS.C_windStr[GS.gl.roundWind-41])
-        this.round.append("-", GS.gl.roundNum+1)
-        if (GS.gl.honbas > 0) {
-            this.round.append("-", GS.gl.honbas)
-        }
-        if (GS.gl.prevRoundSticks > 0) {
-            this.round.append(' +', GS.gl.prevRoundSticks*1000)
-        }
+        this.round.replaceChildren(this.roundStr())
         this.prevRoundSticks.replaceChildren()
         this.doras.replaceChildren()
         for (let pidx=0; pidx<4; pidx++) {
@@ -222,17 +174,9 @@ class UI {
             this.discards[pidxObj.pov()].replaceChildren()
             let seatWind = (4 + pidx - GS.gl.roundNum) % 4
             this.pInfo[pidxObj.pov()].replaceChildren(GS.C_windStr[seatWind])
-            if (GS.gl.handOver) {
-                this.pInfo[pidxObj.pov()].append(' ', GS.gl.scores[pidx]+result.scoreChangesPlusSticks[pidx])
-            } else {
-                this.pInfo[pidxObj.pov()].append(' ', GS.gl.scores[pidx]-GS.gl.thisRoundSticks[pidx]*1000)
-            }
+            this.pInfo[pidxObj.pov()].append(' ', GS.gl.scores[pidx]-GS.gl.thisRoundSticks[pidx]*1000)
             this.pInfoResult[pidxObj.pov()].replaceChildren()
-            if (GS.gl.handOver) {
-                this.pInfoResult[pidxObj.pov()].append(this.formatString(result.scoreChangesPlusSticks[pidx], false, true))
-            } else if (GS.gl.thisRoundSticks[pidx]) {
-                this.pInfoResult[pidxObj.pov()].append(this.formatString(-GS.gl.thisRoundSticks[pidx]*1000, false, true))
-            }
+            this.pInfoResult[pidxObj.pov()].append(this.formatString(-GS.gl.thisRoundSticks[pidx]*1000, false, true))
         }
     }
     formatString(num, showZero, addPlus) {
@@ -243,9 +187,16 @@ class UI {
         s += num
         return s
     }
-    #relativeToHeroStr(pidx) {
+    relativeToHeroStr(pidx) {
         let relIdx = pidx<4 ? (4 + GS.heroPidx - pidx) % 4 : pidx
         return ['Hero', 'Kami', 'Toimen', 'Shimo', 'Pot'][relIdx]
+    }
+    parseYakuString(yaku) {
+        console.log(yaku)
+        let s = yaku.split(/([\(\)])|([0-9:]+)/)
+        console.log(s)
+        s = s.map(x => x in exactTranslation ? exactTranslation[x]['DEFAULT'] : x)
+        return s.join(' ')
     }
     updateGridInfo() {
         this.clearDiscardBars()
@@ -268,38 +219,44 @@ class UI {
             }
             this.doras.lastChild.setAttribute('width', 20)
         }
-        /*
         if (GS.gl.handOver) {
+            this.infoThisRoundTable.replaceChildren()
+            let table = document.createElement("table")
             if (GS.gl.result == '和了') {
                 if (GS.gl.winner == GS.gl.payer) {
-                    this.result.append(`Tsumo`)
-                    this.result.append(document.createElement("br"))
+                    this.infoThisRoundTable.append(`Tsumo`)
+                    this.infoThisRoundTable.append(document.createElement("br"))
                 } else {
-                    this.result.append(`Ron`)
-                    this.result.append(document.createElement("br"))
+                    this.infoThisRoundTable.append(`Ron`)
+                    this.infoThisRoundTable.append(document.createElement("br"))
                 }
             } else if (GS.gl.result == '流局') {
-                this.result.append('Draw')
-                this.result.append(document.createElement("br"))
+                this.infoThisRoundTable.append('Draw')
+                this.infoThisRoundTable.append(document.createElement("br"))
             } else if (GS.gl.result == '流し満貫') {
-                this.result.append('Nagashi Mangan (wow!) TODO test this')
+                this.infoThisRoundTable.append('Nagashi Mangan (wow!) TODO test this')
             } else if (GS.gl.result == '九種九牌') {
-                this.result.append('Nine Terminal Draw')
+                this.infoThisRoundTable.append('Nine Terminal Draw')
             }
-            let table = document.createElement("table")
-            this.result.append(table)
-            let tr
+            for (let yaku of GS.gl.yakuStrings) {
+                this.infoThisRoundTable.append(this.parseYakuString(yaku))
+                this.infoThisRoundTable.append(document.createElement("br"))
+            }
             for (let pidx=0; pidx<4+1; pidx++) {
-                if (pidx%2==0) { tr = table.insertRow() }
+                let tr = table.insertRow()
                 let cell = tr.insertCell()
-                cell.textContent = `${this.#relativeToHeroStr(pidx)}`
+                cell.textContent = `${this.relativeToHeroStr(pidx)}`
                 cell = tr.insertCell()
                 cell.textContent = `${event.scoreChangesPlusSticks[pidx]}`
             }
-        } else {
-            this.result.append('(Result hidden)')
+            table.style.margin = "10px auto"
+            this.infoThisRoundTable.append(table)
+
+            this.infoThisRoundModal.showModal()
+            this.infoThisRoundModal.addEventListener('click', (event) => {
+                this.infoThisRoundModal.close()
+            })
         }
-        */
     }
     clearCallBars() {
         const callBars = document.querySelector('.killer-call-bars')
@@ -372,11 +329,7 @@ class UI {
             }
             let Pval = mortalEval['Pvals_soft'][tile]
             if (Pval == null) {
-                console.log('missing Pval, probably because it is an illegal discard')
-                console.log(`tile=${tile} i=${i}`)
-                console.log(GS.ge[GS.hand_counter])
-                console.log('ply', GS.ply_counter)
-                continue
+                continue // TODO: Check code for this. For now assume due to illegal calls swaps
             }
             let slot = (i !== -1) ? i : GS.gl.hands[gameEvent.pidx].length+1
             let xloc = GS.C_db_handPadding + GS.C_db_tileWidth/2 + slot*GS.C_db_tileWidth
@@ -434,22 +387,22 @@ class UI {
     }
     addHandTiles(pidx, tileStrArray, replace) {
         if (replace) {
-            this.#getHand(pidx).replaceChildren()
+            this.getHand(pidx).replaceChildren()
         }
         for (let i in tileStrArray) {
-            this.#getHand(pidx).appendChild(createTile(tileStrArray[i]))
+            this.getHand(pidx).appendChild(createTile(tileStrArray[i]))
         }   
     }
     addDiscardTiles(pidx, tileStrArray, replace) {
         if (replace) {
-            this.#getDiscard(pidx).replaceChildren()
+            this.getDiscard(pidx).replaceChildren()
         }
         for (let i in tileStrArray) {
-            this.#getDiscard(pidx).appendChild(createTile(tileStrArray[i]))
+            this.getDiscard(pidx).appendChild(createTile(tileStrArray[i]))
         }   
     }
     rotateLastTile(objPidx, type) {
-        let div = (type=='hand') ? this.#getHand(objPidx) : this.#getDiscard(objPidx)
+        let div = (type=='hand') ? this.getHand(objPidx) : this.getDiscard(objPidx)
         let angle = (objPidx.pov() * 90 + 90) % 360
         div.lastChild.style.transform = `rotate(${angle}deg)`
         if (objPidx.pov() == 1 || objPidx.pov() == 3) {
@@ -465,24 +418,24 @@ class UI {
     }
     floatLastTile(pidx) {
         if (pidx.pov() == 0) {
-            this.#getHand(pidx).lastChild.style.marginLeft = '-39px'
-            this.#getHand(pidx).lastChild.style.transform += ' translate(-34px,0px)'
+            this.getHand(pidx).lastChild.style.marginLeft = '-39px'
+            this.getHand(pidx).lastChild.style.transform += ' translate(-34px,0px)'
         } else if (pidx.pov() == 1) {
-            this.#getHand(pidx).lastChild.style.marginTop = '-39px'
-            this.#getHand(pidx).lastChild.style.transform += ' translate(-34px,0px)'
+            this.getHand(pidx).lastChild.style.marginTop = '-39px'
+            this.getHand(pidx).lastChild.style.transform += ' translate(-34px,0px)'
         } else if (pidx.pov() == 2) {
-            this.#getHand(pidx).lastChild.style.marginLeft = '-39px'
-            this.#getHand(pidx).lastChild.style.transform += ' translate(34px,0px)'
+            this.getHand(pidx).lastChild.style.marginLeft = '-39px'
+            this.getHand(pidx).lastChild.style.transform += ' translate(34px,0px)'
         } else if (pidx.pov() == 3) {
-            this.#getHand(pidx).lastChild.style.marginTop = '-39px'
-            this.#getHand(pidx).lastChild.style.transform += ' translate(34px,0px)'
+            this.getHand(pidx).lastChild.style.marginTop = '-39px'
+            this.getHand(pidx).lastChild.style.transform += ' translate(34px,0px)'
         } else {
             console.log('error ', pidx)
         }
     }
     addBlankSpace(pidx) {
         this.addHandTiles(pidx, ['Blank'], false)
-        this.#getHand(pidx).lastChild.style.opacity = "0"
+        this.getHand(pidx).lastChild.style.opacity = "0"
     }
     updateDiscardPond() {
         let event = GS.ge[GS.hand_counter][GS.ply_counter]
@@ -495,23 +448,23 @@ class UI {
                 }
             }
             if (event.type=='discard' && pidx==event.pidx) {
-                console.log('hi', event)
-                // this.#getDiscard(pidxObj).lastChild.style.transform += ' translate(30px,30px)'
-                // console.log(this.#getDiscard(pidxObj).lastChild)
+                // console.log('hi', event)
+                // this.getDiscard(pidxObj).lastChild.style.transform += ' translate(30px,30px)'
+                // console.log(this.getDiscard(pidxObj).lastChild)
             }
         }
     }
     addDiscard(pidx, tileStrArray, tsumogiri, riichi) {
         this.addDiscardTiles(pidx, tileStrArray)
         if (tsumogiri) {
-            this.#getDiscard(pidx).lastChild.style.background = GS.C_colorTsumogiri
+            this.getDiscard(pidx).lastChild.style.background = GS.C_colorTsumogiri
         }
         if (riichi) {
             this.rotateLastTile(pidx, 'discard')
         }
     }
     lastDiscardWasCalled(pidx) {
-        this.#getDiscard(pidx).lastChild.style.opacity = "0.5"
+        this.getDiscard(pidx).lastChild.style.opacity = "0.5"
     }
     updateResultsTable() {
         let table = document.createElement("table")
@@ -523,7 +476,7 @@ class UI {
         for (let i=0; i<2; i++) {
             for (let pidx=0; pidx<4+1; pidx++) {
                 cell = tr.insertCell()
-                cell.textContent = `${this.#relativeToHeroStr(pidx)}`
+                cell.textContent = `${this.relativeToHeroStr(pidx)}`
             }
             if (i==0) {cell = tr.insertCell()}
         }
@@ -541,7 +494,7 @@ class UI {
             cell.textContent = this.roundStr()
             for (let pidx=0; pidx<4+1; pidx++) {
                 cell = tr.insertCell()
-                cell.textContent = pidx==4 ? GS.gl.prevRoundSticks : `${GS.gl.scores[pidx]}`
+                cell.textContent = pidx==4 ? GS.gl.prevRoundSticks*1000 : `${GS.gl.scores[pidx]}`
             }
             cell = tr.insertCell()
             for (let pidx=0; pidx<4+1; pidx++) {
@@ -830,7 +783,6 @@ function updateState() {
             // console.log('riichi', GS.ply_counter)
         } else if (event.type == 'result') {
             GS.gl.handOver = true
-            console.log('result: ', GS.gl.result, GS.gl.scoreChanges, GS.gl.winner, GS.gl.payer, GS.gl.yakuStrings)
         } else {
             console.log(event)
             throw new Error('unknown type')
@@ -1016,7 +968,7 @@ function mergeMortalEvents() {
                     if (mortalEval) {
                         if (mortalEval.type == "Discard") {
                             event.mortalEvalAfterRiichi = mortalEval
-                            console.log('mortal disagreed with riichi discard', event)
+                            // console.log('mortal disagreed with riichi discard', event)
                         } else {
                             console.log('TODO: Add Ron/Tsumo/Kan after riichi', mortalEval)
                         }
@@ -1150,7 +1102,7 @@ function connectUI() {
     inc2.addEventListener("click", () => {
         do {
             incPlyCounter();
-        } while (!('mortalEval' in GS.ge[GS.hand_counter][GS.ply_counter]) && GS.ply_counter < GS.ge[GS.hand_counter].length-1)
+        } while (!('mortalEval' in GS.ge[GS.hand_counter][GS.ply_counter]) && GS.ply_counter != 0 && GS.ply_counter != GS.ge[GS.hand_counter].length-1)
         updateState()
     });
     dec.addEventListener("click", () => {
@@ -1160,7 +1112,7 @@ function connectUI() {
     dec2.addEventListener("click", () => {
         do {
             decPlyCounter();
-        } while (!('mortalEval' in GS.ge[GS.hand_counter][GS.ply_counter]) && GS.ply_counter > 0)
+        } while (!('mortalEval' in GS.ge[GS.hand_counter][GS.ply_counter]) && GS.ply_counter != 0 && GS.ply_counter != GS.ge[GS.hand_counter].length-1)
         updateState()
     });
     handInc.addEventListener("click", () => {
@@ -1386,7 +1338,7 @@ function tests() {
 
 const GS = new GlobalState
 function main() {
-    tests()
+    //tests()
     getJsonData()
     connectUI()
 }
