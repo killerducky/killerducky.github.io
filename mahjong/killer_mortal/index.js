@@ -192,9 +192,7 @@ class UI {
         return ['Hero', 'Kami', 'Toimen', 'Shimo', 'Pot'][relIdx]
     }
     parseYakuString(yaku) {
-        console.log(yaku)
         let s = yaku.split(/([\(\)])|([0-9:]+)/)
-        console.log(s)
         s = s.map(x => x in exactTranslation ? exactTranslation[x]['DEFAULT'] : x)
         s = s.map(x => x in partialTranslationForStats ? partialTranslationForStats[x]['DEFAULT'] : x)
         return s.join(' ')
