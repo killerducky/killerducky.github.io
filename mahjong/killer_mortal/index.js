@@ -356,7 +356,7 @@ class UI {
             }
             this.addBlankSpace(pidx)
             if (GS.gl.drawnTile[pidx] != null) {
-                if (GS.showHands || pidx==GS.heroPidx) {
+                if (GS.showHands || (GS.gl.handOver && GS.gl.scoreChanges[pidx]>0) || pidx==GS.heroPidx) {
                     this.addHandTiles(pidx, [tenhou2str(GS.gl.drawnTile[pidx])], false)
                 } else {
                     this.addHandTiles(pidx, ['back'], false)
@@ -863,7 +863,12 @@ function parseOneTenhouRound(round) {
                 // let the next if statement handle the discard
             }
             if (typeof discard.newTile == 'number') {
-                currGeList.push(new GameEvent('discard', ply.pidx, {'discard':discard.newTile}))
+                let ge = new GameEvent('discard', ply.pidx, {'discard':discard.newTile})
+                ge.actualTile = ge.discard
+                if (ge.discard == 60) {
+                    ge.actualTile = currGeList[currGeList.length-1].draw
+                }
+                currGeList.push(ge)
             } else {
                 console.log(typeof discard, discard)
                 throw new Error('discard.newTile should be number')
@@ -931,9 +936,15 @@ function mergeMortalEvents() {
                 console.assert(mortalEval.type == 'Discard')
                 event.mortalEval = mortalEval
                 mortalEvalIdx++
-            } else if (event.type == 'discard' && ((GS.heroPidx + mortalEval.fromIdxRel)%4 == event.pidx) && mortalEval.type=='Call') {
-                event.mortalEval = mortalEval
-                mortalEvalIdx++
+            } else if (event.type == 'discard' && 
+                        ((GS.heroPidx + mortalEval.fromIdxRel)%4 == event.pidx) && 
+                        mortalEval.type=='Call') {
+                if (mortalEval.cutTile != event.actualTile) {
+                    // console.log('mismatch', mortalEval, event)
+                } else {
+                    event.mortalEval = mortalEval
+                    mortalEvalIdx++
+                }
             } else if (event.type == 'result') {
                 //console.log('result', event, mortalEval)
             }
@@ -1224,7 +1235,9 @@ function parseMortalHtml() {
         if (evals.p_action.includes('Discard')) {
             evals.type = 'Discard'
         } else {
-            let beforeAction = d.querySelector('li.tsumo').getAttribute('before')
+            let discardElem = d.querySelector('li.tsumo')
+            let beforeAction = discardElem.getAttribute('before')
+            evals.cutTile = mortalHashTile2tenhou(discardElem.querySelector('use').href.baseVal)
             if (beforeAction && !beforeAction.includes('Draw')) {
                 evals.type = 'Call' // Chi, Pon, Open Kan
                 evals.strFromRel = beforeAction.match(/^[^\W]+/)[0]
@@ -1319,16 +1332,37 @@ function discardOverflowTest() {
     }
     for (let pidx=0; pidx<4; pidx++) {
         GS.ui.addHandTiles(pidx, [], true)
-        for (let i=0; i<18; i++) {
-            GS.ui.addHandTiles(pidx, ['1m'], false)
-            if (i==14) {
-                GS.ui.rotateLastTile(pidx, 'hand')
-            }
-            if (i==15) {
-                GS.ui.rotateLastTile(pidx, 'hand')
-                GS.ui.floatLastTile(pidx)
-            }
-        }
+        GS.ui.addHandTiles(pidx, ['1m'], false)
+        GS.ui.addHandTiles(pidx, ['1m'], false)
+
+        GS.ui.addHandTiles(pidx, ['1m'], false)
+        GS.ui.addHandTiles(pidx, ['1m'], false)
+        GS.ui.addHandTiles(pidx, ['1m'], false)
+        GS.ui.rotateLastTile(pidx, 'hand')
+        GS.ui.addHandTiles(pidx, ['1m'], false)
+        GS.ui.rotateLastTile(pidx, 'hand')
+        GS.ui.floatLastTile(pidx)
+        GS.ui.addHandTiles(pidx, ['1m'], false)
+        GS.ui.addHandTiles(pidx, ['1m'], false)
+        GS.ui.addHandTiles(pidx, ['1m'], false)
+        GS.ui.rotateLastTile(pidx, 'hand')
+        GS.ui.addHandTiles(pidx, ['1m'], false)
+        GS.ui.rotateLastTile(pidx, 'hand')
+        GS.ui.floatLastTile(pidx)
+        GS.ui.addHandTiles(pidx, ['1m'], false)
+        GS.ui.addHandTiles(pidx, ['1m'], false)
+        GS.ui.addHandTiles(pidx, ['1m'], false)
+        GS.ui.rotateLastTile(pidx, 'hand')
+        GS.ui.addHandTiles(pidx, ['1m'], false)
+        GS.ui.rotateLastTile(pidx, 'hand')
+        GS.ui.floatLastTile(pidx)
+        GS.ui.addHandTiles(pidx, ['1m'], false)
+        GS.ui.addHandTiles(pidx, ['1m'], false)
+        GS.ui.addHandTiles(pidx, ['1m'], false)
+        GS.ui.rotateLastTile(pidx, 'hand')
+        GS.ui.addHandTiles(pidx, ['1m'], false)
+        GS.ui.rotateLastTile(pidx, 'hand')
+        GS.ui.floatLastTile(pidx)
     }
 }
 
