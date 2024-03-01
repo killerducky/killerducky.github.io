@@ -87,7 +87,6 @@
 * [Expected Score graph maker](https://colab.research.google.com/drive/1o5faMfPrMLzsPIO-ZUj7rY_sJfRblqa4?usp=sharing)
   * I modified the above script to also draw moving averages of your expected score
 * [Mortal AI reviewer](https://mjai.ekyu.moe)
-  * [Killer Mortal](https://killerducky.github.io/mahjong/killer_mortal) GUI for Mortal
 * [Naga](https://naga.dmv.nico/naga_report/top/)
   * Better UI than mortal, stronger
   * But it's a paid service
