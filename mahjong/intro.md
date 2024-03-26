@@ -87,9 +87,11 @@
 * [Expected Score graph maker](https://colab.research.google.com/drive/1o5faMfPrMLzsPIO-ZUj7rY_sJfRblqa4?usp=sharing)
   * I modified the above script to also draw moving averages of your expected score
 * [Mortal AI reviewer](https://mjai.ekyu.moe)
+  * Free service!
+  * As of March 2024, new GUI written by... me!
+    * Leave feedback on the [Github project](https://github.com/killerducky/killer_mortal_gui)
 * [Naga](https://naga.dmv.nico/naga_report/top/)
-  * Better UI than mortal, stronger
-  * But it's a paid service
+  * Paid service
   * [Naga guide](https://pathofhouou.blogspot.com/2021/08/training-tool-naga-replay-review.html)
   * [labels picture](https://1.bp.blogspot.com/-Q667x0aUrCg/YR6q9Xq2UII/AAAAAAAAA50/ygF8x7LuN7QOE7QbCBcNND2NtqFoPhUCgCLcBGAsYHQ/s1018/naga.png)
   * [MahjongSoul NAGA chrome extension](https://chrome.google.com/webstore/detail/mahjongsoul-review-suppor/kdmfnkdgpialmejpgflfllkjakolamcc)
