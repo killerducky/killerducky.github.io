@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en" height:100%>
+<head height:100px;>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Walk Plot</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        #myChart {
+            width: auto;
+            height: auto;
+        }
+    </style>
+</head>
+<body height:100%;>
+    Simulates random walks of Mahjong Soul games.<br>
+    Input rate of 4th place for Gold and Jade rooms. 3rd/2nd/1st = (1.0-last_rate)/3<br>
+    Or input rate of 4th, 3rd, 2nd. 1st = 1.0-4th-3rd-2nd<br>
+    <br>
+    <form id="plotForm">
+        <label for="numSteps">Number of Steps:</label>
+        <input type="number" id="numSteps" name="numSteps" value="2000" min="1">
+
+        <label for="numWalks">Number of Walks:</label>
+        <input type="number" id="numWalks" name="numWalks" value="5" min="1">
+
+        <label for="goldLast">Gold Odds:</label>
+        <input type="text" id="goldLast" name="numWalks" value=".10">
+
+        <label for="jadeLast">Jade Odds:</label>
+        <input type="text" id="jadeLast" name="numWalks" value=".25">
+
+        <input type="submit" value="Update Plot">
+    </form>
+    <!-- how to make the height a percent -->
+    <div style="height: 900px;">
+      <canvas id="myChart"></canvas>
+    </div>
+    <script>
+        "use strict"
+        let myChart
+        function updateChart(numSteps, numWalks, goldOdds, jadeOdds) {
+            // const last_place_odds = [goldLast, JadeLast]
+            const labels = ['E1', 'E2', 'E3', 'M1', 'M2', 'M3', 'S1', 'S2', 'S3']
+            const base_points = [600, 700, 1000, 1400, 1600, 1800, 2000, 3000, 4500]
+            // const sum_base_points = [600, 600+600, 600+600+700]
+            const uma = [-15, -5, 5, 15]
+            const score_points = [-10, -5, 5, 10] // TODO could make this some random distro instead
+                                                  // For now pretend scores are: 15000, 20000, 30000, 35000
+            //                   Gold        Jade        Jade [Saint]
+            const rank_points = [40, 40, 40, 55, 55, 55, 55, 55, 55]
+            const last_place_penalty = [-80, -100, -120, -165, -180, -195, -210, -225, -240]
+            const place_odds = Array(3).fill(goldOdds).concat(Array(6).fill(jadeOdds)) // 3 gold room ranks, 6 jade room ranks
+            let sum_base_points = [base_points[0]]
+            for (let i=1; i<base_points.length; i++) {
+                // sum_base_points[i] = sum_base_points[i-1]+base_points[i-1] // overlapping version
+                sum_base_points[i] = sum_base_points[i-1]+base_points[i-1]+base_points[i]  // non-overlapping version
+            }
+            let sum_floor_points = []
+            for (let i=0; i<base_points.length; i++) {
+                sum_floor_points[i] = sum_base_points[i]-base_points[i]
+            }
+            // console.log(sum_base_points)
+            // console.log(sum_floor_points)
+            function calcPoints(place, cur_rank_idx) {
+                let points = uma[place] + score_points[place]
+                if (place == 0) {
+                    points += last_place_penalty[cur_rank_idx]
+                } else {
+                    points += rank_points[cur_rank_idx] * (place-1)
+                }
+                return points
+            }
+            function calcAvgPoints(cur_rank_idx) {
+                let points = 0
+                for (let place=0; place<4; place++) {
+                    points += calcPoints(place, cur_rank_idx)*place_odds[cur_rank_idx][place]
+                }
+                return points
+            }
+            // find breakeven for each rank
+            // S3 0.192
+            // S2 0.202
+            // S1 0.212
+            // M3 0.223
+            // M2 0.236
+            // M1 0.250
+            if (0) {
+                let closest=[]
+                for (let tmpJadeLast = 0.18; tmpJadeLast<0.25; tmpJadeLast+=0.001) {
+                    last_place_odds = [goldLast, tmpJadeLast]
+                    place_odds = Array(3).fill(places_given_last_place_odds(last_place_odds[0])).concat(Array(6).fill(places_given_last_place_odds(last_place_odds[1])))
+                    for (let idx=base_points.length-1; idx>0; idx--) {
+                        let points = calcAvgPoints(idx)
+                        if (points > 0) {
+                            // console.log('calcAvgPoints', tmpJadeLast, idx, labels[idx], calcAvgPoints(idx))
+                            closest[idx] = tmpJadeLast
+                            break;
+                        }
+                    }
+                }
+                for (let idx=base_points.length-1; idx>0; idx--) {
+                    let tmpJadeLast = closest[idx]
+                    last_place_odds = [goldLast, tmpJadeLast]
+                    place_odds = Array(3).fill(places_given_last_place_odds(last_place_odds[0])).concat(Array(6).fill(places_given_last_place_odds(last_place_odds[1])))
+                    let points = calcAvgPoints(idx)
+                    console.log('calcAvgPoints', tmpJadeLast, idx, labels[idx], calcAvgPoints(idx))
+                }
+            }
+            function generateRandomWalks(numWalks, numSteps) {
+                let walks = [];
+                for (let i = 0; i < numWalks; i++) {
+                    let total = sum_base_points[0];
+                    let cur_rank_idx = 0
+                    let walk = [total];
+                    for (let step = 1; step <= numSteps; step++) {
+                        let points
+                        if (i==numWalks-1) {
+                            points = calcAvgPoints(cur_rank_idx)
+                        } else {
+                            let roll = Math.random()
+                            let place = 0
+                            for (; place<4; place++) {
+                                if (roll < place_odds[cur_rank_idx][place]) {
+                                    break
+                                }
+                                roll -= place_odds[cur_rank_idx][place]
+                            }
+                            points = calcPoints(place, cur_rank_idx)
+                        }
+                        total += points
+                        // console.log(cur_rank_idx, points, total)
+                        if (cur_rank_idx<sum_base_points.length-1 && total > sum_base_points[cur_rank_idx]+base_points[cur_rank_idx]) {
+                            cur_rank_idx++
+                            total = sum_base_points[cur_rank_idx]
+                        } else if (cur_rank_idx>0 && total < sum_base_points[cur_rank_idx]-base_points[cur_rank_idx]) {
+                            cur_rank_idx--
+                            total = sum_base_points[cur_rank_idx]
+                        }
+                        // console.log(cur_rank_idx, points, total)
+                        // console.log(sum_base_points)
+                        walk.push(total);
+                    }
+                    walks.push(walk);
+                }
+                return walks;
+            }
+
+            function getRandomColor() {
+                return 'rgba(' + Math.floor(Math.random() * 255) + ',' + 
+                                Math.floor(Math.random() * 255) + ',' + 
+                                Math.floor(Math.random() * 255) + ', 0.7)';
+            }
+
+            const randomWalks = generateRandomWalks(numWalks, numSteps);
+
+            const datasets = randomWalks.map((walk, index, array) => {
+                return {
+                    label: index == array.length-1 ? `Average` : `Walk ${index + 1}`,
+                    data: walk,
+                    // borderColor: getRandomColor(),
+                    fill: false,
+                    lineTension: 0.1,
+                };
+            });
+
+            const ctx = document.getElementById('myChart').getContext('2d');
+            if (myChart) {
+                myChart.destroy()
+            }
+            console.log(place_odds)
+
+            myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: Array.from({length: numSteps + 1}, (_, i) => i),
+                    datasets: datasets,
+                },
+                options: {
+                    animation: false,
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Step',
+                            },
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'Total',
+                            },
+                            min: -600,
+                            max: sum_base_points.at(-1)+base_points.at(-1)
+                        },
+                    },
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        horizontalLine: {
+                            lineColor: 'black',
+                            lineWidth: 2,
+                            // yValues: sum_base_points,
+                            yValues: sum_floor_points,
+                            labels: labels,
+                        },
+                        title: {
+                            display: true,
+                            text: `Gold place odds 4th...1st: ` +
+                            `${(place_odds[0][0]*100).toFixed(1)}% ` +
+                            `${(place_odds[0][1]*100).toFixed(1)}% ` +
+                            `${(place_odds[0][2]*100).toFixed(1)}% ` +
+                            `${(place_odds[0][3]*100).toFixed(1)}% ` +
+                            `Jade place odds 4th...1st: ` +
+                            `${(place_odds[3][0]*100).toFixed(1)}% ` +
+                            `${(place_odds[3][1]*100).toFixed(1)}% ` +
+                            `${(place_odds[3][2]*100).toFixed(1)}% ` +
+                            `${(place_odds[3][3]*100).toFixed(1)}% `,
+                    }
+                    },
+                },
+
+                plugins: [{
+                    id: 'horizontalLine',
+                    afterDraw: (chart, args, options) => {
+                        const ctx = chart.ctx;
+                        const xStart = chart.scales.x.left;
+                        const xEnd = chart.scales.x.right;
+                        
+                        ctx.save();
+                        options.yValues.forEach((yValue, idx) => {
+                            // console.log(idx, labels[idx], yValue)
+                            const yPosition = chart.scales.y.getPixelForValue(yValue);
+                            ctx.beginPath();
+                            ctx.moveTo(xStart, yPosition);
+                            ctx.lineTo(xEnd, yPosition);
+                            ctx.lineWidth = options.lineWidth;
+                            ctx.strokeStyle = options.lineColor;
+                            ctx.stroke();
+                            ctx.closePath();
+                            ctx.font = '12px Arial'
+                            ctx.fillStyle = 'black'
+                            ctx.textAlign = 'right'
+                            ctx.fillText(labels[idx], chart.chartArea.right-10, yPosition-10)
+
+                        })
+                        ctx.restore();
+                    }
+                }]
+            });
+        }
+        document.getElementById('plotForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const numSteps = parseInt(document.getElementById('numSteps').value)
+            const numWalks = parseInt(document.getElementById('numWalks').value)
+            var goldOdds = document.getElementById('goldLast').value.split(" ").map(parseFloat)
+            var jadeOdds = document.getElementById('jadeLast').value.split(" ").map(parseFloat)
+            function places_given_last_place_odds(last_place_odds) {
+                return([last_place_odds, (1-last_place_odds)/3, (1-last_place_odds)/3, (1-last_place_odds)/3])
+            }
+            if (goldOdds.length == 1) {
+                goldOdds = places_given_last_place_odds(goldOdds[0])
+            } else if (goldOdds.length == 3) {
+                goldOdds[3] = 1 - goldOdds[0] - goldOdds[1] - goldOdds[2]
+            }
+            if (jadeOdds.length == 1) {
+                jadeOdds = places_given_last_place_odds(jadeOdds[0])
+            } else if (jadeOdds.length == 3) {
+                jadeOdds[3] = 1 - goldOdds[0] - goldOdds[1] - goldOdds[2]
+            }
+            if (goldOdds.length != 4 || jadeOdds.length != 4) {
+                alert('For Gold and Jade odds, input only last place odds, or "4th 3rd 2nd"')
+                return
+            }
+            updateChart(numSteps, numWalks, goldOdds, jadeOdds)
+        })
+    </script>
+</body>
+</html>
