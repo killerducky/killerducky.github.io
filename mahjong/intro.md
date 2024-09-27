@@ -107,5 +107,6 @@
 
 # Other links
 * [Naga Stats](naga_stats.md) Charts showing average Naga scores for various Ranks on MJS or Tenhou.
+* [Random Walk](random_walk.html) Simulates random walks of Mahjong Sould rating
 * [MJS Gacha notes](mjs_gacha_notes.md) How to get stuff in MJS
 * [Rough notes](rough_notes.md) Some rough personal notes for my own use
