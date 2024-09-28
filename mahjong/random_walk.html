@@ -267,7 +267,7 @@
             if (jadeOdds.length == 1) {
                 jadeOdds = places_given_last_place_odds(jadeOdds[0])
             } else if (jadeOdds.length == 3) {
-                jadeOdds[3] = 1 - goldOdds[0] - goldOdds[1] - goldOdds[2]
+                jadeOdds[3] = 1 - jadeOdds[0] - jadeOdds[1] - jadeOdds[2]
             }
             if (goldOdds.length != 4 || jadeOdds.length != 4) {
                 alert('For Gold and Jade odds, input only last place odds, or "4th 3rd 2nd"')
