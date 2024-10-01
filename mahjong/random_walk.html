@@ -12,7 +12,7 @@
         }
     </style>
 </head>
-<body height:100%;>
+<body style="line-height: 1.3";>
     Simulates random walks of Mahjong Soul games.<br>
     Input rate of 4th place for Gold and Jade rooms. 3rd/2nd/1st = (1.0-last_rate)/3<br>
     Or input rate of 4th, 3rd, 2nd. 1st = 1.0-4th-3rd-2nd<br>
@@ -23,7 +23,7 @@
         <input type="number" id="numSteps" name="numSteps" value="2000" min="1">
 
         <label for="numWalks">Number of Walks:</label>
-        <input type="number" id="numWalks" name="numWalks" value="5" min="1">
+        <input type="number" id="numWalks" name="numWalks" value="1" min="1">
 
         <label for="goldLast">Gold Odds:</label>
         <input type="text" id="goldLast" name="numWalks" value=".10">
@@ -253,7 +253,7 @@
         document.getElementById('plotForm').addEventListener('submit', function (event) {
             event.preventDefault();
             const numSteps = parseInt(document.getElementById('numSteps').value)
-            const numWalks = parseInt(document.getElementById('numWalks').value)
+            const numWalks = parseInt(document.getElementById('numWalks').value) + 1
             var goldOdds = document.getElementById('goldLast').value.split(" ").map(parseFloat)
             var jadeOdds = document.getElementById('jadeLast').value.split(" ").map(parseFloat)
             function places_given_last_place_odds(last_place_odds) {
