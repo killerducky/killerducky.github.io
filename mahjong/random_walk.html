@@ -108,15 +108,16 @@
                     console.log('calcAvgPoints', tmpJadeLast, idx, labels[idx], calcAvgPoints(idx))
                 }
             }
-            function generateRandomWalks(numWalks, numSteps) {
+            function generateRandomWalks(numWalks, numSteps, type, includeAvg) {
                 let walks = [];
                 for (let i = 0; i < numWalks; i++) {
-                    let total = sum_base_points[0];
                     let cur_rank_idx = 0
+                    cur_rank_idx = 4 // M2
+                    let total = sum_base_points[cur_rank_idx];
                     let walk = [total];
                     for (let step = 1; step <= numSteps; step++) {
                         let points
-                        if (i==numWalks-1) {
+                        if (i==numWalks-1 && includeAvg) {
                             points = calcAvgPoints(cur_rank_idx)
                         } else {
                             let roll = Math.random()
@@ -140,9 +141,16 @@
                         }
                         // console.log(cur_rank_idx, points, total)
                         // console.log(sum_base_points)
-                        walk.push(total);
+                        if (type == 'total') {
+                            walk.push(total);
+                        } else if (type == 'rank_idx') {
+                            walk.push(cur_rank_idx);
+                        } else {
+                            console.log('error')
+                        }
                     }
                     walks.push(walk);
+                    console.log(total - sum_base_points[4]);
                 }
                 return walks;
             }
@@ -153,7 +161,8 @@
                                 Math.floor(Math.random() * 255) + ', 0.7)';
             }
 
-            const randomWalks = generateRandomWalks(numWalks, numSteps);
+            const randomWalks = generateRandomWalks(numWalks, numSteps, 'total', true);
+            //const randomWalks = generateRandomWalks(numWalks, numSteps, 'rank_idx', false);
 
             const datasets = randomWalks.map((walk, index, array) => {
                 return {
@@ -169,7 +178,7 @@
             if (myChart) {
                 myChart.destroy()
             }
-            console.log(place_odds)
+            //console.log(place_odds)
 
             myChart = new Chart(ctx, {
                 type: 'line',

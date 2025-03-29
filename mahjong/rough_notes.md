@@ -10,8 +10,8 @@ These are some rough notes for my own personal use.
 - [Riichi](#riichi)
 - [Toitoi vs. chiitoitsu](#toitoi-vs-chiitoitsu)
 - [1-away iishanten](#1-away-iishanten)
-- [Gacha notes](#gacha-notes)
 - [Random examples](#random-examples)
+- [Safety Tiles](#safety-tiles)
 
 # Terms
 * ryanmen two-sided (-56-)
@@ -125,3 +125,27 @@ https://tenhou.net/2/?q=1223567m78p45789s
 
 
 https://cdn.discordapp.com/attachments/584898975446859796/720982540948734002/Gentaros_tile_efficiency_course.pdf
+
+# Safety Tiles
+A safety tile is something that is unlikely to dealin to other players, often an honor that has been discarded already.
+The advantage of holding a safety tile is that when someone calls riichi, you can discard the safety tile and avoid dealin.
+The disadvantage is you hurt your efficiency.
+Some factors that impact the value of safety tiles:
+- You already have 5 strong blocks, and you can keep the safety tile without sacrificing efficiency
+  - With a truly ideal hand shape, the drawbacks of holding the safety tile are small
+  - Usually this involves cutting some floater tile that is not part of your blocks
+  - You still might be giving up the chance to improve the hand, e.g. upgrade to tanyao, SSK, iipeiko
+- You have a very bad hand
+  - This can actually decrease the value of safety tiles!
+  - The purpose of a safety tile is to counterattack when someone calls riichi
+  - But if your hand is very bad, there is no point to counterattack
+  - Instead just keep your bad blocks that will generally have safe/genbutsu such as 11p, or 12p.
+  - When someone calls riichi, just betatori by cutting safe tiles from your blocks
+  - This way you maximize the chance of getting lucky and simply completing your bad shape blocks first before someone else riichis
+- You have a very good hand
+  - If you have guaranteed mangan, you might want to go full efficiency. A Safety tile will slow you down.
+  - Even if someone riichis, you might want to counterattack even with non-safe tiles
+- You have a medium hand
+  - Here is where a safety tile might be good
+  - If someone riichis, you want to counterattack, but not at all costs
+  - So now you can discard the safety tile and have at least 1 turn to decide what to do

@@ -1,5 +1,10 @@
 # MJS Gacha notes
-* Donate stuff for dust
+* Copper is required to play games
+    * You can use it to buy stuff too, but risk running out and not being able to play
+* Jade is the paid currency
+    * Fortune charm is best value if you want to pay 
+* Dust is the free version
+    * Donate stuff to get dust
     * Items -> Gift -> Donate
     * Select stuff to donate
         * Consider keeping Purple items for final bond ceremony (Delcious Cookie, Powerful Console, Classic Painting, Valuable Goblet, Heart of the Ocean, Teddy Bear XXL, Delicate Fanzine, Gorgeous Dress)
@@ -16,8 +21,10 @@
         * Dorm -> Pick character -> View -> Gift
         * But only the type they like
             * They like the minor versions of the Purple item that is required for the final Bond ceremony
+            * To see what Purple item they require:
+              *  Dorm -> Pick character -> View -> Bond
             * For example Niki requires Heart of the Ocean for the final Bond
-            * So you get bonus Bond points for gifting the other diamonds
+              * So you get bonus Bond points for gifting the other diamonds
         * Save purple gifts for final ceremony
         * Other gifts should be donated for dust to get new characters
     * Get more emotes
@@ -31,4 +38,5 @@
         * You can buy also, but it's very expensive
         * 25 Faith = 25 Wishing Stones = 1 Purple item
     * 100 Dust and some other stuff you should be able to get
+    * Get bond outfit
     
