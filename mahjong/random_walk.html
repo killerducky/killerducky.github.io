@@ -112,7 +112,8 @@
                 let walks = [];
                 for (let i = 0; i < numWalks; i++) {
                     let cur_rank_idx = 0
-                    cur_rank_idx = 4 // M2
+                    cur_rank_idx = 0 // G1
+                    //cur_rank_idx = 4 // M2
                     let total = sum_base_points[cur_rank_idx];
                     let walk = [total];
                     for (let step = 1; step <= numSteps; step++) {
@@ -150,7 +151,7 @@
                         }
                     }
                     walks.push(walk);
-                    console.log(total - sum_base_points[4]);
+                    //console.log(total - sum_base_points[4]);
                 }
                 return walks;
             }
