@@ -5,13 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data Table</title>
-    <form id="plotForm">
-        <label for="earlyTurn">Early Turn:</label>
-        <input type="number" id="earlyTurn" name="earlyTurn" value="9" min="1" max="19">
-        <label for="lateTurn">Late Turn:</label>
-        <input type="number" id="lateTurn" name="lateTurn" value="15" min="1" max="19">
-        <input type="submit" value="Update Plot">
-    </form>
     <style>
         table {
             width: auto;
@@ -26,8 +19,18 @@
         }
     </style>
 </head>
-<body>
+<body style="line-height: 1.3";>
     <h2>Dealin Rates</h2>
+    Data from Statistical Mahjong Strategy<br>
+    Half suji A refers to 46 that is half suji by 19. Half suji B refers to 46 that is half suji by 37.<br>
+    <br>
+    <form id="plotForm">
+        <label for="earlyTurn">Early Turn:</label>
+        <input type="number" id="earlyTurn" name="earlyTurn" value="9" min="1" max="19">
+        <label for="lateTurn">Late Turn:</label>
+        <input type="number" id="lateTurn" name="lateTurn" value="15" min="1" max="19">
+    </form>
+        
     <div style="display:flex; justify-content: flex-start;">
         <table id="full-dealin-table" style="margin:10px;">
             <thead>
@@ -152,12 +155,15 @@
             }
         }
         updateTable(9, 15)
-        document.getElementById('plotForm').addEventListener('submit', function (event) {
-            event.preventDefault();
-            const earlyTurn = parseInt(document.getElementById('earlyTurn').value)
-            const lateTurn = parseInt(document.getElementById('lateTurn').value)
-            updateTable(earlyTurn, lateTurn)
-        })
+        document.getElementById('plotForm').querySelectorAll('input').forEach(input => {
+            input.addEventListener("change", event => {
+                event.preventDefault();
+                const earlyTurn = parseInt(document.getElementById('earlyTurn').value)
+                const lateTurn = parseInt(document.getElementById('lateTurn').value)
+                updateTable(earlyTurn, lateTurn)
+            });
+        });
+
 
     </script>
 </body>
