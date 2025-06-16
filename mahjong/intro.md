@@ -110,3 +110,7 @@
 * [Random Walk](random_walk.html) Simulates random walks of Mahjong Sould rating
 * [MJS Gacha notes](mjs_gacha_notes.md) How to get stuff in MJS
 * [Rough notes](rough_notes.md) Some rough personal notes for my own use
+
+# Longer book list
+* [Uzaku Guide to Mahjong Tile Efficiency](https://www.scribd.com/document/694234386/u-Zaku-Tile-Efficiency)
+* 
