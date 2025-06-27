@@ -9,6 +9,7 @@
 - [Intermediate resources](#intermediate-resources)
 - [Advanced resources](#advanced-resources)
 - [Other links](#other-links)
+- [Longer book list](#longer-book-list)
 
 # Beginner resources
 * [Basic Yaku and scoring](media/Riichi%20Mahjong%20simplified.pdf) by reddit user u/Aranlyed
@@ -30,25 +31,7 @@
     * Vs AI, 300+0s (300 seconds for every turn)
     * Create
     * Start
-* Tile types
-  * Honors
-    * Dragons (White, Green, Red)
-    * Winds (East, South, West, North)
-      * Seat wind (Center area shows what wind you are)
-      * Round wind (Center area shows this -- usually East or South)
-      * Guest wind (The other winds)
-    * Value Honors (Dragons, Seat wind, Round wind)
-  * Suits (Character/Crack/Manzu, Dot/Pinzu, Bamboo/Bam/Souzu)
-    * Terminals (1, 9)
-    * Simples (2-8)
-* Discard priority order (only if isolated -- not paired or part of a possible run)
-  * Guest Winds (not the round wind or your seat wind)
-  * Terminals (1, 9)
-  * Round wind (if not also your seat wind)
-  * Dragons
-  * Seat wind
-  * 2s and 8s
-  * Other isolated tiles
+* Basic [Five block theory](https://mahjong.guide/2017/12/29/mahjong-fundamentals-2-starting-hands-five-block-theory/)
 * Learn the [Basic Yaku and scoring](media/Riichi%20Mahjong%20simplified.pdf) by reddit user u/Aranlyed
 * Full [Yaku List](media/Riichi%20Mahjong%20Yaku%20List.png) by reddit u/Aranlyde [Source](https://www.reddit.com/r/Mahjong/comments/l5b221/riichi_mahjong_cheat_sheet_1_page_pdf_or_images/) License CC/BY/NC 4.0
   * Order to learn:

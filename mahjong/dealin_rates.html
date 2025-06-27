@@ -170,6 +170,59 @@
                 })
             }
         }
+        function push_fold_ev(h_dealer, v_dealer) {
+            // turn 9 riichi
+            const v_tsumo_value = v_dealer ? 10000 : 7000
+            const v_tsumo_rate = 0.4
+            const draw_rate = 0.3
+            const lateral_rate = 1.0 - v_tsumo_rate - draw_rate
+
+            const tsumo_payment_share = v_dealer ? 1/3 : h_dealer ? 1/2 : 1/4
+            var tsumo_payment = v_tsumo_value * tsumo_payment_share
+            tsumo_payment = (tsumo_payment/100).toFixed(0)*100 // SMS seems to round these up?
+            const draw_payment = 1200 // some mix of 1000 and 1500
+            const lateral_payment = 0
+            const fold_ev = v_tsumo_rate * tsumo_payment + draw_rate * draw_payment + lateral_rate * lateral_payment
+
+            // fold_ev 0 0 0.25 1750.00 1060.00  As a non dealer, the point loss upon opponent tsumo is then 1800 points (rounded up from 1750?)
+            // fold_ev 0 1 0.33 3333.33 1693.33
+            // fold_ev 1 0 0.50 3500.00 1760.00
+            console.log("fold_ev", h_dealer, v_dealer, tsumo_payment_share.toFixed(2), tsumo_payment.toFixed(2), fold_ev.toFixed(2))
+
+            // Chase - Ryanmen - T11
+            const winrate = 0.44
+            const riichi_dealin_rate = 0 // 0.1
+            const dealin_after_riichi_pass_rate = 0.15
+            const dealin_rate_total = riichi_dealin_rate + (1-riichi_dealin_rate)*dealin_after_riichi_pass_rate
+            const v_chased_tsumo_rate = 0.22 // is this some sort of formula based on the 0.44? TODO riichi dealin case
+            const chased_lateral_rate = 11 // TODO richi dealin case
+            const chase_draw_rate = 1 - v_chased_tsumo_rate - winrate - dealin_rate_total - chased_lateral_rate
+            const win_is_tsumo = 0.42
+            const win_is_ippatsu = 0.30
+            const ura_rate = 0.3 // add in ura 2 chance
+            const extra_han = [
+                (1-ura_rate) * (1-win_is_ippatsu), // 0 extra
+                ura_rate * (1-win_is_ippatsu) + (1-ura_rate) * (win_is_ippatsu), // 1 extra
+                ura_rate * (win_is_ippatsu) // 2 extra
+            ]
+            const chase_win_value = 
+                1300 * (1-win_is_tsumo) * extra_han[0]
+                + 2600 * (1-win_is_tsumo) * extra_han[1]
+                + 5200 * (1-win_is_tsumo) * extra_han[2]
+                + 2000 * (win_is_tsumo) * extra_han[0]
+                + 4000 * (win_is_tsumo) * extra_han[1]
+                + 8000 * (win_is_tsumo) * extra_han[2]
+            console.log(extra_han)
+
+            const chase_ev = 
+                winrate * (chase_win_value+1000) 
+                - (dealin_rate_total) * (v_tsumo_value+1000)
+                - v_chased_tsumo_rate * (tsumo_payment+1000)
+            console.log(chase_win_value, chase_ev)
+        } 
+        push_fold_ev(0, 0)
+        push_fold_ev(0, 1)
+        push_fold_ev(1, 0)
         simplify_types()
         updateTable(9, 15, true)
         document.getElementById('plotForm').querySelectorAll('input').forEach(input => {
