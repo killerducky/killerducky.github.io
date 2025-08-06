@@ -79,16 +79,10 @@ At the end there are links to many other good resources [Just the links](#just-t
     * See [Just the links](#just-the-links) section
 * Review your games
     * First review with your (human) opponent or by yourself
-    * Once a week, pick an interesting game and submit it to Shogi Harbour's weekly game reviews on her twitch channel. 
+    * Pick an interesting games and post for review in Shogi Harbour Discord. 
       * More information about this in the [Shogi Harbour Discord](https://discord.gg/wggn65v).
     * Ask your opponent to join you in the review
-        * [Video](https://www.twitch.tv/videos/984277495) of the steps
-        * Analysis Board 
-        * Menu (bottom right of move list) -> Study -> Create Study
-        * Add members (top left)
-        * Type opponent name -> close add member box
-        * Make opponent contributor (top left)
-        * Opponent will get a notification (top right bell)
+        * Study With Opponent 
         * Everyone turn SYNC and REC on (bottom left of board)
     * Think of 2 or 3 points in the game where you wonder if you made the right choice
     * Check with the computer on those points

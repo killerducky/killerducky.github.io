@@ -6,8 +6,8 @@
 - [Black to Play problems](#black-to-play-problems)
 - [Reviewing with AI](#reviewing-with-ai)
 - [101Weiqi Progressive problems](#101weiqi-progressive-problems)
-- [Rough equivalence of Go ranks to Chess ranks](#rough-equivalence-of-go-ranks-to-chess-ranks)
 - [Playing IRL](#playing-irl)
+- [Rough equivalence of Go ranks to Chess ranks](#rough-equivalence-of-go-ranks-to-chess-ranks)
 
 # Learning Go from scratch
 * [Rules](https://learn-go.now.sh) - Rules at learn-go.now.sh
@@ -18,10 +18,9 @@
 
 # Playing on [OGS](https://online-go.com/)
 * You must create an account to play.
-* Go to Play screen, use Quick Match finder. Turn 9x9 on and 19x19 off, and click Normal (5 minutes maintime, then overtime of 30 seconds per move).
+* Go to Play screen, use Quick Match finder. Turn 9x9 on and 19x19 off, and pick 3m+10s.
 * Challenging a friend: 
-  * Top left menu
-  * Search (top menu item -- it's hard to see!)
+  * Search (last spot in top row menu)
   * Type first part of their name
   * Click their name
   * Challenge
@@ -33,12 +32,14 @@
 * [KaTrain](https://github.com/sanderland/katrain/releases) GUI (comes with KataGo engine) to review games with AI
 
 # 101Weiqi Progressive problems
-* This site does have total beginner problems, but since the site is in Chinese it’s probably only worth the trouble when you get to ~15kyu or stronger. But it’s the best curated collection of problems out there:
+* Now with English translations!
 * [101weiqi](https://www.101weiqi.com)
-* [howto](https://imgur.com/a/Sh67B8w) guide
-* [timed problems](https://www.101weiqi.com/guan) (45s)
+* [Skill Test](https://www.101weiqi.com/guan) (Timed 45s problems)
 * [untimed problems](https://www.101weiqi.com/task/do) - automatically adjusts to your level
-If you have other suggested resources please let me know. Especially if you’re a beginner that recently started learning, let me know your opinion of the various resources you used.
+
+# Playing IRL
+[Go Board](https://store.baduk.club/collections/club-tournament-gear/products/foldable-go-board)
+[Go stones](https://store.baduk.club/collections/club-tournament-gear/products/baduk-pieces-set-of-black-and-white)
 
 # Rough equivalence of Go ranks to Chess ranks
   * Traditional amatuer ranks start at 30-kyu and work up to 1-kyu. Then dan (black belt) ranks start from 1-dan and go up.
@@ -52,7 +53,3 @@ If you have other suggested resources please let me know. Especially if you’re
     * 4d-6d = NM
     * 7d+ = IM
     * 1p-9p = GM
-
-# Playing IRL
-[Go Board](https://store.baduk.club/collections/club-tournament-gear/products/foldable-go-board)
-[Go stones](https://store.baduk.club/collections/club-tournament-gear/products/baduk-pieces-set-of-black-and-white)
