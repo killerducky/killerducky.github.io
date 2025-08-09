@@ -9,7 +9,7 @@
 - [Intermediate resources](#intermediate-resources)
 - [Advanced resources](#advanced-resources)
 - [Other links](#other-links)
-- [Longer book list](#longer-book-list)
+- [Longer resource list](#longer-resource-list)
 
 # Beginner resources
 * [Basic Yaku and scoring](media/Riichi%20Mahjong%20simplified.pdf) by reddit user u/Aranlyed
@@ -64,8 +64,7 @@
 * [Riichi Book 1](https://dainachiba.github.io/RiichiBooks/) Intermediate Mahjong Strategy Primer
   * Focus on the Basic Tile Efficiency part
 * [Stats scraper](https://amae-koromo.sapk.ch) (Gold room or higher only)
-* [Expected Score graph maker](https://colab.research.google.com/drive/1o5faMfPrMLzsPIO-ZUj7rY_sJfRblqa4?usp=sharing)
-  * I modified the above script to also draw moving averages of your expected score
+* [Expected Score graph maker](https://colab.research.google.com/drive/1o5faMfPrMLzsPIO-ZUj7rY_sJfRblqa4?usp=sharing) Show your rank history and expected score per game (Also Gold room or higher only)
 * [Mortal AI reviewer](https://mjai.ekyu.moe)
   * Free service!
   * As of March 2024, new GUI written by... me!
@@ -78,7 +77,6 @@
     * MJS reviews are single hands only and cost more (10 per hand instead of 50 per hanchan)
 
 # Advanced resources
-* [Uzaku's Guide to Mahjong Tile Efficiency](https://drive.google.com/file/d/1ApHp2Dm-3dkEQTEAnmfTsk8J6OaH8d4G/view?usp=sharing) English translation by reddit user u/konomu (Original reddit post deleted)
 * [Common Waits](media/Common_Waits.png) by reddit user u/Mr_Blarney [Source](https://drive.google.com/file/d/1K4NuE2UZgeqhSR-WsYWyQlRiEERh5VQo/view) [Reddit post](https://www.reddit.com/r/Mahjong/comments/100qw6y/mahjong_waits_infographic/)
   * [Book](https://www.reddit.com/r/Mahjong/comments/175hsqz/reading_multisided_waits_free_guide_book/) on multisided waits expanding on this graphic
 * [Discard reading](https://rentry.co/8gmub) rough notes by Twitch user Xomnom
@@ -91,5 +89,5 @@
 * [MJS Gacha notes](mjs_gacha_notes.md) How to get stuff in MJS
 * [Rough notes](rough_notes.md) Some rough personal notes for my own use
 
-# Longer book list
+# Longer resource list
 [Longer list](full_link_list.md)

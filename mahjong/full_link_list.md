@@ -5,3 +5,7 @@
 * [How the Robot Plays](https://drive.google.com/file/d/1OCiBYLiPFzkbJI0aRsw4qVVh3uH-u1v2/view?usp=sharing) Analysis of LuckyJ games, a bot with a distictive style. You might like this style if you want to play more defensively or just something slightly different from most other bots.
 * [Riichi Mahjong Strategy (RMS)](https://files.riichi.moe/mjg/books%20(en)/Riichi%20Mahjong%20Strategy%20%28rms%29.pdf) Goes into more detail comparing blocks than RB1
 * [Statistical Mahjong Strategy (SMS)](https://files.riichi.moe/mjg/books%20(en)/Statistical%20Mahjong%20Strategy%20%28sms%29.pdf) Statistics for making push/fold decisions, etc.
+
+* [Scoring Trainer](https://scoringtrainer.konbamwa.net/)
+* [Efficiency Trainer](https://euophrys.itch.io/mahjong-efficiency-trainer)
+* 
