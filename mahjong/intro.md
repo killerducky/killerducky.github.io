@@ -64,9 +64,6 @@
 * [Riichi Book 1](https://dainachiba.github.io/RiichiBooks/) Intermediate Mahjong Strategy Primer
   * Focus on the Basic Tile Efficiency part
 * [Stats scraper](https://amae-koromo.sapk.ch) (Gold room or higher only)
-* [Rank Graph maker](https://colab.research.google.com/drive/1puwnp-_k3aHV8trHYInX9HGsBgnJ-hYY)
-  * プレイヤー名: Put your MJS name here
-  * Click the play button on the left side
 * [Expected Score graph maker](https://colab.research.google.com/drive/1o5faMfPrMLzsPIO-ZUj7rY_sJfRblqa4?usp=sharing)
   * I modified the above script to also draw moving averages of your expected score
 * [Mortal AI reviewer](https://mjai.ekyu.moe)
@@ -95,5 +92,4 @@
 * [Rough notes](rough_notes.md) Some rough personal notes for my own use
 
 # Longer book list
-* [Uzaku Guide to Mahjong Tile Efficiency](https://www.scribd.com/document/694234386/u-Zaku-Tile-Efficiency)
-* 
+[Longer list](full_link_list.md)
