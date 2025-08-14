@@ -7,7 +7,6 @@
 - [Beginner resources](#beginner-resources)
 - [Learning Mahjong from scratch](#learning-mahjong-from-scratch)
 - [Intermediate resources](#intermediate-resources)
-- [Advanced resources](#advanced-resources)
 - [Other links](#other-links)
 - [Longer resource list](#longer-resource-list)
 
@@ -75,18 +74,16 @@
   * [labels picture](https://1.bp.blogspot.com/-Q667x0aUrCg/YR6q9Xq2UII/AAAAAAAAA50/ygF8x7LuN7QOE7QbCBcNND2NtqFoPhUCgCLcBGAsYHQ/s1018/naga.png)
   * [MahjongSoul NAGA chrome extension](https://chrome.google.com/webstore/detail/mahjongsoul-review-suppor/kdmfnkdgpialmejpgflfllkjakolamcc)
     * MJS reviews are single hands only and cost more (10 per hand instead of 50 per hanchan)
-
-# Advanced resources
 * [Common Waits](media/Common_Waits.png) by reddit user u/Mr_Blarney [Source](https://drive.google.com/file/d/1K4NuE2UZgeqhSR-WsYWyQlRiEERh5VQo/view) [Reddit post](https://www.reddit.com/r/Mahjong/comments/100qw6y/mahjong_waits_infographic/)
   * [Book](https://www.reddit.com/r/Mahjong/comments/175hsqz/reading_multisided_waits_free_guide_book/) on multisided waits expanding on this graphic
-* [Discard reading](https://rentry.co/8gmub) rough notes by Twitch user Xomnom
-* [Early discards](https://rentry.co/shha7) rough notes by Twitch user Xomnom
-* [Push or Fold judgement](https://youtu.be/XvCAmf4KCBk?t=377)
 
 # Other links
 * [Naga Stats](naga_stats.md) Charts showing average Naga scores for various Ranks on MJS or Tenhou.
 * [Random Walk](random_walk.html) Simulates random walks of Mahjong Sould rating
 * [MJS Gacha notes](mjs_gacha_notes.md) How to get stuff in MJS
+* [Discard reading](https://rentry.co/8gmub) rough notes by Twitch user Xomnom
+* [Early discards](https://rentry.co/shha7) rough notes by Twitch user Xomnom
+* [Push or Fold judgement](https://youtu.be/XvCAmf4KCBk?t=377)
 * [Rough notes](rough_notes.md) Some rough personal notes for my own use
 
 # Longer resource list

@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Probability vs Value — Colored Scale Chart</title>
+  <style>
+    :root{
+      --bg:#0f1724; /* dark background */
+      --panel:#071029;
+      --fg:#e6eef8;
+      --muted:#98a8bf;
+      --accent:#60a5fa;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    html,body{height:100%;margin:0;background:var(--bg);color:var(--fg)}
+    .app{display:grid;grid-template-columns:1fr 320px;gap:18px;padding:18px;min-height:100vh;box-sizing:border-box}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:12px;padding:16px;box-shadow:0 6px 20px rgba(2,6,23,0.6)}
+    header{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+    header h1{font-size:1.1rem;margin:0}
+    .canvas-wrap{position:relative;height:calc(100vh - 80px);min-height:420px}
+    .canvas{width:100%;height:100%;display:block;border-radius:8px}
+    #colorbar{width: 24px; height: 220px}
+    .legend{display:flex;flex-direction:column;gap:12px}
+    .controls{display:flex;flex-direction:column;gap:8px}
+    label{font-size:0.85rem;color:var(--muted)}
+    input[type=range]{width:100%}
+    .btn{background:var(--accent);border:none;color:#042029;padding:8px 10px;border-radius:8px;cursor:pointer}
+    .muted{color:var(--muted);font-size:0.9rem}
+    .info{font-size:0.9rem;margin-top:8px}
+    .tooltip{position:absolute;pointer-events:none;background:#041426;border:1px solid rgba(255,255,255,0.06);padding:8px;border-radius:6px;color:var(--fg);font-size:0.85rem;transform:translate(-50%,-120%);white-space:nowrap}
+    .small{font-size:0.85rem;color:var(--muted)}
+    .footer{font-size:0.8rem;color:var(--muted);margin-top:8px}
+  </style>
+</head>
+<body>
+  <div class="app">
+    <div class="card">
+      <header>
+        <h1>Probability → Value chart</h1>
+        <div class="small">X: Probability to win (0 → 1) — Y: Value on win</div>
+      </header>
+      <div class="canvas-wrap" id="wrap">
+        <canvas id="chart"></canvas>
+        <div id="tooltip" class="tooltip" style="display:none"></div>
+      </div>
+      <div class="footer">Hover points for details. Use controls on the right to generate or import data.</div>
+    </div>
+
+    <div class="card">
+      <div class="controls">
+        <label class="small">Number of points: <span id="countLbl">10</span></label>
+        <input id="count" type="range" min="10" max="5000" value="10">
+
+        <label class="small">Value range (min — max)</label>
+        <input id="vmin" type="number" value="0" step="1">
+        <input id="vmax" type="number" value="10000" step="100">
+
+        <label class="small">Point radius</label>
+        <input id="radius" type="range" min="1" max="8" value="3">
+
+        <button id="rand" class="btn">Generate random sample</button>
+        <button id="clear" class="btn" style="background:#475569">Clear</button>
+
+        <div class="muted info">Color scale maps low→high value (blue → red). A vertical colorbar shows the mapping.</div>
+      </div>
+
+      <div class="legend">
+        <canvas id="colorbar" width="24" height="220" style="border-radius:8px;background:linear-gradient(180deg,#38bdf8,#ef4444)"></canvas>
+        <div class="small">Legend: Value (min at top, max at bottom)</div>
+      </div>
+    </div>
+  </div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+// Utility: map a value t in [0,1] to an RGB color (cool blue -> warm red)
+function valueToColor(t){
+  // clamp
+  t = Math.max(0, Math.min(1, t));
+  // simple blue -> cyan -> yellow -> red interpolation using HSL-like approach
+  // map t to hue from 200 (blue-cyan) to 0 (red)
+  const hue = 200 * (1 - t); // 200 -> 0
+  // convert hsl to rgb
+  return hslToRgb(hue/360, 0.75, 0.5);
+}
+
+function hslToRgb(h, s, l){
+  let r, g, b;
+  if(s==0){r=g=b=l;} else {
+    const hue2rgb=(p,q,t)=>{
+      if(t<0) t+=1;
+      if(t>1) t-=1;
+      if(t<1/6) return p+(q-p)*6*t;
+      if(t<1/2) return q;
+      if(t<2/3) return p+(q-p)*(2/3-t)*6;
+      return p;
+    }
+    const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+    const p = 2 * l - q;
+    r = hue2rgb(p, q, h + 1/3);
+    g = hue2rgb(p, q, h);
+    b = hue2rgb(p, q, h - 1/3);
+  }
+  return `rgb(${Math.round(r*255)},${Math.round(g*255)},${Math.round(b*255)})`;
+}
+
+// Canvas drawing setup
+const canvas = document.getElementById('chart');
+const wrap = document.getElementById('wrap');
+const tooltip = document.getElementById('tooltip');
+const colorbar = document.getElementById('colorbar');
+let ctx = canvas.getContext('2d');
+let dpr = Math.max(1, window.devicePixelRatio || 1);
+
+function resizeCanvas(){
+  const rect = wrap.getBoundingClientRect();
+  canvas.width = Math.floor(rect.width * dpr);
+  canvas.height = Math.floor(rect.height * dpr);
+  canvas.style.width = rect.width + 'px';
+  canvas.style.height = rect.height + 'px';
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+  draw();
+}
+window.addEventListener('resize', ()=>{ dpr = Math.max(1, window.devicePixelRatio || 1); resizeCanvas(); });
+
+// Data storage
+let points = []; // {p: probability 0..1, v: value}
+let stats = {vmin:0, vmax:2000};
+
+let xMin = 0.00; // min probability on x-axis
+let xMax = 0.50; // max probability on x-axis
+
+// UI elements
+const countEl = document.getElementById('count');
+const countLbl = document.getElementById('countLbl');
+const vminEl = document.getElementById('vmin');
+const vmaxEl = document.getElementById('vmax');
+const radiusEl = document.getElementById('radius');
+const randBtn = document.getElementById('rand');
+const clearBtn = document.getElementById('clear');
+
+countEl.addEventListener('input', ()=>{ countLbl.textContent = countEl.value; });
+
+function calcWinRate(turnsLeft, acceptance) {
+    TILES_IN_WALL = 14
+    TILES_IN_OPP_HANDS = 13*3
+    let winRate = 1
+
+    for (let a=0; a < acceptance.length; a++) {
+        let loseRate = 1
+        for (let i=turnsLeft-4; i>0; i=i-4) {
+            loseRate = loseRate * (1 - acceptance[a] / (TILES_IN_WALL + TILES_IN_OPP_HANDS + i))
+        }
+        winRate = winRate * (1 - loseRate)
+        // console.log(`Acceptance ${acceptance[a]}: winRate=${winRate}, loseRate=${loseRate}, turnsLeft=${turnsLeft}`);
+        turnsLeft = turnsLeft / 2  // simple heuristic for now
+    }   
+    return winRate;
+}
+
+function init() {
+
+    const vmin = Number(vminEl.value);
+    const vmax = Number(vmaxEl.value);
+    const hand_types = [
+        ['Tenpai 8', [8]],
+        ['Tenpai 4', [4]],
+        ['Tenpai 2', [2]],
+        ['1 Perfect', [8*2+4, 8]],
+        ['1 2x Ryanmen', [8*2, 8]],
+        ['1 Ryanmen + Non-ryanmen', [8+8, (8*8+4*8)/(8+8)]],
+        ['1 2x Non-ryanmen', [4+8, 4]],
+        ['1 Headless ankou', [16+12, 8]],
+    ]
+    points = []
+    for (let han=0; han<4; han++){
+        for (hand_type of hand_types) {
+            let label = hand_type[0];
+            points.push({p:calcWinRate(20, hand_type[1]), v:1000*2**han, label:`${label}`})
+        }
+    }
+    stats.vmin = Number(vminEl.value);
+    stats.vmax = Number(vmaxEl.value);
+}
+
+init()
+
+randBtn.addEventListener('click', ()=>{
+  draw();
+});
+
+clearBtn.addEventListener('click', ()=>{ points = []; draw(); });
+
+radiusEl.addEventListener('input', draw);
+vminEl.addEventListener('change', ()=>{ stats.vmin = Number(vminEl.value); draw(); });
+vmaxEl.addEventListener('change', ()=>{ stats.vmax = Number(vmaxEl.value); draw(); });
+
+    // Chart.js config
+    const config = {
+      type: 'scatter',
+      data: {
+        datasets: [{
+          label: 'Win Probability vs Value',
+          data: points.map(pt => ({x: pt.p, y: pt.v, label: pt.label, showLabel: pt.showLabel})),
+          pointRadius: 6,
+          pointBackgroundColor: ctx => {
+            const v = ctx.raw.y/8000 * ctx.raw.x*4;
+            return valueToColor(v);
+          },
+          pointHoverRadius: 8,
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          x: {
+            type: 'linear',
+            title: { display: true, text: 'Probability to Win' },
+            min: 0,
+            // max: 0.5,
+            ticks: {
+              callback: val => `${(val * 100).toFixed(0)}%`
+            }
+          },
+          y: {
+            type: 'linear',
+            title: { display: true, text: 'Value on Win' },
+            min: 0,
+          }
+        },
+        plugins: {
+          tooltip: {
+            callbacks: {
+              label: context => {
+                const pt = context.raw;
+                return `${pt.label}\nProbability: ${(pt.x*100).toFixed(2)}%\nValue: ${pt.y.toLocaleString()}`;
+              }
+            }
+          },
+          legend: { display: false }
+        },
+        animation: false,
+        // Custom plugin to draw permanent labels
+        plugins: [{
+          id: 'pointLabels',
+          afterDatasetsDraw(chart) {
+            const ctx = chart.ctx;
+            ctx.save();
+            ctx.fillStyle = '#222';
+            ctx.font = '12px system-ui';
+            ctx.textAlign = 'left';
+            ctx.textBaseline = 'middle';
+
+            const dataset = chart.data.datasets[0];
+            dataset.data.forEach((pt, i) => {
+              if(pt.showLabel) {
+                const pos = chart.scales.x.getPixelForValue(pt.x);
+                const posY = chart.scales.y.getPixelForValue(pt.y);
+                ctx.fillText(pt.label, pos + 8, posY);
+              }
+            });
+            ctx.restore();
+          }
+        }]
+      }
+    };
+
+let myChart;
+// drawing logic
+function draw(){
+  if (myChart) {
+    myChart.destroy()
+  }
+  myChart = new Chart(ctx, config);
+  return;
+}
+
+// initial draw
+resizeCanvas();
+// generate initial sample
+randBtn.click();
+</script>
+</body>
+</html>
