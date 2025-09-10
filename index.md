@@ -1,7 +1,9 @@
-Home page of KillerDucky. 
+# New location: [KillerDucky.com](https://killerducky.com)
+
+Home page of KillerDucky.
 
 This is a simple website with advice and links to get started in a few games.
 
-* [Go](go/intro)
-* [Riichi Mahjong](mahjong/intro)
-* [Shogi](shogi/intro)
+-   [Go](go/intro)
+-   [Riichi Mahjong](mahjong/intro)
+-   [Shogi](shogi/intro)
